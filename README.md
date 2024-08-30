@@ -1,0 +1,2 @@
+# Notes-of-Nuclear_Radiation_Physics_and_Detection
+清华大学工程物理系张智老师《核辐射物理及探测学》，该项目是本人在2024春季学期的笔记
