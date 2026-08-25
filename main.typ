@@ -1,14 +1,15 @@
-#import "@local/mytemplate:1.0.0": *
+#import "@preview/scripst:1.1.2": *
 
-#show: project.with(
+#show: scripst.with(
   template: "book",
   title: "核辐射物理及探测学",
-  authors: (
+  author: (
     "Anzreww",
   ),
   time: "甲辰春夏于清华园",
-  contents:true,
-  content_depth: 3,
+  contents: true,
+  content-depth: 3,
+  par-leading: 0.6em,
 )
 
 #pagebreak(weak: true)

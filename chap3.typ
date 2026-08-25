@@ -1,5 +1,4 @@
-#import"@preview/physica:0.9.2":*
-#import "@local/mytemplate:1.0.0": *
+#import "@preview/scripst:1.1.2": *
 
 #let a = $alpha$
 #let b = $beta$
@@ -12,18 +11,18 @@
 各种辐射的穿透能力：
 #grid(
   columns: (1fr, 1fr),
-[#figure(
-  image("pic/2024-03-21-10-44-35.png", width: 85%),
-  caption: [
-    辐射的穿透能力
-  ],
-)],
-[#figure(
-  image("pic/pic/2024-02-29-10-53-41.png.png", width: 90%),
-  caption: [
-    辐射的穿透能力
-  ],
-)]
+  [#figure(
+    image("pic/2024-03-21-10-44-35.png", width: 85%),
+    caption: [
+      辐射的穿透能力
+    ],
+  )],
+  [#figure(
+    image("pic/pic/2024-02-29-10-53-41.png.png", width: 90%),
+    caption: [
+      辐射的穿透能力
+    ],
+  )],
 )
 
 == $alpha$衰变
@@ -32,7 +31,7 @@
 
 表达式：
 $
-""^A_Z X -> ""^(A-4)_(Z-2)Y + alpha
+  ""^A_Z X -> ""^(A-4)_(Z-2)Y + alpha
 $
 其中$alpha = ""^4_2"He"$。
 
@@ -40,9 +39,8 @@ $alpha$衰变中的守恒定律：
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 12pt,
-  [质量数守恒], [电荷数守恒],
-  [动量守恒], [能量守恒],
-  [角动量守恒], [宇称守恒],
+  [质量数守恒], [电荷数守恒], [动量守恒],
+  [能量守恒], [角动量守恒], [宇称守恒],
 )
 
 #newpara()
@@ -50,12 +48,12 @@ $alpha$衰变中的守恒定律：
 基本特点：
 - $alpha$放射性核素一般为重核，质量数 $>140$；
 - $alpha$衰变放出的$alpha$粒子能量在$4～9$MeV，*分立能量，不连续*
-      #figure(
-        image("pic/2024-03-21-10-54-35.png", width: 80%),
-        caption: [
-          $alpha$粒子分立能谱
-        ],
-      )
+  #figure(
+    image("pic/2024-03-21-10-54-35.png", width: 80%),
+    caption: [
+      $alpha$粒子分立能谱
+    ],
+  )
 - $alpha$衰变半衰期范围很宽，$10^(-7)s～10^15a$。
 
 #figure(
@@ -76,7 +74,7 @@ $alpha$衰变中的守恒定律：
 
 设衰变前，母核X静止，根据能量守恒定律：衰变前静止质量=衰变后静止质量+动能(*$alpha$衰变能*)。
 $
-m_X c^2 = m_Y c^2 + m_(alpha) c^2 + #text(fill: red)[$(T_Y + T_(alpha))$]
+  m_X c^2 = m_Y c^2 + m_(alpha) c^2 + #text(fill: red)[$(T_Y + T_(alpha))$]
 $
 
 ==== $alpha$衰变能
@@ -84,8 +82,8 @@ $
 $alpha$衰变能：$alpha$衰变中子核Y和 #a 粒子的动能之和，用$E_0$或$Q$表示。等于*衰变前后体系的静止质量之差所对应的能量*。
 
 $
-E_0 &= T_Y + T_(alpha) = m_X c^2 - m_Y c^2 - m_(alpha) c^2\
-&= Delta(Z,A) - (Delta(Z-2,A-4) + Delta(2,4))
+  E_0 & = T_Y + T_(alpha) = m_X c^2 - m_Y c^2 - m_(alpha) c^2 \
+      & = Delta(Z, A) - (Delta(Z-2, A-4) + Delta(2, 4))
 $
 下面的以原子质量$M$代替核质量$m$，并忽略电子结合能差异得到。
 
@@ -93,7 +91,7 @@ $
 
 $alpha$衰变的必要条件：$alpha$衰变能$E_0$必须大于零，即
 $
-Delta(Z,A) > Delta(Z-2,A-4) + Delta(2,4)
+  Delta(Z, A) > Delta(Z-2, A-4) + Delta(2, 4)
 $
 衰变前母核原子质量必须大于衰变后子核原子质量和氦原子质量之和。
 
@@ -101,20 +99,24 @@ $
 
 由质量亏损的定义：
 $
-cases(
-  m_X = Z m_p + (A-Z) m_n - Delta m_X,
-  m_Y = (Z-2) m_p + (A-4-Z+2) m_n - Delta m_Y,
-  m_(alpha) = 2 m_p + 2 m_n - Delta m_(alpha)
-)
+  cases(
+    m_X = Z m_p + (A-Z) m_n - Delta m_X,
+    m_Y = (Z-2) m_p + (A-4-Z+2) m_n - Delta m_Y,
+    m_(alpha) = 2 m_p + 2 m_n - Delta m_(alpha)
+  )
 $
 则
 $
-E_0 &= (Delta m_Y + Delta m_(alpha) - Delta m_X)c^2\
-&= B_Y + B_(alpha) - B_X
+  E_0 & = (Delta m_Y + Delta m_(alpha) - Delta m_X)c^2 \
+      & = B_Y + B_(alpha) - B_X
 $
 假设结合能随$(Z, A)$的变化是平滑的：
 $
-E_0 approx Delta B + B_alpha = (diff B)/(diff Z)Delta Z + (diff B)/(diff A)Delta A + B_alpha
+  E_0 approx Delta B + B_alpha = ("d"
+  B)/("d"
+  Z)Delta Z + ("d"
+  B)/("d"
+  A)Delta A + B_alpha
 $
 代入结合能半经验公式，可得到： a衰变能随$(Z, A)$的变化关系$E_0(Z, A)$ 。
 
@@ -122,12 +124,12 @@ $
 
 设衰变前，母核X静止，根据能量守恒定律：
 $
-E_0 = T_Y + T_(alpha) = m_X c^2 - m_Y c^2 - m_(alpha) c^2
+  E_0 = T_Y + T_(alpha) = m_X c^2 - m_Y c^2 - m_(alpha) c^2
 $
 
 设衰变前，母核X静止，根据动量守恒定律：
 $
-m_Y v_Y = m_(alpha) v_(alpha)
+  m_Y v_Y = m_(alpha) v_(alpha)
 $
 则
 $
@@ -135,15 +137,15 @@ $
 $
 *得到子核反冲能与 #a 粒子动能的关系：*
 $
-#text(fill: red)[$T_Y = m_alpha/m_Y T_alpha$]
+  #text(fill: red)[$T_Y = m_alpha/m_Y T_alpha$]
 $
 且有：
 $
-E_0 = T_alpha + T_Y = (1 + m_alpha/m_Y) T_alpha approx A/(A-4) T_alpha
+  E_0 = T_alpha + T_Y = (1 + m_alpha/m_Y) T_alpha approx A/(A-4) T_alpha
 $
 *得到$alpha$衰变能与$alpha$粒子动能的关系：*
 $
-#text(fill: red)[$E_0 approx A/(A-4) T_alpha$]
+  #text(fill: red)[$E_0 approx A/(A-4) T_alpha$]
 $
 通过*测量 #a 粒子的能量可得到 #a 衰变能*。
 
@@ -167,15 +169,15 @@ $
 
 如果子核处于激发态，则：
 $
-E_0^* = (m_X - m_Y^* - m_(alpha))c^2
+  E_0^* = (m_X - m_Y^* - m_(alpha))c^2
 $
 激发态子核的质量：
 $
-m_Y^* = m_Y + E_Y^* /c^2
+  m_Y^* = m_Y + E_Y^* /c^2
 $
 得到子*核激发能和 #a 衰变能*之间的关系：
 $
-E_0^* = E_0 + E_Y^*
+  E_0^* = E_0 + E_Y^*
 $
 可以通过测量 #a 粒子的能量和子核的能级能量来确定子核的能级能量。
 
@@ -197,27 +199,27 @@ $
 
 由 #a 衰变能的定义：
 $
-E_0 = (m_X - m_Y - m_(alpha))c^2
+  E_0 = (m_X - m_Y - m_(alpha))c^2
 $
 如果母核处于激发态，则：
 $
-E_O^* = (m_X^* - m_Y - m_(alpha))c^2
+  E_O^* = (m_X^* - m_Y - m_(alpha))c^2
 $
 激发态母核的质量：
 $
-m_X^* = m_X + E_X^* /c^2
+  m_X^* = m_X + E_X^* /c^2
 $
 得到母核激发能和 #a 衰变能之间的关系：
 $
-E_0^* = E_0 + E_X^*
-$ 
+  E_0^* = E_0 + E_X^*
+$
 
 === #a 衰变能与衰变常数的关系
 
 实验发现，#a 粒子能量与衰变常数之间有如下经验关系：
 $
-lambda &= a T_alpha^86.25\
-lg lambda &= A + 86.25 lg T_alpha
+     lambda & = a T_alpha^86.25 \
+  lg lambda & = A + 86.25 lg T_alpha
 $
 系数$a$或$A$对同一个天然放射系是常数。可以看出：衰变常数$lambda$随 #a 粒子能量剧烈变化。
 
@@ -238,11 +240,11 @@ $
 
 按量子力学势垒穿透理论， #a 粒子一次撞击势垒而穿透势垒的概率为：
 $
-P = e^(-G)
+  P = e^(-G)
 $
 其中
 $
-G = (2 sqrt(2 mu))/hbar integral_R^b sqrt(V(r) - E) dd(r)
+  G = (2 sqrt(2 mu))/hbar integral_R^b sqrt(V(r) - E) dd(r)
 $
 其中$mu$为折合质量。衰变常数$lambda = n P$是单位时间内发生 #a 衰变的概率，应等于单位时间内 #a 粒子撞击势垒的次数$n$与一次撞击穿透势垒的概率$P$的乘积($P$很小，$n$很大， $n P$很小)。
 
@@ -253,29 +255,29 @@ $
 === #a 衰变中的角动量守恒和宇称守恒
 
 $
-""^A_Z X &->& ""^(A-4)_(Z-2)Y &+ alpha\
-I_X pi_x &&J_Y pi_Y &J_(alpha) pi_(alpha)
+  ""^A_Z X & -> & ""^(A-4)_(Z-2)Y & + alpha \
+  I_X pi_x &    &        J_Y pi_Y & J_(alpha) pi_(alpha)
 $
 由*角动量守恒*：
 $
-J_alpha = |J_Y - J_X|, |J_Y - J_X| + 1, |J_Y - J_X| + 2, ... , J_Y + J_X
+  J_alpha = |J_Y - J_X|, |J_Y - J_X| + 1, |J_Y - J_X| + 2, ... , J_Y + J_X
 $
 由*宇称守恒*：
 $
-pi_alpha = pi_Y / pi_X
+  pi_alpha = pi_Y / pi_X
 $
 #newpara()
 由于α粒子的自旋和内秉宇称为：
 $
-l_alpha = 0, pi_alpha = (-1)^(l_alpha) = 1
+  l_alpha = 0, pi_alpha = (-1)^(l_alpha) = 1
 $
 #a 粒子轨道角动量等于总角动量：
 $
-l_alpha = J_alpha
+  l_alpha = J_alpha
 $
 #a 的轨道宇称等于总宇称：
 $
-(-1)^(l_alpha) = (-1)^(J_alpha) = pi_alpha
+  (-1)^(l_alpha) = (-1)^(J_alpha) = pi_alpha
 $
 母核和子核有确定的宇称，只能相同或相反，则$J_α$只能取其中的偶数或奇数。
 
@@ -288,7 +290,7 @@ $
 
 由衰变能与母核、子核之间的关系：
 $
-E_0 = (m_X - (m_Y + m_h))c^2
+  E_0 = (m_X - (m_Y + m_h))c^2
 $
 从能量守恒看，只要$E_0>0$，就有可能发生发射该粒子的情况。
 
@@ -300,7 +302,7 @@ $
 - 质子发射是研究远离#b 稳定线核素的重要领域。
 
 $
-p + ""^54_26 "Fe" -> ""^"53m"_27 "Co" + 2n
+  p + ""^54_26 "Fe" -> ""^"53m"_27 "Co" + 2n
 $
 
 ==== 重粒子发射
@@ -310,10 +312,10 @@ $
     columns: (auto, auto),
     inset: 10pt,
     align: horizon,
-    [$""^14"C "$发射],[$""^223_88"Ra" -> ""^209_82"Pb" + ""^14_6"C "$],
-    [$""^24"Ne"$发射],[$""^232_92"U " -> ""^208_82"Pb" + ""^24_10"Ne"$],
-    [$""^38"Si"$发射],[$""^241_95"Am" -> ""^213_81"Tl" + ""^38_14"Si"$],
-    )
+    [$""^14"C "$发射], [$""^223_88"Ra" -> ""^209_82"Pb" + ""^14_6"C "$],
+    [$""^24"Ne"$发射], [$""^232_92"U " -> ""^208_82"Pb" + ""^24_10"Ne"$],
+    [$""^38"Si"$发射], [$""^241_95"Am" -> ""^213_81"Tl" + ""^38_14"Si"$],
+  ),
 )
 
 重离子放射性的研究可以提供重离子发射机制和核结构的信息。
@@ -345,31 +347,31 @@ $
 
 + _连续能谱与量子体系及能量守恒定律的矛盾？_
 
-    + 子核有很多能级，以至于母核到子核衰变的能谱连续？
+  + 子核有很多能级，以至于母核到子核衰变的能谱连续？
 
-      要求相应有连续的 #g 能谱，与实验矛盾。
-    + 发射单能 b 粒子，随后与轨道电子作用损失能量？
+    要求相应有连续的 #g 能谱，与实验矛盾。
+  + 发射单能 b 粒子，随后与轨道电子作用损失能量？
 
-      要求相应所有电子总能量等于最大能量，与实验矛盾。
+    要求相应所有电子总能量等于最大能量，与实验矛盾。
 
-      - Niels Bohr暗示“也许在亚原子尺度，能量不守恒”。
+    - Niels Bohr暗示“也许在亚原子尺度，能量不守恒”。
 
-      - Pauli不接受能量不守恒 提出了新的解决难题的假设——认为在#b 衰变过程中原子核还放出了一个新的，还没有被探测到的粒子。
+    - Pauli不接受能量不守恒 提出了新的解决难题的假设——认为在#b 衰变过程中原子核还放出了一个新的，还没有被探测到的粒子。
 
-      - 1930年Pauli在信中暗示#b 能谱的连续性可通过在衰变中除了#b 粒子，还发射出一个中性粒子来解释。该粒子自旋为$1/2$， 质量很小，与其他物质作用截面很小。Pauli称这种粒子为neutron。该假设挽救了能量、动量和角动量守恒定律。
+    - 1930年Pauli在信中暗示#b 能谱的连续性可通过在衰变中除了#b 粒子，还发射出一个中性粒子来解释。该粒子自旋为$1/2$， 质量很小，与其他物质作用截面很小。Pauli称这种粒子为neutron。该假设挽救了能量、动量和角动量守恒定律。
 
-      - 1933年， Pauli才正式宣布他的假说, 这时Chadwick发现neutron已经一年了， 这个 neutron 和 Pauli 当时预言的有很大不同。1934年， Fermi用Pauli的假说建立了#b 衰变的量子理论， 并给该粒子命名为 neutrino——*中微子*。
+    - 1933年， Pauli才正式宣布他的假说, 这时Chadwick发现neutron已经一年了， 这个 neutron 和 Pauli 当时预言的有很大不同。1934年， Fermi用Pauli的假说建立了#b 衰变的量子理论， 并给该粒子命名为 neutrino——*中微子*。
 
-      - 几年后证明，Fermi的#b 衰变理论非常成功的解释了#b 衰变实验。
+    - 几年后证明，Fermi的#b 衰变理论非常成功的解释了#b 衰变实验。
 
-    + _新问题：Pauli预言的粒子真的存在吗？_
+  + _新问题：Pauli预言的粒子真的存在吗？_
 
-      *中微子不带电，只参与弱相互作用和引力相互作用。*
-          - 弱相互作用距离非常短； ($10^(-18)"m "$)
-          - 引力相互作用在亚原子尺度下十分微弱；
-      *中微子在穿过一般物质时难以作用，也就难以探测。*
-          - 作用截面很小$sigma ~ 10^(-43)"cm"^2$；地球上固体的原子密度$N ~ 10^22"cm"^(-3)$，中微子与物质作用的平均自由程$l = 1/(N sigma) ~ 10^16"km"$，大于地球半径。
-      *测量：*$tilde(nu) + p -> n + e^+$，中微子与质子作用，产生中子和正电子，正电子与电子湮灭产生两个光子，可以测量。
+    *中微子不带电，只参与弱相互作用和引力相互作用。*
+    - 弱相互作用距离非常短； ($10^(-18)"m "$)
+    - 引力相互作用在亚原子尺度下十分微弱；
+    *中微子在穿过一般物质时难以作用，也就难以探测。*
+    - 作用截面很小$sigma ~ 10^(-43)"cm"^2$；地球上固体的原子密度$N ~ 10^22"cm"^(-3)$，中微子与物质作用的平均自由程$l = 1/(N sigma) ~ 10^16"km"$，大于地球半径。
+    *测量：*$tilde(nu) + p -> n + e^+$，中微子与质子作用，产生中子和正电子，正电子与电子湮灭产生两个光子，可以测量。
 
 ==== 中微子
 *中微子*的基本性质：
@@ -384,7 +386,7 @@ $
 + 相同：质量、电荷、自旋、磁矩
 + 不同：
   + 自旋方向不同；
-  
+
     中微子自旋方向与运动方向相反，左旋粒子；
 
     反中微子自旋方向与运动方向相同，右旋粒子。
@@ -411,40 +413,40 @@ $
     columns: (auto, auto),
     inset: 10pt,
     align: horizon,
-    [$beta^-$衰变],[$n -> p + e^- + tilde(nu)_e$],
-    [$beta^+$衰变],[$p -> n + e^+ +  nu_e$],
-    [轨道电子俘获],[$e^-_k + p -> n + nu_e$],
-  )
+    [$beta^-$衰变], [$n -> p + e^- + tilde(nu)_e$],
+    [$beta^+$衰变], [$p -> n + e^+ + nu_e$],
+    [轨道电子俘获], [$e^-_k + p -> n + nu_e$],
+  ),
 )
 
 === $beta^-$衰变（$beta^-$decay）
 
 *$beta^-$衰变：*母核X衰变为子核Y、放出*一个电子和一个反中微子*，核中一个中子变为质子的自发核衰变过程。
 $
-""^A_Z X -> ""^A_(Z+1)Y + e^- + tilde(nu)_e
+  ""^A_Z X -> ""^A_(Z+1)Y + e^- + tilde(nu)_e
 $
 *电荷数守恒、质量数守恒、轻子数守恒*。
 
 *$beta^-$衰变质能关系：*
 $
-m_X c^2 = m_Y c^2 + m_0 c^2 + #text(fill: red)[$T_(beta^-) + T_(tilde(nu)_e) + T_Y$]
+  m_X c^2 = m_Y c^2 + m_0 c^2 + #text(fill: red)[$T_(beta^-) + T_(tilde(nu)_e) + T_Y$]
 $
 衰变前静止质量 = 衰变后静止质量 + （电子动能 + 反中微子动能 + 子核动能）$beta^-$衰变能——衰变后动能
 
 *$beta^-$衰变能：*$E_0$（或$Q$） 为反中微子和$beta^-$粒子的动能之和，也就是衰变前后体系*静止质量之差*所对应的能量。
 $
-E_0(beta^-) = T_(beta^-) + T_(tilde(nu)_e) = m_X c^2 - m_Y c^2 - m_0 c^2
+  E_0(beta^-) = T_(beta^-) + T_(tilde(nu)_e) = m_X c^2 - m_Y c^2 - m_0 c^2
 $
 以原子质量$M$代替核质量$m$，并忽略电子结合能差异：
 $
-E_0(beta^-) = (M_X - M_Y)c^2 = Delta(Z, A) - Delta(Z+1, A)
+  E_0(beta^-) = (M_X - M_Y)c^2 = Delta(Z, A) - Delta(Z+1, A)
 $
 
 #newpara()
 
 *$beta^-$衰变的发生条件：*
 $
-Delta(Z, A) > Delta(Z+1, A)
+  Delta(Z, A) > Delta(Z+1, A)
 $
 衰变前母核*原子质量*必须大于衰变后子核*原子质量*。
 
@@ -460,14 +462,14 @@ $
 *$beta^+$衰变：*母核X衰变为子核Y、放出*一个正电子和一个中微子*，核中一个质子变为中子的自发核衰变过程。
 
 $
-""^A_Z X -> ""^A_(Z-1)Y + e^+ + nu_e
+  ""^A_Z X -> ""^A_(Z-1)Y + e^+ + nu_e
 $
 *电荷数守恒、质量数守恒、轻子数守恒*。
 
 *$beta^+$衰变质能关系：*
 
 $
-m_X c^2 = m_Y c^2 + m_0 c^2 + #text(fill: red)[$(T_(beta^+) + T_(nu_e) + T_Y)$]
+  m_X c^2 = m_Y c^2 + m_0 c^2 + #text(fill: red)[$(T_(beta^+) + T_(nu_e) + T_Y)$]
 $
 
 衰变前静止质量 = 衰变后静止质量 + （正电子动能 + 中微子动能 + 子核动能）$beta^+$衰变能——到子核基态的
@@ -475,11 +477,11 @@ $
 *$beta^+$衰变能：*$E_0$（或$Q$） 为中微子和$beta^+$粒子的动能之和，也就是衰变前后体系静止质量之差所对应的能量。
 
 $
-E_0(beta^+) = T_(beta^+) + T_(nu_e) = m_X c^2 - m_Y c^2 - m_0 c^2
+  E_0(beta^+) = T_(beta^+) + T_(nu_e) = m_X c^2 - m_Y c^2 - m_0 c^2
 $
 以原子质量$M$代替核质量$m$，并忽略电子结合能差异
 $
-E_0(beta^+) = (M_X - M_Y - 2m_0)c^2 = Delta(Z, A) - Delta(Z-1, A) -  #text(fill: red)[$2m_0 c^2$]
+  E_0(beta^+) = (M_X - M_Y - 2m_0)c^2 = Delta(Z, A) - Delta(Z-1, A) - #text(fill: red)[$2m_0 c^2$]
 $
 
 #newpara()
@@ -487,7 +489,7 @@ $
 *$beta^+$衰变的发生条件：*
 
 $
-Delta(Z, A) > Delta(Z-1, A) + 2m_0 c^2 (1.022M e V)
+  Delta(Z, A) > Delta(Z-1, A) + 2m_0 c^2 (1.022M e V)
 $
 
 衰变前母核*原子质量*必须大于衰变后子核*原子质量*和两个电子的质量之和。
@@ -503,7 +505,7 @@ $
 
 正电子在径迹的末端（近似认为动能为零）与*电子发生湮没，放出两个 #g 光子*（湮没辐射）。
 $
-e^+ + e^- -> 2gamma
+  e^+ + e^- -> 2gamma
 $
 
 由能量守恒定律：湮没时，正、负电子的动能为零（近似），则*两个湮没光子的总能量应等于正、负电子的静止质量之和*。
@@ -511,7 +513,7 @@ $
 由动量守恒定律：湮没前正、负电子的总动量为零（近似），则湮没后*两个湮没光子的总动量也应为零*。
 
 $
-h nu = m_e c^2 = 511"keV"
+  h nu = m_e c^2 = 511"keV"
 $
 
 $beta^+$衰变的后续过程是正电子湮没，一个正电子湮没产生*两个能量为$511$keV的湮没光子*（ #g 射线）。两湮没光子的*方向相反*，且发射是*各向同性*的。
@@ -521,7 +523,7 @@ $beta^+$衰变的后续过程是正电子湮没，一个正电子湮没产生*�
 *轨道电子俘获：*母核俘获核外*轨道上*的一个电子，使核中的一个质子转变为中子， 同时*放出一个中微子*的自发核衰变过程。
 
 $
-e^-_i + p -> n + nu_e
+  e^-_i + p -> n + nu_e
 $
 $i$表示电子的轨道，取$K、 L、 M$等，$K$层电子俘获最容易发生。
 
@@ -532,7 +534,7 @@ $i$表示电子的轨道，取$K、 L、 M$等，$K$层电子俘获最容易发�
 *$E C$衰变质能关系：*
 
 $
-m_X c^2 + m_0 c^2 - epsilon_i = m_Y c^2 + T_(nu_e) + T_Y
+  m_X c^2 + m_0 c^2 - epsilon_i = m_Y c^2 + T_(nu_e) + T_Y
 $
 
 衰变前静止质量 - 轨道电子结合能 = 衰变后静止质量 + （中微子动能 + 子核动能）$E C$衰变能
@@ -540,13 +542,13 @@ $
 *$E C$衰变能：*$E_0$（或$Q$） 为*中微子的动能和子核的动能之和*，也就是衰变前后体系静止质量之差所对应的能量再减去轨道电子的结合能。
 
 $
-E_0(E C) = m_X c^2 + m_0 c^2 - epsilon_i - m_Y c^2
+  E_0(E C) = m_X c^2 + m_0 c^2 - epsilon_i - m_Y c^2
 $
 
 以原子质量$M$代替核质量$m$，并忽略电子结合能差异
 
 $
-E_0(E C) = (M_X - M_Y)c^2 - epsilon_i  = Delta(Z, A) - Delta(Z-1, A) - epsilon_i 
+  E_0(E C) = (M_X - M_Y)c^2 - epsilon_i = Delta(Z, A) - Delta(Z-1, A) - epsilon_i
 $
 
 #newpara()
@@ -554,7 +556,7 @@ $
 *$E C$衰变的发生条件：*
 
 $
-Delta(Z, A) > Delta(Z-1, A) + epsilon_i
+  Delta(Z, A) > Delta(Z-1, A) + epsilon_i
 $
 
 衰变前母核*原子质量*必须大于衰变后子核*原子质量*和*轨道电子的结合能之和*。
@@ -576,7 +578,7 @@ $
 #figure(
   image("pic/2024-03-28-10-42-21.png", width: 80%),
   caption: [
-  EC衰变的衰变纲图
+    EC衰变的衰变纲图
   ],
 )
 
@@ -611,17 +613,17 @@ $
 
 由量子力学，在 #b 衰变中， 单位时间内原子核发射一个动量在 $p_beta tilde p_beta + dd(p_beta)$ 之间的 #b 粒子的概率为：
 $
-I(p_beta) dd(p_beta) = (g^2 |M_(i f)|^2)/(1 pi^2 hbar^7 c^3) (E_0 - T_beta)^2 p_beta^2  dd(p_beta)
+  I(p_beta) dd(p_beta) = (g^2 |M_(i f)|^2)/(1 pi^2 hbar^7 c^3) (E_0 - T_beta)^2 p_beta^2 dd(p_beta)
 $
 其中：
 $
-M_(i f) = integral psi_f^*_(N_f) psi_i_(N_i) e^(- i/hbar (arrow(p)_beta + arrow(p)_v) dot arrow(r)) dd(tau)
+  M_(i f) = integral psi_f^*_(N_f) psi_i_(N_i) e^(- i/hbar (arrow(p)_beta + arrow(p)_v) dot arrow(r)) dd(tau)
 $
 为跃迁矩阵元。
 
 将轻子的平面波按轻子轨道角动量$l$展开为球面波：
 $
-e^(- i/hbar (arrow(p)_beta + arrow(p)_v) dot arrow(r)) = sum_(l = 0)^oo ((2l+1)(-i)^l)/(2l+1)!! ((arrow(k)_beta + arrow(k)_v) dot arrow(r))^l P_l (cos theta)
+  e^(- i/hbar (arrow(p)_beta + arrow(p)_v) dot arrow(r)) = sum_(l = 0)^oo ((2l+1)(-i)^l)/(2l+1)!! ((arrow(k)_beta + arrow(k)_v) dot arrow(r))^l P_l (cos theta)
 $
 $l$越大，相应项的值越小。主要贡献项是$l$取最小值的项。
 
@@ -640,7 +642,7 @@ $l$ 不方便直接应用，方便的（更关心的）是母核和子核的$I$ 
 
 #b 衰变中，*角动量守恒*：
 $
-arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l), arrow(s) = arrow(s)_e + arrow(s)_v
+  arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l), arrow(s) = arrow(s)_e + arrow(s)_v
 $
 母子核的角动量差别由两个轻子的自旋和轨道角动量决定。两个轻子均为费米子，自旋角动量量子数均为$1/2$。——*两个轻子的总自旋角动量量子数 $s$ 取 $0$ 或 $1$*。
 - $s = 0$ 称为自旋单态，电子和中微子自旋反平行；
@@ -650,36 +652,36 @@ $
 
 因此，不能根据宇称守恒得到宇称选择定则，但在非相对论处理中， #b 衰变原子核宇称的变化可以认为*等于轻子“带走”的轨道宇称*：
 $
-pi_i = pi_f (-1)^l
+  pi_i = pi_f (-1)^l
 $
 得到 #b 衰变的*宇称选择定则*：
 $
-Delta pi = pi_i pi_f = (-1)^l
+  Delta pi = pi_i pi_f = (-1)^l
 $
 
 ===== 允许跃迁 $l = 0$
 
 $
-arrow(I)_i = arrow(I)_f + arrow(s)
+  arrow(I)_i = arrow(I)_f + arrow(s)
 $
 - $s = 0$，费米(F)选择定则， F跃迁， F相互作用
 
   $
-  I_i = I_f ; Delta I = 0
+    I_i = I_f ; Delta I = 0
   $
 - $s = 1$，伽莫夫-泰勒(G-T)选择,G-T跃迁,G-T相互作用
-  
+
   $
-  I_i = I_f plus.minus 1, I_f ; Delta I = 0, plus.minus 1
+    I_i = I_f plus.minus 1, I_f ; Delta I = 0, plus.minus 1
   $
 
 从而得到 $l = 0$ 的允许跃迁的选择定则：
 #figure(
   three-line-table[
-      |  跃迁   |自旋选择定则 | 宇称选择定则 |
-      | ---    | ---            | ---       |
-      | F跃迁   | $Delta I = 0$ | $Delta pi = +1$ |
-      | G-T跃迁 | $Delta I = 0, plus.minus 1$ | $Delta pi = +1$ |
+    |  跃迁   |自旋选择定则 | 宇称选择定则 |
+    | ---    | ---            | ---       |
+    | F跃迁   | $Delta I = 0$ | $Delta pi = +1$ |
+    | G-T跃迁 | $Delta I = 0, plus.minus 1$ | $Delta pi = +1$ |
   ],
   caption: [
     $l = 0$ 的允许跃迁的选择定则
@@ -690,17 +692,17 @@ $
 ===== 禁戒跃迁 $l = 1$
 
 $
-arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l)
+  arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l)
 $
 - $s = 0$，F跃迁
 
   $
-  |arrow(l) + arrow(s)| = 1
+    |arrow(l) + arrow(s)| = 1
   $
 - $s = 1$，G-T跃迁
-  
+
   $
-  |arrow(l) - arrow(s)| = 0,1,2
+    |arrow(l) - arrow(s)| = 0,1,2
   $
 并且：
 - $|arrow(l) + arrow(s)| = 0$时有$Delta I = 0$；
@@ -710,9 +712,9 @@ $
 从而得到 $l = 1$ 的禁戒跃迁的选择定则：
 #figure(
   three-line-table[
-|自旋选择定则 | 宇称选择定则 |
-| ---            | ---       |
-| $Delta I = 0, plus.minus 1, plus.minus 2$ | $Delta pi = -1$ |
+    |自旋选择定则 | 宇称选择定则 |
+    | ---            | ---       |
+    | $Delta I = 0, plus.minus 1, plus.minus 2$ | $Delta pi = -1$ |
   ],
   caption: [
     $l = 1$ 的禁戒跃迁的选择定则
@@ -723,20 +725,20 @@ $
 ===== 禁戒跃迁 $l = 2$
 
 $
-arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l)
+  arrow(I)_i = arrow(I)_f + arrow(s) + arrow(l)
 $
 
 - $s = 0$，F跃迁
 
   $
-  |arrow(l) + arrow(s)| = 2
+    |arrow(l) + arrow(s)| = 2
   $
 
 - $s = 1$，G-T跃迁
-  
-    $
+
+  $
     |arrow(l) - arrow(s)| = 1,2,3
-    $ 
+  $
 
 并且：
 - $|arrow(l) + arrow(s)| = 1$时有$Delta I = 0, plus.minus 1$；
@@ -748,9 +750,9 @@ $
 
 #figure(
   three-line-table[
-|自旋选择定则 | 宇称选择定则 |
-| ---            | ---       |
-| $Delta I = plus.minus 2, plus.minus 3$ | $Delta pi = +1$ |
+    |自旋选择定则 | 宇称选择定则 |
+    | ---            | ---       |
+    | $Delta I = plus.minus 2, plus.minus 3$ | $Delta pi = +1$ |
   ],
   caption: [
     $l = 2$ 的禁戒跃迁的选择定则
@@ -782,15 +784,15 @@ $
 
 单位时间内原子核发射一个动量在$p_beta$和$p_beta + dd(p_beta)$之间的 #b 粒子的概率为：
 $
-I(p_beta) dd(p_beta) = (g^2 |M_(i f)|^2)/(2 pi^3 hbar^7 c^3) (E_0 - T_beta)^2 p_beta^2  dd(p_beta)
+  I(p_beta) dd(p_beta) = (g^2 |M_(i f)|^2)/(2 pi^3 hbar^7 c^3) (E_0 - T_beta)^2 p_beta^2 dd(p_beta)
 $
 对允许跃迁，跃迁矩阵元近似等于原子核矩阵元，与轻子能量无关，对一定的跃迁可看成常数。
 $
-K = sqrt((g^2 |M_(i f)|^2)/(2 pi^3 hbar^7 c^3))\
+  K = sqrt((g^2 |M_(i f)|^2)/(2 pi^3 hbar^7 c^3))\
 $
 $β$ 粒子的动量分布：
 $
-I(p_beta) dd(p_beta) = K^2 (E_0 - T_beta)^2 p_beta^2  dd(p_beta)
+  I(p_beta) dd(p_beta) = K^2 (E_0 - T_beta)^2 p_beta^2 dd(p_beta)
 $
 
 #figure(
@@ -802,7 +804,7 @@ $
 
 $β$ 粒子的能量分布：
 $
-I(T_beta) = K^2/c^3 (T_beta^2 + 2T_beta m_0 c^2)^(1/2) (E_0 - T_beta)^2 (T_beta + m_0 c^2) dd(T_beta)
+  I(T_beta) = K^2/c^3 (T_beta^2 + 2T_beta m_0 c^2)^(1/2) (E_0 - T_beta)^2 (T_beta + m_0 c^2) dd(T_beta)
 $
 #figure(
   image("pic/2024-04-02-14-05-29.png", width: 80%),
@@ -831,34 +833,34 @@ $
 
 单位时间内发射动量为 $p_beta$ 到 $p_beta + dd(p_beta)$ 之间的 $beta$ 粒子的概率为：
 $
-I(p_beta) dd(p_beta) = K^2 F(Z,T_beta) (E_0 - T_beta)^2 p_beta^2  dd(p_beta)
+  I(p_beta) dd(p_beta) = K^2 F(Z,T_beta) (E_0 - T_beta)^2 p_beta^2 dd(p_beta)
 $
 
 对上式积分，就可以得到单位时间内发射所有 #b 粒子(对应衰变能$E_0$的分支衰变)的总概率。即 $β$ 衰变的分支衰变常数 $λ_i$ $<=>$ 该分支 $β$ 衰变的跃迁级次。
 $
-lambda_i = (ln 2) / T_"1/2"^i = integral_0^(p_beta_max) I(p_beta) dd(p_beta) = K^2 integral_0^(p_beta_max) F(Z,T_beta)(E_0 - T_beta)^2 p_beta^2  dd(p_beta)
+  lambda_i = (ln 2) / T_"1/2"^i = integral_0^(p_beta_max) I(p_beta) dd(p_beta) = K^2 integral_0^(p_beta_max) F(Z,T_beta)(E_0 - T_beta)^2 p_beta^2 dd(p_beta)
 $
 引入*Fermi积分*：
 $
-f(Z, E_0) = integral_0^(p_beta_max) F(Z,T_beta)((E_0 - T_beta)/(m_0 c^2))^2 (p_beta/(m_0 c))^2  dd(p_beta/(m_0 c))
+  f(Z, E_0) = integral_0^(p_beta_max) F(Z,T_beta)((E_0 - T_beta)/(m_0 c^2))^2 (p_beta/(m_0 c))^2 dd(p_beta/(m_0 c))
 $
 若已知库仑改正因子和 #b 粒子最大能量$E_0$，可数值积分求得*费米积分*。
 $
-lambda_i = (ln 2)/(T_"1/2"^i) = (g^2 |M_(i f)|^2 m_0^5 c^4)/(2 pi^3 hbar^7 c^3) f(Z, E_0)
+  lambda_i = (ln 2)/(T_"1/2"^i) = (g^2 |M_(i f)|^2 m_0^5 c^4)/(2 pi^3 hbar^7 c^3) f(Z, E_0)
 $
 当： $E_0 >> m_0 c^2$， 并取 $F ( Z, T_beta ) approx 1$ 时：
 $
-f(Z, E_0) approx C E_0^5
+  f(Z, E_0) approx C E_0^5
 $
 其中 $C$ 为常数。从而有*萨金特（Sargent）公式*：
 $
-lambda_i = (ln 2)/(T_"1/2"^i) prop E_0^5
+  lambda_i = (ln 2)/(T_"1/2"^i) prop E_0^5
 $
 说明：*#b 衰变的半衰期与 #b 粒子的最大能量之间存在较强的依赖关系*。同一级次的跃迁，由于衰变能的不同，$T_"1/2"$可以差别很大。仅由半衰期的大小，不能唯一确定跃迁级次。
 
 引入*比较半衰期*：
 $
-f T_"1/2" = f(Z, E_0) T_"1/2" = (2 pi^3 hbar^7 c^3)/(g^2 |M_(i f)|^2 m_0^5 c^4) approx 5000/(|M_(i f)|^2)
+  f T_"1/2" = f(Z, E_0) T_"1/2" = (2 pi^3 hbar^7 c^3)/(g^2 |M_(i f)|^2 m_0^5 c^4) approx 5000/(|M_(i f)|^2)
 $
 比较半衰期值和跃迁级次的关系如下表：
 #figure(
@@ -892,8 +894,8 @@ $
 ==== #b 延迟中子发射
 
 $
-""^87_35 "Br" -> ""^(87*)_36 "Kr" + e^- + tilde(nu)_e\
-""^(87*)_36 "Kr" -> ""^86_36 "Kr" + n\
+  ""^87_35 "Br" -> ""^(87*)_36 "Kr" + e^- + tilde(nu)_e\
+  ""^(87*)_36 "Kr" -> ""^86_36 "Kr" + n\
 $
 典型的二次连续衰变，达到暂时平衡， 中子发射按照母核半衰期进行。
 
@@ -912,7 +914,7 @@ $
 
 衰变能：
 $
-E_0 = E_i - E_f = E_R + h nu = h nu
+  E_0 = E_i - E_f = E_R + h nu = h nu
 $
 
 #figure(
@@ -939,7 +941,7 @@ $
 
 内转换电子（Conversion Electron） 的动能为（IC过程的衰变能）：
 $
-T_e = E_i - E_f - epsilon_i approx E_gamma - epsilon_i
+  T_e = E_i - E_f - epsilon_i approx E_gamma - epsilon_i
 $
 其中 $E_i$ 为原子核激发态能量，$E_f$ 为原子核基态能量，$epsilon_i$ 为电子的结合能。*内转换电子是分立能量*。
 
@@ -957,34 +959,34 @@ $
 
 内转换系数 $alpha$ 定义为：
 $
-alpha = lambda_e / lambda_gamma = N_e / N_gamma
+  alpha = lambda_e / lambda_gamma = N_e / N_gamma
 $
 *重要物理量：可实验测量；也可理论计算。*便于实验和理论比较，从中获得有关原子核能级特性的重要知识。
 
 该 #g 跃迁的总跃迁几率为：
 $
-lambda = lambda_e + lambda_gamma = lambda_gamma(1 + alpha)
+  lambda = lambda_e + lambda_gamma = lambda_gamma(1 + alpha)
 $
 
 #newpara()
 
 可以按内转换电子原来所在的电子壳层定义相应的内转换系数：
 $
-alpha_K = N_K_e / N_gamma\
-alpha_L = N_L_e / N_gamma\
-alpha_M = N_M_e / N_gamma\
-...
+  alpha_K = N_K_e / N_gamma\
+  alpha_L = N_L_e / N_gamma\
+  alpha_M = N_M_e / N_gamma\
+  ...
 $
 有：
 $
-alpha = alpha_K + alpha_L + alpha_M + ...
+  alpha = alpha_K + alpha_L + alpha_M + ...
 $
 
 ==== 由衰变纲图得到内转换系数（Internal Conversion Coefficient）
 
 但容易得到：
 $
-alpha = lambda_e / lambda_gamma = N_e / N_gamma = (e %)/(gamma %)
+  alpha = lambda_e / lambda_gamma = N_e / N_gamma = (e %)/(gamma %)
 $
 
 === #g 辐射的多极性及 #g 跃迁选择定则
@@ -1021,12 +1023,12 @@ $
 
 光子带走的角动量量子数$L$的可取值为：
 $
-|I_i - I_f|, |I_i - I_f| + 1, ..., I_i + I_f
+  |I_i - I_f|, |I_i - I_f| + 1, ..., I_i + I_f
 $
 
 根据跃迁理论及实验，$L$越大跃迁几率越小， 所以一般$L$取最小值（当$|I_i - I_f|= 0$时， 取1），即：
 $
-L = |I_i - I_f| >= 1
+  L = |I_i - I_f| >= 1
 $
 光子的自旋为１，跃迁中被光子带走的角动量不可能为零，至少为1。
 
@@ -1048,23 +1050,23 @@ $
 
 光子带走的宇称：
 $
-pi_gamma = pi_i/pi_f
+  pi_gamma = pi_i/pi_f
 $
 跃迁前后原子核宇称不变则为偶宇称；宇称不变则为奇宇称。
 
 根据光子带走宇称和角动量的奇偶性，* #g 辐射分两类*：
 1. *电多极辐射*——宇称的奇偶性和角动量的奇偶性相同
 
-    $
+  $
     pi_gamma = (-1)^L
-    $
-    用EL表示，如偶极辐射（E1）、四极辐射（E2）等。
+  $
+  用EL表示，如偶极辐射（E1）、四极辐射（E2）等。
 2. *磁多极辐射*——宇称的奇偶性和角动量的奇偶性不同
 
-    $
+  $
     pi_gamma = (-1)^(L+1)
-    $
-    用ML表示，如偶极辐射（M1）、四极辐射（M2）等。
+  $
+  用ML表示，如偶极辐射（M1）、四极辐射（M2）等。
 
 #figure(
   image("pic/2024-04-09-14-00-49.png", width: 80%),
@@ -1074,22 +1076,22 @@ $
 )
 根据量子力学的推导#g 跃迁概率公式，可以得到辐射的几率：
 $
-lambda_M (L) tilde lambda_E (L+1)
+  lambda_M (L) tilde lambda_E (L+1)
 $
--  同一类型跃迁，高一极次概率比低一极次概率小约三个数量级
-    $
+- 同一类型跃迁，高一极次概率比低一极次概率小约三个数量级
+  $
     (lambda_M (L)) / (lambda_M (L+1)) tilde 10^3 ; (lambda_E (L)) / (lambda_E (L+1)) tilde 10^3
-    $
+  $
 - 同一极次， 电多极辐射概率比磁多极辐射概率大2～ 3个数量级；
-    $
+  $
     (lambda_E (L)) / (lambda_M (L)) tilde 10^2
-    $
+  $
 - 类型、极次相同，相邻能级能量差越小，跃迁概率越小。
 
 可以得到选择定则：
 #figure(
   three-line-table[
-    |$Delta pi \\ Delta I $ | 0或1奇 | 2偶 | 3奇 | 4偶 | 5奇 |
+    |$Delta pi \\ Delta I$ | 0或1奇 | 2偶 | 3奇 | 4偶 | 5奇 |
     | ---- | ---- | ---- | ---- | ---- | ---- |
     | + 偶 | M1(E2) | E2 | M3(E4) | E4 | M5(E6) |
     | - 奇 | E1 | M2(E3) | E3 | M4(E5) | E5 |
@@ -1116,10 +1118,10 @@ $
 
 1. 比较内转换系数的实验值与理论值，可确定$γ$跃迁的多极性，得到跃迁前后核能级的自旋和宇称变化，判断核能级的自旋和宇称。
 2. 用内转换系数对$γ$跃迁概率进行修正，实现$γ$跃迁概率的实验值与理论值的比较。
-   
-   #figure(
-     image("pic/2024-04-18-16-48-45.png", width: 80%),
-   )
+
+  #figure(
+    image("pic/2024-04-18-16-48-45.png", width: 80%),
+  )
 
 === 同质异能跃迁
 
@@ -1147,17 +1149,17 @@ $
 
 核反应的一般表达式：
 $
-a + A -> B + b_1 + b_2 + ...
+  a + A -> B + b_1 + b_2 + ...
 $
 或者用
 $
-A(a,b_1 b_2 ...)B
+  A(a,b_1 b_2 ...)B
 $
 其中：
-- 反应前体系： 
+- 反应前体系：
   - $A$ —— 靶核 (Target nucleus)
   - $a$ —— 入射粒子 (Incident particle)
-- 反应后体系： 
+- 反应后体系：
   - $B$ —— 剩余核 (Residual nucleus)
   - $b_1$,$b_2$… —— 出射粒子 (Emitted particles)
 
@@ -1175,11 +1177,11 @@ $
   1. *散射（Scattering）*：出射粒子与入射粒子相同，即: $a = b$。这时，剩余核与靶核构成相同。
     - 弹性散射（Elastic Scattering）：散射前后系统总动能相等
       $
-      a + A -> A + a , A(a,a)A
+        a + A -> A + a , A(a,a)A
       $
     - 非弹性散射（Inelastic Scattering）：散射前后系统总动能不相等
       $
-      a + A -> A + a' , A(a,a')A
+        a + A -> A + a' , A(a,a')A
       $
       $a'$和$a$通常并无不同，用$a'$表示非弹性散射，有时不写靶核和剩余核，表示一类核反应，如$(n,n')$。
 
@@ -1196,17 +1198,17 @@ $
 
     包括：
     - 质子引起的核反应：
-      $(p,n),(p,γ),(p,α),(p,d),(p,p n),(p,2n)... $
+      $(p,n),(p,γ),(p,α),(p,d),(p,p n),(p,2n)...$
     - 氘核引起的核反应：
-      $(d,n),(d, α),(d,p),(d,2n),(d,α n)...  $
+      $(d,n),(d, α),(d,p),(d,2n),(d,α n)...$
     - $α$粒子引起的核反应：
-      $( α,n),(α ,p),(  α,d),(α,p n),(α,2n)...  $
+      $( α,n),(α ,p),( α,d),(α,p n),(α,2n)...$
     - 重离子引起的核反应
   + 光核反应 (Nuclear photoeffect)——由$γ$光子入射引起的核反应。
 3. 按入射粒子能量分类
- + 低能核反应 低于140 MeV。
- + 中高能核反应 在140 MeV～ 1 GeV之间。
- + 高能核反应 高于1 GeV。
+  + 低能核反应 低于140 MeV。
+  + 中高能核反应 在140 MeV～ 1 GeV之间。
+  + 高能核反应 高于1 GeV。
 4. 靶核的质量数A分类
   + 轻核反应 A < 30
   + 中量核反应 30 < A < 90
@@ -1218,8 +1220,8 @@ $
 把每一种可能的反应过程称为一个反应道。
 
 $
-a + A &-> B + b_1 + b_2 + ...\
-"入射道" &->  "出射道"
+     a + A & -> B + b_1 + b_2 + ... \
+  "入射道" & -> "出射道"
 $
 
 各反应道的产生几率不同：
@@ -1232,41 +1234,41 @@ $
 实验表明，核反应过程主要遵守以下几个守恒定律：
 + *电荷守恒* 反应前后的总电荷数不变。
 
-    $
+  $
     Z_a + Z_A = Z_B + Z_b
-    $
+  $
 + *质量数守恒* 反应前后的总质量数不变。
 
-    $
+  $
     A_a + A_A = A_B + A_b
-    $
+  $
 
 + *能量守恒* 反应前后体系的总能量(静止质量对应的能量和动能之和)不变。
 
-    $
+  $
     (m_a + m_A)c^2 + T_a + T_A = (m_B + m_b)c^2 + T_B + T_b
-    $
+  $
 
 + *动量守恒* 反应前后体系的总动量不变。
 
-    $
+  $
     arrow(p)_a + arrow(p)_A = arrow(p)_B + arrow(p)_b
-    $
+  $
 + *角动量守恒* 反应前后体系的总角动量不变。
 
-    $
+  $
     arrow(J)_i = arrow(J)_f\
     arrow(J)_i = arrow(L)_i + arrow(S)_a + arrow(S)_A\
     arrow(J)_f = arrow(L)_f + arrow(S)_B + arrow(S)_b
-    $
+  $
 
 + *宇称守恒* 反应前后体系的宇称不变
 
-    $
+  $
     pi_i = pi_f\
     pi_i = pi_a pi_A (-1)^l_i\
     pi_f = pi_B pi_b (-1)^l_f
-    $
+  $
 
 一般来说，入射粒子的波为平面波，可分解为具有给定轨道角动量和轨道宇称的分波，角动量守恒和宇称守恒是对分波而言的。
 
@@ -1276,15 +1278,15 @@ $
 
 对核反应：
 $
-a + A -> B + b
+  a + A -> B + b
 $
 核反应能$Q$定义为：反应后的动能减去反应前的动能。
 $
-Q &= (T_b + T_B) - (T_a + T_A)\ 
-&= (m_a + m_A - m_B - m_b)c^2\ 
-&= (M_a + M_A)c^2 - (M_B + M_b)c^2\
-&= (Delta_a + Delta_A) - (Delta_B + Delta_b)\
-&= (B_b + B_B) - (B_a + B_A)
+  Q & = (T_b + T_B) - (T_a + T_A) \
+    & = (m_a + m_A - m_B - m_b)c^2 \
+    & = (M_a + M_A)c^2 - (M_B + M_b)c^2 \
+    & = (Delta_a + Delta_A) - (Delta_B + Delta_b) \
+    & = (B_b + B_B) - (B_a + B_A)
 $
 - $Q>0$放能反应（Exoergic reactions）
 - $Q<0$吸能反应（Endoergic reactions）
@@ -1294,7 +1296,7 @@ $
 
 Q方程：核反应能$Q$与反应中有关粒子(入射、出射粒子)动能以及出射粒子角度之间关系的方程式。
 
-可以根据实验测量的入射和出射粒子的动能以及出射粒子的角度，由Q方程求得核反应能$Q$。 
+可以根据实验测量的入射和出射粒子的动能以及出射粒子的角度，由Q方程求得核反应能$Q$。
 - 实验测量核反应能 Q；
 - 实验测量剩余核的激发能；
 - 实验测量激发态剩余核的质量；
@@ -1304,20 +1306,20 @@ Q方程的推导： 动量守恒 + Q的定义
 
 设靶核静止，根据动量守恒定律
 $
-P_B ^2 = P_a ^2 + P_b ^2 - 2 P_a P_b cos theta
+  P_B^2 = P_a^2 + P_b^2 - 2 P_a P_b cos theta
 $
 在非相对论情况下：
 $
-P^2 = 2m T
+  P^2 = 2m T
 $
 得到Q方程：
 $
-2 m_B T_B = 2 m_a T_a + 2 m_b T_b - 2 sqrt(4 m_a m_b T_a T_b) cos theta
+  2 m_B T_B = 2 m_a T_a + 2 m_b T_b - 2 sqrt(4 m_a m_b T_a T_b) cos theta
 $
 化简得到
 $
-Q &= (1 + m_b/m_B) T_b - (1 + m_a/m_B) T_a - 2 sqrt(4 m_a m_b T_a T_b)/m_B cos theta\
-&approx (1 + A_b/A_B) T_b- (1 + A_a/A_B) T_a - 2 sqrt(4 A_a A_b T_a T_b)/A_B cos theta
+  Q & = (1 + m_b/m_B) T_b - (1 + m_a/m_B) T_a - 2 sqrt(4 m_a m_b T_a T_b)/m_B cos theta \
+    & approx (1 + A_b/A_B) T_b- (1 + A_a/A_B) T_a - 2 sqrt(4 A_a A_b T_a T_b)/A_B cos theta
 $
 由Q方程：*在入射粒子动能$T_a$已知的情况下，只要测量$θ$角方向的出射粒子的动能$T_b$，就可以求得核反应能$Q$。*
 
@@ -1329,20 +1331,20 @@ Q方程的本质反映了核反应能Q与出射粒子方向和出射粒子能量
 
 因此，Q方程可以用于求与静止质量有关的量、求不同角度出射粒子能量等。
 + 可用于求核素的质量
-  
+
   已知$T_a$，测出$θ$方向的$T_b$，就可以求出$Q$。
   $
-  Q = Delta m c^2 = (m_a + m_A - m_B - m_b) c^2\
-  m_B = m_a + m_A - m_b - Q/c^2
+    Q = Delta m c^2 = (m_a + m_A - m_B - m_b) c^2\
+    m_B = m_a + m_A - m_b - Q/c^2
   $
 
 + 求剩余核的激发能
   $
-  m_B^* = m_B + (E^*)/c^2
+    m_B^* = m_B + (E^*)/c^2
   $
   可以得到
   $
-  E^* = Q - Q'
+    E^* = Q - Q'
   $
 + 已知 Q 计算$θ$方向出射粒子能量
   #figure(
@@ -1355,7 +1357,7 @@ Q方程的本质反映了核反应能Q与出射粒子方向和出射粒子能量
 核反应阈能：使*吸能核反应发生的最小入射粒子动能$T_a$*，以$T_"th"$表示。
 
 + 选择合适的坐标系
-  
+
   实验室坐标系( L系 ) 和 质心坐标系( C系 )
 
   #grid(
@@ -1377,7 +1379,7 @@ Q方程的本质反映了核反应能Q与出射粒子方向和出射粒子能量
       - 数量
       - 产额
       - 截面
-    ]
+    ],
   )
 
 #figure(
@@ -1393,19 +1395,19 @@ Q方程的本质反映了核反应能Q与出射粒子方向和出射粒子能量
 
 在质心坐标系(C系)中：
 $
-Q = (T_b ' + T_B ' ) - T' < 0 => |Q| = T' - (T_b ' + T_B ' )
+  Q = (T_b ' + T_B ' ) - T' < 0 => |Q| = T' - (T_b ' + T_B ' )
 $
 C系中，反应前后系统动量均为零，则反应产物在C系中不一定要有动能，最小可以取零：
 $
-T_B ' + T_b ' = T' - |Q| >= 0
+  T_B ' + T_b ' = T' - |Q| >= 0
 $
-在质心系，吸能核反应发生的（能量）必要条件是： 
+在质心系，吸能核反应发生的（能量）必要条件是：
 $
-T' >= |Q|
+  T' >= |Q|
 $
 回到实验室坐标系(L系)：
 $
-T_"th" =  (m_a + m_A)/m_A |Q| approx (A_a + A_A)/A_A |Q| (Q<0)
+  T_"th" = (m_a + m_A)/m_A |Q| approx (A_a + A_A)/A_A |Q| (Q<0)
 $
 
 === 出射角在 L 系 和 C 系 的转换
@@ -1419,49 +1421,49 @@ $
 
 出射粒子在L系和C系中速度的关系：
 $
-arrow(v)_b = arrow(v)_b ' + arrow(v)_C
+  arrow(v)_b = arrow(v)_b ' + arrow(v)_C
 $
 得到
 $
-theta_C = theta_L + arcsin(gamma sin theta_L), gamma = v_C / (v_b ')
+  theta_C = theta_L + arcsin(gamma sin theta_L), gamma = v_C / (v_b ')
 $
 并且有
 $
-cos theta_L = (gamma + cos theta_C) / sqrt(1 + gamma^2 + 2 gamma cos theta_C)
+  cos theta_L = (gamma + cos theta_C) / sqrt(1 + gamma^2 + 2 gamma cos theta_C)
 $
 
 #newpara()
 
 考虑
 $
-v_C = m_a / (m_a + m_A) v_a\
-T' = 1/2 (m_a + m_A)/(m_a m_A) v_a^2\
-=> v_c^2 = (2 m_A )/(m_A (m_a+m_A)) T'
+  v_C = m_a / (m_a + m_A) v_a\
+  T' = 1/2 (m_a + m_A)/(m_a m_A) v_a^2\
+  => v_c^2 = (2 m_A )/(m_A (m_a+m_A)) T'
 $
 以及
 $
-Q = 1/2 m_b v'_b^2 + 1/2 m_B v'_B^2 - T'\
-m_b v'_b = m_B v'_B\
-=> v'_b^2 = (2 m_B)/(m_b (m_b + m_B)) (T'+Q)
+  Q = 1/2 m_b v'_b^2 + 1/2 m_B v'_B^2 - T'\
+  m_b v'_b = m_B v'_B\
+  => v'_b^2 = (2 m_B)/(m_b (m_b + m_B)) (T'+Q)
 $
 最终得到
 $
-gamma = v_c/v'_b = sqrt( (m_a m_b)/(m_A m_B) ((m_a + m_A)/(m_b + m_B) )T'/(T'+Q)) approx sqrt( (A_a A_b)/(A_A A_B) T'/(T'+Q))
+  gamma = v_c/v'_b = sqrt((m_a m_b)/(m_A m_B) ((m_a + m_A)/(m_b + m_B) )T'/(T'+Q)) approx sqrt((A_a A_b)/(A_A A_B) T'/(T'+Q))
 $
 
 #newpara()
 
 在一般情况L系与C系的转换关系
 1. $gamma < 1$，$v_c < v'_b$
-   - $theta_L = theta_C = 0$时，$v_b$最大
-   - $theta_L = theta_C = pi$时，$v_b$最小
-   - $v_b$随着$theta_L$增大而减小
-   - $γ$越小，出射粒子能量分布越平坦；$gamma→0$时，$v_b$几乎不随$θ_L$变化；$γ→1$时，出射粒子能量随角度下降最快；$theta_L$大角度时，$v_b$趋于零
+  - $theta_L = theta_C = 0$时，$v_b$最大
+  - $theta_L = theta_C = pi$时，$v_b$最小
+  - $v_b$随着$theta_L$增大而减小
+  - $γ$越小，出射粒子能量分布越平坦；$gamma→0$时，$v_b$几乎不随$θ_L$变化；$γ→1$时，出射粒子能量随角度下降最快；$theta_L$大角度时，$v_b$趋于零
   #figure(
     image("pic/2024-04-11-11-23-15.png", width: 30%),
   )
 2. $gamma > 1$，$v_c > v'_b$
-   - 出现能量双值：一个$θ_L$对应两个$θ_C$值，两个$v_b$值；
+  - 出现能量双值：一个$θ_L$对应两个$θ_C$值，两个$v_b$值；
   #figure(
     image("pic/2024-04-11-11-24-24.png", width: 40%),
   )
@@ -1487,15 +1489,15 @@ $
 
 则：*单位时间内入射粒子与单位面积内的靶核发生的核反应数（即反应率）* $N'$ ：
 $
-N' prop I N_S = I N x
+  N' prop I N_S = I N x
 $
 引入比例系数$σ$：
 $
-N' = I N x σ
+  N' = I N x σ
 $
 定义*核反应截面*：
 $
-σ = (N') / (I N_S) = "单位时间发生的核反应数"/("单位时间入射粒子数"times"单位面积靶核数")
+  σ = (N') / (I N_S) = "单位时间发生的核反应数"/("单位时间入射粒子数"times"单位面积靶核数")
 $
 单位：$"cm"^2$，$"barn" = 10^(-24) "cm"^2$
 
@@ -1505,32 +1507,33 @@ $
 
 + 分截面 (Partial cross section)
 
-    对应于每个反应道的截面为分截面$σ_i$，表示产生某种反应道的概率。
+  对应于每个反应道的截面为分截面$σ_i$，表示产生某种反应道的概率。
 
 + 总截面 (Total cross section)
-    
-    各分截面$σ_i$之和，为总截面$σ_t$，表示产生各种反应的总概率。
+
+  各分截面$σ_i$之和，为总截面$σ_t$，表示产生各种反应的总概率。
 + 激发曲线 (Excitation curve)
 
-    截面随入射粒子能量的变化曲线。
-    #figure(
-      image("pic/2024-04-16-13-50-23.png", width: 30%),
-      caption: [
-        激发曲线
-      ],
-    )
+  截面随入射粒子能量的变化曲线。
+  #figure(
+    image("pic/2024-04-16-13-50-23.png", width: 30%),
+    caption: [
+      激发曲线
+    ],
+  )
 
-=== 微分截面(Differential cross section)和角分布(Angular distribution)
+=== 微分截面("d"
+erential cross section)和角分布(Angular distribution)
 
 核反应的出射粒子可以向各个方向发射，实验发现各方向的出射粒子数不一定相同，表明*出射粒子飞向不同方向的核反应概率不一定相等*。
 
 设：单位时间，$theta -> theta + dd(theta)$和$phi -> phi + dd(phi)$方向内的出射粒子数为$N(theta, phi) dd(Omega)$，则出射粒子数$dd(N')$
 $
-dd(N') = N' dd(Omega) = I N_S σ(theta, phi) dd(Omega)
+  dd(N') = N' dd(Omega) = I N_S σ(theta, phi) dd(Omega)
 $
 定义*微分截面*：
 $
-σ(theta, phi) = dd(N') / (I N_S dd(Omega)) = "单位立体角内发生的核反应数"/("单位时间入射粒子数"times"单位面积靶核数")
+  σ(theta, phi) = dd(N') / (I N_S dd(Omega)) = "单位立体角内发生的核反应数"/("单位时间入射粒子数"times"单位面积靶核数")
 $
 单位：$"b/sr"$，也记为$dd(sigma)/dd(Omega)$。
 
@@ -1540,12 +1543,12 @@ $
 
 $sigma(theta, phi)$对$phi$各向同性，仅仅是对$theta$的函数，即$sigma(theta, phi) = sigma(theta)$。对某一反应道，其分截面$sigma_i$和微分截面$sigma(theta)$之间的关系：
 $
-sigma_i = 2 pi integral_(0)^pi sigma(theta) sin theta dd(theta)
+  sigma_i = 2 pi integral_(0)^pi sigma(theta) sin theta dd(theta)
 $
 
 #newpara()
 
-*角分布*：微分截面$σ (theta ) $随$θ$的变化曲线称为角分布，角分布可以实验测定。
+*角分布*：微分截面$σ (theta )$随$θ$的变化曲线称为角分布，角分布可以实验测定。
 
 #figure(
   image("pic/2024-04-19-01-13-28.png", width: 80%),
@@ -1560,7 +1563,7 @@ $
   image("pic/2024-04-16-14-03-08.png", width: 80%),
 )
 $
-sigma_L (theta_L) dd(Omega_L) = sigma_C (theta_C) dd(Omega_C)
+  sigma_L (theta_L) dd(Omega_L) = sigma_C (theta_C) dd(Omega_C)
 $
 
 #figure(
@@ -1569,7 +1572,7 @@ $
 
 得到公式
 $
-sigma_L (theta_L) = sigma_C (theta_C)  (1 + gamma^2 + 2 gamma cos theta_C)^(3/2) / (1 + gamma cos theta_C)
+  sigma_L (theta_L) = sigma_C (theta_C) (1 + gamma^2 + 2 gamma cos theta_C)^(3/2) / (1 + gamma cos theta_C)
 $
 
 - 在$gamma < 1$时，一个$θ_L$对应一个$θ_C$，一个系数，一个$sigma_C$
@@ -1580,7 +1583,7 @@ $
 *核反应产额$Y$*： 入射粒子在靶中引起的核反应数与入射粒子数之比。
 
 $
-Y = N' / I_0 = "入射粒子在靶体上引起的核反应数"/"入射粒子数"
+  Y = N' / I_0 = "入射粒子在靶体上引起的核反应数"/"入射粒子数"
 $
 与：
 - 核反应截面$σ$有关
@@ -1597,33 +1600,33 @@ $
 
 则：在$x tilde x + dd(x)$内，单位时间内中子数的变化为：
 $
-dd(I) = - sigma N I dd(x)
+  dd(I) = - sigma N I dd(x)
 $
 等于在该薄层靶内，单位时间发生的核反应数。解得：
 $
-I = I_0 e^(- sigma N x)\
-Sigma = sigma N
+  I = I_0 e^(- sigma N x)\
+  Sigma = sigma N
 $
 $Σ$称为*宏观截面*或*线性衰减系数*，量纲为$[L]^(-1)$。
 
 单能窄束中子通过厚度为$D$的靶时的强度为：
 $
-I_D = I_0 e^(- Sigma D)
+  I_D = I_0 e^(- Sigma D)
 $
 中子在厚度为$D$的靶内单位时间产生的反应数$N'$等于中子通过靶时的强度减少量，即：
 $
-N' = I_0 - I_D = I_0 (1 - e^(- Sigma D))
+  N' = I_0 - I_D = I_0 (1 - e^(- Sigma D))
 $
 中子在厚度为$D$的靶内单位时间产生的反应数$N'$与入射中子数$I_0$之比即为*反应产额$Y$*：
 $
-Y = N' / I_0 = 1 - e^(- Sigma D)
+  Y = N' / I_0 = 1 - e^(- Sigma D)
 $
 - 薄靶：$Sigma D << 1$，$Y = sigma N D = sigma N_S$。产额与靶厚、 反应截面成正比。
 - 厚靶：$Sigma D >> 1$，$Y = 1$。产额最大， 每个中子均发生反应。
-- 
+-
 *透射率$T$*： 通过靶的中子束强度与入射中子束强度之比。
 $
-T = I_D / I_0 = e^(- Sigma D)
+  T = I_D / I_0 = e^(- Sigma D)
 $
 透射率在实验中可以直接测量，从而按上式可以求得反应截面$σ$。
 
@@ -1643,15 +1646,15 @@ $
 - $N$为靶的单位体积的原子核数；
 则在$x tilde x + dd(x)$内，单位时间的反应数为：
 $
-dd(N') = - sigma(E) N I dd(x)
+  dd(N') = - sigma(E) N I dd(x)
 $
 在厚度为$D$的靶内，单位时间内反应总数$N'$为：
 $
-N' = integral_(0)^D  sigma(E) N I dd(x)
+  N' = integral_(0)^D sigma(E) N I dd(x)
 $
 则*反应产额*为：
 $
-Y = N' / I_0 = 1 / I_0 integral_(0)^D  sigma(E) N I dd(x) 
+  Y = N' / I_0 = 1 / I_0 integral_(0)^D sigma(E) N I dd(x)
 $
 
 ==== 带电粒子核反应的薄靶产额
@@ -1664,7 +1667,7 @@ $
 
 *薄靶的产额为：*
 $
-Y = 1 / I_0 integral_(0)^D  sigma(E) N I dd(x) = sigma(E_0) N D = sigma(E_0) N_S
+  Y = 1 / I_0 integral_(0)^D sigma(E) N I dd(x) = sigma(E_0) N D = sigma(E_0) N_S
 $
 
 ==== 带电粒子核反应的厚靶产额
@@ -1676,7 +1679,7 @@ $
 
 *厚靶的产额为：*
 $
-Y = N integral_(0)^D sigma(E) dd(x) = N D integral_(0)^(R(E_0)) sigma(E) dd(x) = N integral_(E_0)^0 sigma(E) dd(x)/dd(E) dd(E)
+  Y = N integral_(0)^D sigma(E) dd(x) = N D integral_(0)^(R(E_0)) sigma(E) dd(x) = N integral_(E_0)^0 sigma(E) dd(x)/dd(E) dd(E)
 $
 
 == 核反应机制及核反应模型
@@ -1707,7 +1710,7 @@ $
 + 第一阶段(独立粒子阶段)：
 
   $
-  sigma_t = sigma_"pot" + sigma_a
+    sigma_t = sigma_"pot" + sigma_a
   $
   总截面 = 形状弹性散射截面 + 吸收截面
 
@@ -1718,7 +1721,7 @@ $
 + 第二阶段(复合系统阶段)：
 
   $
-  sigma_a = sigma_D + sigma_"CN"
+    sigma_a = sigma_D + sigma_"CN"
   $
   吸收截面 = 直接作用截面 + 复合核截面
 
@@ -1727,7 +1730,7 @@ $
   )
 
   $
-  sigma_"SC" = sigma_"pot" + sigma_"res"
+    sigma_"SC" = sigma_"pot" + sigma_"res"
   $
   弹性散射截面 = 形状弹性散射截面 + 复合弹性散射截面
 
@@ -1738,9 +1741,9 @@ $
 综合考虑三阶段，可将：*总反应截面$sigma_t$分为弹性散射截面$sigma_"SC"$和去弹性散射截面$sigma_r$两部分*。
 
 $
-sigma_t = sigma_"SC" + sigma_r\
-sigma_"SC" = sigma_"pot" + sigma_"res"\
-sigma_t = sigma_"pot" + sigma_"res" + sigma_r = sigma_"pot" + sigma_a 
+  sigma_t = sigma_"SC" + sigma_r\
+  sigma_"SC" = sigma_"pot" + sigma_"res"\
+  sigma_t = sigma_"pot" + sigma_"res" + sigma_r = sigma_"pot" + sigma_a
 $
 
 用图像表示：
@@ -1771,21 +1774,21 @@ $
 
 用核反应式可表示为：
 $
-a + A -> C^* -> B + b
+  a + A -> C^* -> B + b
 $
 其中：
 $
-a + A -> C^*
+  a + A -> C^*
 $
 是形成过程，复合核形成截面为$sigma_"CN" (T_a)$
 $
-C^* -> B + b
+  C^* -> B + b
 $
 是衰变过程，发射b衰变的分支比为$W_b (E^*)$。
 
 两个过程互相独立，即：
 $
-sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)
+  sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)
 $
 其中$sigma_(a b)$为$a + A -> B + b$的反应截面。
 
@@ -1793,32 +1796,32 @@ $
 
 + 复合核的形成：液滴加热
 
-    入射粒子进入靶核后，与周围核子强烈作用，经多次碰撞，能量在核子间传递，最后达到动态平衡，完成复合核的形成。
+  入射粒子进入靶核后，与周围核子强烈作用，经多次碰撞，能量在核子间传递，最后达到动态平衡，完成复合核的形成。
 + 复合核的衰变：液滴蒸发
 
-    复合核形成后，并不会立刻衰变。使一个核子（或核子团）具有足够的能量脱离复合核而衰变，需要经过$10^(-14) - 10^(-18)s$。
+  复合核形成后，并不会立刻衰变。使一个核子（或核子团）具有足够的能量脱离复合核而衰变，需要经过$10^(-14) - 10^(-18)s$。
 
-    通过发射粒子而退激的过程叫粒子蒸发。蒸发粒子后的剩余核激发能降低，可类比为液滴蒸发出液体分子后温度降低。
+  通过发射粒子而退激的过程叫粒子蒸发。蒸发粒子后的剩余核激发能降低，可类比为液滴蒸发出液体分子后温度降低。
 
 ==== 复合核的形成及复合核的激发能
 
 形成的复合核处于激发态：
 $
-a + A -> C^*
+  a + A -> C^*
 $
 由C系能量守恒定律：
 $
-T' + (m_a + m_A) c^2 = (m_C^*) c^2 = (m_C + (E^*)/c^2) c^2
+  T' + (m_a + m_A) c^2 = (m_C^*) c^2 = (m_C + (E^*)/c^2) c^2
 $
 得到：
 $
-E^* &= T' + (m_a + m_A - m_C) c^2\
-&= T' + B_(a A)
+  E^* & = T' + (m_a + m_A - m_C) c^2 \
+      & = T' + B_(a A)
 $
 其中：
 $
-T' = A_A/(A_a + A_A) T_a\
-B_(a A) = (m_a + m_A - m_C) c^2 = Delta_a + Delta_A - Delta_C
+  T' = A_A/(A_a + A_A) T_a\
+  B_(a A) = (m_a + m_A - m_C) c^2 = Delta_a + Delta_A - Delta_C
 $
 复合核$C^*$的*激发能为入射粒子的相对运动动能（即质心系中的总动能）和入射粒子与靶核的结合能$B_(a A)$之和*。
 
@@ -1832,27 +1835,27 @@ $
 
 ==== 复合核形成与衰变相互独立的证明
 
-根据复合核模型得到的$(a,b)$反应的截面公式： 
+根据复合核模型得到的$(a,b)$反应的截面公式：
 $
-sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)
+  sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)
 $
 入射道为$a+A$的几个反应道的截面为：
 $
-sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)\
-sigma_(a b') = sigma_"CN" (T_a) W_b' (E^*)\
-sigma_(a b'') = sigma_"CN" (T_a) W_b'' (E^*)\
+  sigma_(a b) = sigma_"CN" (T_a) W_b (E^*)\
+  sigma_(a b') = sigma_"CN" (T_a) W_b' (E^*)\
+  sigma_(a b'') = sigma_"CN" (T_a) W_b'' (E^*)\
 $
 有
 $
-sigma_(a b) : sigma_(a b') : sigma_(a b'') = W_b : W_b' : W_b''
+  sigma_(a b) : sigma_(a b') : sigma_(a b'') = W_b : W_b' : W_b''
 $
 对于$a'+A'$入射道，同理可得：
 $
-sigma_(a' b) : sigma_(a' b') : sigma_(a' b'') = W_b : W_b' : W_b''
+  sigma_(a' b) : sigma_(a' b') : sigma_(a' b'') = W_b : W_b' : W_b''
 $
 基于复合核形成及衰变两阶段独立性的假设，当不同入射道形成相同的复合核时（构成和能量状态相同） ，有：
 $
-sigma_(a b) : sigma_(a b') : sigma_(a b'') = sigma_(a' b) : sigma_(a' b') : sigma_(a' b'')
+  sigma_(a b) : sigma_(a b') : sigma_(a b'') = sigma_(a' b) : sigma_(a' b') : sigma_(a' b'')
 $
 实验验证上式成立， 则可以证明复合核形成及衰变两阶段独立性假设是正确的。果歇(Ghoshal)通过实验验证了假设。
 
@@ -1860,24 +1863,24 @@ $
 
 设：复合核单位时间内以过程$i$衰变的概率为
 $
-W_i (E^*) = lambda_i
+  W_i (E^*) = lambda_i
 $
 则，复合核单位时间内的总衰变概率为：
 $
-W (E^*) = sum_(i) lambda_i = lambda
+  W (E^*) = sum_(i) lambda_i = lambda
 $
 复合核的寿命为：
 $
-tau = 1 / lambda = 1 / (W (E^*))
+  tau = 1 / lambda = 1 / (W (E^*))
 $
 
 复合核的激发能级都有一定的宽度 $Γ$，由不确定关系：
 $
-Gamma tau = hbar
+  Gamma tau = hbar
 $
 得到：
 $
-Gamma = hbar / tau = hbar W (E^*) = hbar sum_(i) lambda_i = sum_i Gamma_i
+  Gamma = hbar / tau = hbar W (E^*) = hbar sum_(i) lambda_i = sum_i Gamma_i
 $
 *复合核某一激发态能级的总宽度是该能级各分宽度之和。*
 
@@ -1889,19 +1892,19 @@ $
 
 *布莱特和维格纳公式(B-W公式)：*考虑复合核的形成和衰变几率，理论推导出的表示单个共振能级附近的核反应截面与入射粒子能量的关系式，可定量描述共振现象。
 $
-sigma_(a b) = lambda^2/(4 pi) (Gamma_a Gamma_b) / ((T' - E_0)^2 + (Gamma/2)^2)
+  sigma_(a b) = lambda^2/(4 pi) (Gamma_a Gamma_b) / ((T' - E_0)^2 + (Gamma/2)^2)
 $
 其中$E_0$是共振能量。
 
 + 当$T' = E_0$时，发生*共振吸收*，核反应截面最大：
   $
-  sigma_(a b) = lambda^2/( pi) (Gamma_a Gamma_b) / (Gamma^2)
+    sigma_(a b) = lambda^2/( pi) (Gamma_a Gamma_b) / (Gamma^2)
   $
   通常 $Γ$ 不是很大，则在 $Γ$ 能量范围内，$λ, Γ_a ,Γ_b$ 近似不变。
-  
+
   当$T' = E_0 plus.minus Gamma/2$时，核反应截面减小到原来的一半。
   $
-  sigma_(a b) = sigma_0 /2
+    sigma_(a b) = sigma_0 /2
   $
   所以：共振曲线的半高宽就等于能级宽度 $Γ$。测量共振能量附近的激发曲线，可得共振能量及激发曲线的半高宽。
   #figure(
@@ -1912,29 +1915,29 @@ $
 
   - 对于$(n, γ)$反应，理论上可以证明：复合核*发射中子的概率*即相应的*能级分宽度$Γ_n$*正比于入射中子的*速度$v$*。
     $
-    Gamma_n prop v
+      Gamma_n prop v
     $
   - 当中子能量较低时，其波长$λ$反比于中子的速度$v$。
     $
-    lambda = h / p = h / (m_n v) prop 1 / v
+      lambda = h / p = h / (m_n v) prop 1 / v
     $
   - $(n, γ)$反应主要发生在慢中子区$(T_n ≤ 1"keV")$，中子的能量比它和靶核的结合能小得多。
     $
-    T_n << B_(n A)
+      T_n << B_(n A)
     $
     根据：$E^* = T'_n + B_(n A)$，有$T'_n$变化不会引起$E^*(Gamma_gamma)$和能级宽度$Γ$的显著变化。
   由B-W公式，当 $T_n << E_0$ 时：
   $
-  sigma_(n gamma) = lambda^2/(4 pi) (Gamma_n Gamma_gamma) / ((T_n - E_0)^2 + (Gamma/2)^2) prop lambda^2 Gamma_n prop 1 / v
+    sigma_(n gamma) = lambda^2/(4 pi) (Gamma_n Gamma_gamma) / ((T_n - E_0)^2 + (Gamma/2)^2) prop lambda^2 Gamma_n prop 1 / v
   $
   *当入射中子为慢中子时，$(n, γ)$反应的截面$sigma_(n gamma)$与中子的速度$v$成反比。*
   $
-  sigma_(n gamma) prop 1 / v
+    sigma_(n gamma) prop 1 / v
   $
 
   已知某速度(或能量)下的截面，求其他截面：
   $
-  sigma = sigma_0 v_0/v = sigma_0 sqrt(T_0/T)
+    sigma = sigma_0 v_0/v = sigma_0 sqrt(T_0/T)
   $
 
 === 连续区理论和直接反应
@@ -1991,7 +1994,7 @@ $
 === 弹性碰撞与非弹性碰撞
 
 $
-1/2 m_1 v_1^2 + 1/2 m_2 v_2^2 = 1/2 m_1 v_1'^2 + 1/2 m_2 v_2'^2 + Delta E
+  1/2 m_1 v_1^2 + 1/2 m_2 v_2^2 = 1/2 m_1 v_1'^2 + 1/2 m_2 v_2'^2 + Delta E
 $
 其中$Delta E$为内能项。
 
@@ -2066,21 +2069,21 @@ $
 *能量损失率*：带电粒子在物质中*单位路径*上的*能量损失*。又称*比能损失(Specific Energy Loss)*或*阻止本领(Linear Stopping Power)*。
 
 $
-S = - dd(E) / dd(x)
+  S = - dd(E) / dd(x)
 $
 量纲： [能量/长度] 如： MeV/cm、 eV/cm
 
 按能量损失方式的不同，能量损失率主要分为“*电离能量损失率*”和“*辐射能量损失率*”。
 $
-S = S_"ion" + S_"rad" = (- dd(E) / dd(x))_"ion" + (- dd(E) / dd(x))_"rad"
+  S = S_"ion" + S_"rad" = (- dd(E) / dd(x))_"ion" + (- dd(E) / dd(x))_"rad"
 $
 对重带电粒子（百MeV以下） ：
 $
-S_"ion" >> S_"rad"
+  S_"ion" >> S_"rad"
 $
 因此：*重带电粒子的能量损失率就约等于其电离能量损失率*。
 $
-S approx A_"ion" = (- dd(E) / dd(x))_"ion"
+  S approx A_"ion" = (- dd(E) / dd(x))_"ion"
 $
 
 ==== Bethe 公式(Bethe formula)
@@ -2097,23 +2100,23 @@ Bethe公式的简化推导：简化为*重带电粒子和电子的库仑相互�
 
 #figure(
   image("pic/2024-04-23-13-48-54.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 #figure(
   image("pic/2024-04-23-13-51-07.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 #figure(
   image("pic/2024-04-23-13-51-42.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 最终得到，碰撞参量为$b$时，碰撞中单个电子所得动量为：
 $
-P = 1/(4 pi epsilon) (2 e^2 z)/(b v)
+  P = 1/(4 pi epsilon) (2 e^2 z)/(b v)
 $
 碰撞中单个电子所得能量为：
 $
-Delta E_b = P^2 /(2 m_0) = (1/(4 pi epsilon))^2 (2 e^2 z)^2 / (m_0 b^2 v^2)
+  Delta E_b = P^2 /(2 m_0) = (1/(4 pi epsilon))^2 (2 e^2 z)^2 / (m_0 b^2 v^2)
 $
 
 #newpara()
@@ -2124,39 +2127,39 @@ $
 
 #figure(
   image("pic/2024-05-11-22-10-41.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 *在$dd(x)$距离内，作用物质中所有电子得到的总能量(即：入射粒子在$dd(x)$距离内损失的能量)*
 
 #figure(
   image("pic/2024-05-11-22-15-34.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 1. $b_min$对应电子获得*最大能量*，按经典碰撞理论，*对心碰*撞时，电子获得最大动能，约为$2m_0 v^2$。 ($m_0$为电子的静止质量，$v$为入射带电粒子的速度。)
 
   #figure(
     image("pic/2024-05-11-22-18-35.png", width: 80%),
-    numbering: none
+    numbering: none,
   )
 
 2. $b_max$对应电子获得最小能量，可由电子在原子中的*结合能*来考虑。对电离能量损失，电子只能从入射粒子处接受*大于原子平均激发能$I$的能量*（否则就不是电离能量损失）。
 
   #figure(
     image("pic/2024-05-11-22-20-23.png", width: 80%),
-    numbering: none
+    numbering: none,
   )
 
 #figure(
   image("pic/2024-05-11-22-20-58.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 
 #figure(
   image("pic/2024-05-11-22-21-48.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 电离能量损失率与*入射粒子性质*及*靶物质属性*有关：
@@ -2167,12 +2170,12 @@ $
   - 原子序数$Z$
   - 单位体积内原子数$N$
   - 平均激发和电离能$I$
-  
+
 ==== 关于Bethe公式的讨论
 
 1. $S_"ion"$与入射*带电粒子*的*质量*$m$*无显性的关系*，只出现带电粒子的*速度*$v$和*电荷数*$z$。
 $
-S_"ion" prop z^2 / v^2 prop (z^2 m)/E
+  S_"ion" prop z^2 / v^2 prop (z^2 m)/E
 $
 
 - 与带电粒子的电荷数$z$的平方成正比
@@ -2182,7 +2185,7 @@ $
 
 2. $S_"ion" prop N Z$*靶物质*的密度越大，原子序数越高，阻止本领越大。
 $
-S_"ion" prop z^2 / v^2 N Z prop (z^2 m)/E N Z
+  S_"ion" prop z^2 / v^2 N Z prop (z^2 m)/E N Z
 $
 
 3. $S_"ion"$与$v^2$（动能）的关系
@@ -2198,7 +2201,7 @@ $
 
 比能损失除以密度：单位质量厚度的能量损失
 $
- (-dd(E) / dd(x))_"ion"  1/ rho
+  (-dd(E) / dd(x))_"ion" 1/ rho
 $
 
 #figure(
@@ -2259,33 +2262,33 @@ Bragg曲线：带电粒子的能量损失率沿其径迹的变化曲线。
 
 #figure(
   image("pic/2024-05-12-16-06-33.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-12-16-12-02.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-12-16-27-38.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
   image("pic/2024-05-12-16-28-38.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 几点讨论：
 1. 同种粒子以*相同速度*，入射到*不同物质中*，如果物质的$Z$比较接近：
-   $
-   R prop A/(rho Z) , R rho prop A/Z tilde "相近"
-   $
+  $
+    R prop A/(rho Z) , R rho prop A/Z tilde "相近"
+  $
 2. 不同粒子以*相同速度*，入射到*同一物质中*：
-    $
+  $
     R prop m / z^2
-    $
+  $
 
 *射程的实验测量和强度衰减曲线：*
 
@@ -2300,7 +2303,7 @@ Bragg曲线：带电粒子的能量损失率沿其径迹的变化曲线。
 
 空气中， α粒子的射程能量关系曲线
 $
-R_a = 0.318 E_alpha^(3/2)
+  R_a = 0.318 E_alpha^(3/2)
 $\
 其中$E_α$为$α$粒子能量，单位为MeV。公式适用范围：$3 ~8$MeV。由$alpha$粒子的情况可以推出其他重带电粒子的射程能量关系。
 
@@ -2320,102 +2323,102 @@ $\
 
 *电离阻止截面*：带电粒子穿过单位面积只有一个原子（或分子）的物质时损失。
 $
-1/N (- dd(E) / dd(x))
+  1/N (- dd(E) / dd(x))
 $
 其中
 $
-N dd(x) =  N_S
+  N dd(x) = N_S
 $
 是单位面积的原子数。单位是$e"V"·"cm"^2$。
 
 根据*电离阻止截面*的定义：
 - 分子的电离阻止截面：带电粒子穿过单位面积只有一个分子的物质时损失的能量
 
-    $
+  $
     1/N_c (- dd(E) / dd(x))_c
-    $
+  $
 - 原子的电离阻止截面：带电粒子穿过单位面积只有一个原子的物质时损失的能量
 
-    $
+  $
     1/N_i (- dd(E) / dd(x))_i
-    $
+  $
 - 多个原子的电离阻止截面：带电粒子穿过单位面积有$n_i$个原子的物质时损失的能量
 
-    $
+  $
     n_i 1/N_i (- dd(E) / dd(x))_i
-    $
+  $
 
 假设：
 1. 不同原子的电离阻止截面可相加。分子的电离阻止截面等于组成分子的各原子的电离阻止截面之和。
 2. 在物质中，单位面积有一个分子与单位面积有组成该分子的各原子等价。
 *Bragg-Kleeman Rule：*
 $
-1/N_c (- dd(E) / dd(x))_c = sum_i n_i 1/N_i (- dd(E) / dd(x))_i
+  1/N_c (- dd(E) / dd(x))_c = sum_i n_i 1/N_i (- dd(E) / dd(x))_i
 $
 其中$n_i$为分子中第$i$种原子的个数，$N_i$为原子数密度。
 
 化合物和单质中的比能损失关系
 $
-(- 1/ rho dd(E) / dd(x))_c = sum_i omega_i (- 1/ rho_i dd(E) / dd(x))_i
+  (- 1/ rho dd(E) / dd(x))_c = sum_i omega_i (- 1/ rho_i dd(E) / dd(x))_i
 $
 其中$omega_i= (n_i A_i)/M$为分子中第$i$种原子的质量分数，$rho_i$为第$i$种原子的密度。
 
 化合物和单质中的射程关系
 $
-R_c = M_c / (sum_i n_i A_i/R_i)
+  R_c = M_c / (sum_i n_i A_i/R_i)
 $
 其中$R_c$是以质量厚度为单位的射程，$M_c$为化合物的摩尔质量，$R_i$为第$i$种原子的射程。
 
 *半经验公式：同一种粒子在不同吸收物质中的射程关系。定比定律：*
 $
-(R_i rho_i)/(R_0 rho_0) = sqrt(A_i / A_0)
+  (R_i rho_i)/(R_0 rho_0) = sqrt(A_i / A_0)
 $
 对于化合物或混合物的等效原子量$A_"eff"$：
 $
-sqrt(A_"eff") = sum_i W_i sqrt(A_i)
+  sqrt(A_"eff") = sum_i W_i sqrt(A_i)
 $
 其中$W_i$为第$i$元素的原子百分数。利用该等效质量，也可以计算在混合物中各元素的射程。
 
 *总结*
 - 同种粒子在$Z$相近的物质中的射程关系：
 
-    $
+  $
     R rho = A /Z tilde "相近"
-    $
+  $
 - 同种粒子在$Z$不相近的物质中的射程关系：
 
-    $
+  $
     (R rho )/sqrt(A) tilde "相近"
-    $
+  $
 
 ==== 同一吸收物质中，初速度相同的不同重带电粒子的射程关系
 
 $
-R(v) = m/z^2 F(v)
+  R(v) = m/z^2 F(v)
 $
 其中$m,z$是入射粒子的质量和电荷数，$v$是入射粒子的速度，$F(v)$是与速度有关的函数，对于不同的粒子，$F(v)$相同。
 
 $
-R_a (v) = (m_a z^2_b)/(m_b z^2_a) R_b (v)
+  R_a (v) = (m_a z^2_b)/(m_b z^2_a) R_b (v)
 $
 
 ==== 阻止时间
 
 *阻止时间*：将带电粒子阻止在吸收体内所需的时间。（速度减慢为零所需要的时间）
 $
-t = R / macron(v) = R / (k v) = R / (k c) sqrt((m c^2)/(2E)) 
+  t = R / macron(v) = R / (k v) = R / (k c) sqrt((m c^2)/(2E))
 $
 如果$k = 0.6$则有：
 $
-t = 1.2 times 10^(-7) R sqrt(m/E) 
+  t = 1.2 times 10^(-7) R sqrt(m/E)
 $
 其中单位取$m,u$和$M e V$。
 
-===  重带电粒子在薄吸收体中的能量损失
+=== 重带电粒子在薄吸收体中的能量损失
 
 带电粒子在薄吸收体中的能量损失可计算为：
 $
-Delta E = (- dd(E) / dd(x))_"avg" d
+  Delta E = (- dd(E) / dd(x))_"avg" d
 $
 
 === 裂变碎片的能量损失
@@ -2424,7 +2427,7 @@ $
 
 #figure(
   image("pic/2024-05-12-17-47-17.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == 快电子与物质的相互作用 Interaction of Fast Electrons
@@ -2440,7 +2443,7 @@ $
 
 #figure(
   image("pic/2024-05-13-00-04-34.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 === 快电子的能量损失率
@@ -2451,7 +2454,7 @@ $
 
 #figure(
   image("pic/2024-05-12-17-51-02.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 #figure(
@@ -2469,14 +2472,14 @@ $
 )
 
 $
-S_"ion" = (- dd(E) / dd(x))_"ion" prop z^2 / v^2 N Z prop (z^2 m)/E N Z
+  S_"ion" = (- dd(E) / dd(x))_"ion" prop z^2 / v^2 N Z prop (z^2 m)/E N Z
 $
 
 *辐射能量*损失率：单位路径上，由于轫致辐射而损失的能量。
 
 量子电动力学计算表明，辐射能量损失率服从：
 $
-S_"rad" = (- dd(E) / dd(x))_"rad" prop (z^2 E)/ m^2 N Z^2
+  S_"rad" = (- dd(E) / dd(x))_"rad" prop (z^2 E)/ m^2 N Z^2
 $
 其中参量是吸收物质的原子序数$Z$和单位体积的原子数$N$、入射电子的电荷数$z$和能量$E$、电子的静止质量$m$。
 
@@ -2494,12 +2497,12 @@ $
   caption: [
     快电子的辐射能量损失和电离能量损失
   ],
-  kind: table
+  kind: table,
 )
 
 #figure(
   image("pic/2024-05-12-18-04-36.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 探测学中所涉及快电子的能量$E$一般不超过十几个MeV，所以，*辐射能量损失只在高原子序数（大 Z）*的吸收材料中才可能*大于电离能量损失*，但电子的测量和屏蔽均要考虑到辐射能量损失的存在，实际应用中应尽量*减少辐射能量损失*。
@@ -2523,45 +2526,45 @@ $
 
 #figure(
   image("pic/2024-05-12-22-53-13.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 对β粒子，当吸收介质的厚度远小于$R_(beta max)$时，β粒子的强度衰减近似服从指数规律：
 $
-I(x) = I_0 e^(- mu x)
+  I(x) = I_0 e^(- mu x)
 $
 其中$µ$为吸收体的线性吸收系数，$x$为吸收体的厚度。
 
 记
 $
-mu_m = mu / ρ \
-x_m = x ρ
+  mu_m = mu / ρ \
+  x_m = x ρ
 $
 则
 $
-I(x) = I_0 e^(- µ_m x_m)
+  I(x) = I_0 e^(- µ_m x_m)
 $
 其中$µ_m$为吸收体的质量吸收系数，$x_m$为吸收体的质量厚度。
 
 在同一种吸收材料中，吸收系数与$β$粒子的最大能量密切相关，*能量越大吸收系数越小*，可以通过测量吸收系数间接测量$β$粒子最大能量。
 $
-mu_m = 17 / E_m^1.54 (0.1 M e V < E_m < 4 M e V)
+  mu_m = 17 / E_m^1.54 (0.1 M e V < E_m < 4 M e V)
 $
 实验发现，*初始能量相等*的电子在*各种材料*中的*最大射程*与*吸收体密度*的乘积（即质量厚度表示的最大射程）近似相等：
 $
-R_max ρ  = R_m (E)
+  R_max ρ = R_m (E)
 $
 质量厚度表示的射程，单位为：$g / "cm"^2$
 
 *电子射程的经验公式*
 $
-R_m (E) = 0.412 E ^ (1.265 - 0.0954 ln E) , 0.01 M e V < E < 2.5 M e V\
-R_m (E) = 0.530 E - 0.106 , 2.5 M e V < E 
+  R_m (E) = 0.412 E^(1.265 - 0.0954 ln E) , 0.01 M e V < E < 2.5 M e V\
+  R_m (E) = 0.530 E - 0.106 , 2.5 M e V < E
 $
 
 #figure(
   image("pic/2024-05-13-00-13-13.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 电子的散射与反散射
@@ -2572,18 +2575,18 @@ $
 
 定义反散射系数：
 $
-eta = (I - I_0)/I_0
+  eta = (I - I_0)/I_0
 $
 
 #figure(
   image("pic/2024-05-13-00-23-14.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 *反散射的利用与避免*
 #figure(
   image("pic/2024-05-13-00-26-50.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 ==== 正电子的湮没
@@ -2603,7 +2606,7 @@ $
 *正电子在材料中单位时间发生湮没的概率和寿命*
 #figure(
   image("pic/2024-05-13-00-35-32.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 == X/γ射线与物质的相互作用
@@ -2624,12 +2627,12 @@ $
 
 采用多道脉冲幅度分析器（脉冲幅度数字化），给出：
 $
-y_(x_i)("计数/计数率") tilde x_i ("道址")
+  y_(x_i)("计数/计数率") tilde x_i ("道址")
 $
 
 #figure(
   image("pic/2024-05-13-00-44-38.png", width: 80%),
-  numbering: none
+  numbering: none,
 )
 
 
@@ -2651,7 +2654,7 @@ $
 
 γ射线与物质发生相互作用是一种概率事件，用截面表示作用概率的大小。总截面等于各作用截面之和， 即：
 $
-sigma = sigma_"ph" + sigma_"C" + sigma_"p"
+  sigma = sigma_"ph" + sigma_"C" + sigma_"p"
 $
 
 === 光电效应(Photoelectric Effect)
@@ -2668,30 +2671,30 @@ $
 
 光电子的能量为：
 $
-E_e = h nu - epsilon_i
+  E_e = h nu - epsilon_i
 $
 
 ==== 光电截面
 
 光电截面：光子与物质原子发生光电效应的截面称为光电截面。
 $
-sigma_"ph" = sigma_"ph"^K + sigma_"ph"^L + sigma_"ph"^M + ...
+  sigma_"ph" = sigma_"ph"^K + sigma_"ph"^L + sigma_"ph"^M + ...
 $
 光子与*内层电子*发生光电效应的几率较大。
 $
-sigma_"ph" = 5/4 sigma_"ph"^K
+  sigma_"ph" = 5/4 sigma_"ph"^K
 $
 其中$sigma_K$为K层光电截面。
 
-对：$h mu << m_0 c^2 $，即非相对论情况
+对：$h mu << m_0 c^2$，即非相对论情况
 $
-sigma_K = (32)^1/2 alpha^4 Z^5 ((m_0 c^2)/(h mu))^7/2 sigma_"Th" prop Z^5 (1/(h mu))^7/2
+  sigma_K = (32)^1/2 alpha^4 Z^5 ((m_0 c^2)/(h mu))^7/2 sigma_"Th" prop Z^5 (1/(h mu))^7/2
 $
 其中$alpha$为精细结构常数，$sigma_"Th"$为Thomson散射截面。
 
-对：$h mu >> m_0 c^2 $，即相对论情况
+对：$h mu >> m_0 c^2$，即相对论情况
 $
-sigma_K = 1.5 alpha^4 (m_0 c^2)/(h mu) Z^5 sigma_"Th" prop Z^5 (1/(h mu))
+  sigma_K = 1.5 alpha^4 (m_0 c^2)/(h mu) Z^5 sigma_"Th" prop Z^5 (1/(h mu))
 $
 与$Z^5$成正比，与射线能量的某次方成反比。
 #newpara()
@@ -2701,16 +2704,16 @@ $
 光电效应截面小结：
 - $sigma_"ph"$与原子序数$Z$的5次方成正比；
 
-    对于探测γ射线：用高原子序数材料探测器，可得到高的探测效率。
+  对于探测γ射线：用高原子序数材料探测器，可得到高的探测效率。
 
-    对于防护、屏蔽γ射线：采用高原子序数材料可以有效阻挡γ射线。
+  对于防护、屏蔽γ射线：采用高原子序数材料可以有效阻挡γ射线。
 
 - $h nu$越大、$sigma_"ph"$越小；
 
-    γ光子能量越高， 光电效应截面越小。
+  γ光子能量越高， 光电效应截面越小。
 
 $
-sigma_"ph" prop Z^5 (1/(h nu))^(3.5 tilde 1)
+  sigma_"ph" prop Z^5 (1/(h nu))^(3.5 tilde 1)
 $
 
 ==== 光电子的角分布
@@ -2743,7 +2746,7 @@ $
 
 康普顿效应主要发生在原子中结合的最松的外层电子上。 康普顿散射可近似为光子与自由电子发生相互作用（弹性碰撞）。
 - “自由”电子： 结合能（电离能）很小。
--  “静止”电子： 轨道电子速度远小于光速。
+- “静止”电子： 轨道电子速度远小于光速。
 
 ==== 反冲电子与散射光子的能量与散射角以及入射光子能量之间的关系
 
@@ -2771,19 +2774,19 @@ $
 
 散射光子能量为：
 $
-h nu' = (h nu) / (1 + (h nu)/(m_0 c^2) (1 - cos theta))
+  h nu' = (h nu) / (1 + (h nu)/(m_0 c^2) (1 - cos theta))
 $
 反冲电子能量为：
 $
-E_e =  ((h nu)^2  (1 - cos theta)) / (m_0 c^2 (1 + (h nu)/(m_0 c^2) (1 - cos theta)))
+  E_e = ((h nu)^2 (1 - cos theta)) / (m_0 c^2 (1 + (h nu)/(m_0 c^2) (1 - cos theta)))
 $
 反冲角：
 $
-ctg phi = (1 + (h nu)/(m_0 c^2) ) tan (theta / 2)
+  ctg phi = (1 + (h nu)/(m_0 c^2) ) tan (theta / 2)
 $
 以及
 $
-Delta lambda = h / (m_0 c) (1 - cos theta)
+  Delta lambda = h / (m_0 c) (1 - cos theta)
 $
 
 #newpara()
@@ -2791,14 +2794,14 @@ $
 小结：
 1. 散射光子和反冲电子的*能量是连续的*。
 
-    $θ$大，$E_e$大，$h ν ′$小
+  $θ$大，$E_e$大，$h ν ′$小
 
 2. 几种特殊情况：
-   - 散射角$θ ＝ 0°$时，$h nu' = h nu$，表明：入射光子从电子旁边掠过，未受到散射。
-   - 散射角$θ = 180°$时，散射光子能量最小，而反冲电子能量最大。
-   - $θ >150°$以后，$h ν' ≈ 200$keV，伽马能谱上形成*反散射峰*（外）和*康普顿沿*（内） 。
+  - 散射角$θ ＝ 0°$时，$h nu' = h nu$，表明：入射光子从电子旁边掠过，未受到散射。
+  - 散射角$θ = 180°$时，散射光子能量最小，而反冲电子能量最大。
+  - $θ >150°$以后，$h ν' ≈ 200$keV，伽马能谱上形成*反散射峰*（外）和*康普顿沿*（内） 。
 3. 散射角$θ$在$0°～ 180°$之间连续变化；反冲角$ϕ$在$90°～ 0°$相应变化。
-4. 当$h ν <<m_0c^2$时，$h ν' ~ h ν $，汤姆逊散射；当$h ν >>m_0c^2$时，$E_e_max ~ h ν$ 。
+4. 当$h ν <<m_0c^2$时，$h ν' ~ h ν$，汤姆逊散射；当$h ν >>m_0c^2$时，$E_e_max ~ h ν$ 。
 
 ==== 康普顿效应截面
 
@@ -2806,13 +2809,13 @@ $
 
 $h nu << m_0 c^2$：
 $
-sigma_(c,e) ->^(h nu ->0) sigma_"Th" = 8/3 pi r_0^2, r_0 = (e^2)/(4 pi epsilon_0 m_0 c^2)
+  sigma_(c,e) ->^(h nu ->0) sigma_"Th" = 8/3 pi r_0^2, r_0 = (e^2)/(4 pi epsilon_0 m_0 c^2)
 $
 近似与入射光子能量无关，为常数。
 
 $h nu >> m_0 c^2$：
 $
-sigma_(c,e)  = pi r^2 (m_0 c^2)/(h nu) (ln (2 h nu) / (m_0 c^2) + 1/2)
+  sigma_(c,e) = pi r^2 (m_0 c^2)/(h nu) (ln (2 h nu) / (m_0 c^2) + 1/2)
 $
 近似与入射光子能量成反比。
 
@@ -2820,13 +2823,13 @@ $
 
 在入射光子能量较高时：
 $
-sigma_c = Z sigma_(c,e) prop Z ln(2 h nu) / (h nu)
+  sigma_c = Z sigma_(c,e) prop Z ln(2 h nu) / (h nu)
 $
 $Z$大，康普顿效应截面大；$h ν$大，康普顿效应截面小。康普顿效应截面随入射光子能量及作用介质原子序数的变化比光电效应的要缓和。
 
 当入射光子能量较低时（如低于几十keV， $h ν(1 - cos theta) << m_0 c^2$）*轨道电子不能再看成是自由电子*，此时原子的康普顿效应截面表示为：
 $
-sigma_c = S(x, Z) sigma_(c,e)
+  sigma_c = S(x, Z) sigma_(c,e)
 $
 非相干散射函数（Incoherent scattering function）。
 
@@ -2881,7 +2884,7 @@ $
   ],
 )
 
-=== 电子对效应(Pair Production) 
+=== 电子对效应(Pair Production)
 
 *电子对效应*：当能量较高（$>2m_0c^2$）的$γ$射线(光子)从原子核旁经过时，在核库仑场的作用下，*$γ$射线*转化为*一个正电子和一个电子*的过程。
 
@@ -2897,49 +2900,49 @@ $
 )
 
 *正负电子*不是从原子核中释放的；也不是来自原子中的轨道电子；*是γ射线转化而来*，是物质不同形态的转化。
- 
+
 
 1. 正负电子的能量（动能）
 
-    由能量守恒定律：
-    $
+  由能量守恒定律：
+  $
     h nu = E_(e^+) + E_(e^-) + 2 m_0 c^2
-    $
-    正负电子的总动能为：
-    $
+  $
+  正负电子的总动能为：
+  $
     E_e = E_(e^+) + E_(e^-) = h nu - 2 m_0 c^2
-    $
-    总动能在电子和正电子之间随机分配，取值范围：$0 ~ (h nu - 2 m_0 c^2)$。
+  $
+  总动能在电子和正电子之间随机分配，取值范围：$0 ~ (h nu - 2 m_0 c^2)$。
 
 2. 正负电子的运动方向
 
-    由动量守恒，电子和正电子沿入射光子方向的前向角度发射。
+  由动量守恒，电子和正电子沿入射光子方向的前向角度发射。
 
-    入射光子的能量越高， 正负电子的发射方向越是前倾。
+  入射光子的能量越高， 正负电子的发射方向越是前倾。
 
 3. 电子对效应的截面
 
-    当$h ν$稍大于$2 m_0 c^2$时：
-    $
+  当$h ν$稍大于$2 m_0 c^2$时：
+  $
     sigma_p prop Z^2 E_gamma
-    $
-    其中$E_gamma$为入射光子的能量。
+  $
+  其中$E_gamma$为入射光子的能量。
 
-    当$h ν >> 2 m_0 c^2$时：
-    $
+  当$h ν >> 2 m_0 c^2$时：
+  $
     sigma_p prop Z^2 ln E_gamma
-    $
+  $
 
-    电子对效应截面
-    - 随$Z$的增加而增加，
-    - 随$E_γ$的增加而增加。
+  电子对效应截面
+  - 随$Z$的增加而增加，
+  - 随$E_γ$的增加而增加。
 
 4. 电子对效应的后续过程——正电子的湮没
 
-    #figure(
-      image("pic/2024-05-13-11-23-56.png", width: 80%),
-      numbering: none,
-    )
+  #figure(
+    image("pic/2024-05-13-11-23-56.png", width: 80%),
+    numbering: none,
+  )
 
 #figure(
   image("pic/2024-05-13-11-24-46.png", width: 80%),
@@ -3008,41 +3011,41 @@ $
 
 在$x～ x+dd(x)$层内单位时间光子数的变化等于在该层物质内单位时间发生的作用次数：
 $
-dd(I) = - σ_γ N I dd(x)
+  dd(I) = - σ_γ N I dd(x)
 $
 解得窄束γ射线强度的衰减规律：
 $
-I(x) = I_0 e^(- σ_γ N x)
+  I(x) = I_0 e^(- σ_γ N x)
 $
 
 ==== 衰减系数
 
 *线性衰减系数*(Linear attenuation coefficient)$mu$又称为宏观截面$Σ$：
 $
-mu = σ_γ N
+  mu = σ_γ N
 $
 单位是：$"cm"^(-1)$
 $
-mu = (sigma_"ph" + sigma_"c" + sigma_"p") N = mu_"ph" + mu_"c" + mu_"p"
+  mu = (sigma_"ph" + sigma_"c" + sigma_"p") N = mu_"ph" + mu_"c" + mu_"p"
 $
 $
-mu = Sigma = sigma_gamma (N_A rho)/A
+  mu = Sigma = sigma_gamma (N_A rho)/A
 $
 #newpara()
 *质量衰减系数*(Mass attenuation coefficient)：
 $
-mu_m = mu / rho = (sigma_gamma N)/rho = sigma_gamma N_A / A
+  mu_m = mu / rho = (sigma_gamma N)/rho = sigma_gamma N_A / A
 $
 单位是：$"cm"^2 / "g"$。质量衰减系数与物质状态无关。
 *质量厚度*(Mass thickness)：
 $
-x_m = x rho
+  x_m = x rho
 $
 单位是：$"g" / "cm"^2$。
 
 通过物质时的光子束强度：
 $
-I(x) = I_0 e^(- mu x) = I_0 e^(- mu_m x_m)
+  I(x) = I_0 e^(- mu x) = I_0 e^(- mu_m x_m)
 $
 
 ==== 半衰减厚度（Half-attenuation thickness or Half-Value Thickness） 和平均自由程（Mean free path）
@@ -3051,20 +3054,20 @@ $
 
 *半衰减厚度*：射线在物质中强度减弱一半时对应的物质厚度。
 $
-D_"1/2" = (ln 2)/mu
+  D_"1/2" = (ln 2)/mu
 $
 
 #newpara()
 
 *平均自由程*：发生相互作用前，射线在物质中行进的平均距离。
 $
-lambda = (integral_0^oo x mu e^(- mu x) dd(x)) / (integral_0^oo mu e^(- mu x) dd(x)) = 1/mu
+  lambda = (integral_0^oo x mu e^(- mu x) dd(x)) / (integral_0^oo mu e^(- mu x) dd(x)) = 1/mu
 $
 
 ==== 化合物或混合物的质量衰减系数
 
 $
-(mu_m)_c = sum_i omega_i (mu_m)_i, omega_i = (n_i A_i) / M
+  (mu_m)_c = sum_i omega_i (mu_m)_i, omega_i = (n_i A_i) / M
 $
 
 ==== 非窄束γ射线强度的衰减规律
@@ -3095,30 +3098,30 @@ $
 
 概率$p$的事件在$n$次试验中发生$k$次的概率：
 $
-P(k) = C_n^k p^k (1-p)^(n-k)
+  P(k) = C_n^k p^k (1-p)^(n-k)
 $
 数学期望：
 $
-E(k) = n p
+  E(k) = n p
 $
 方差：
 $
-D(k) = n p (1-p)
+  D(k) = n p (1-p)
 $
 
 ==== 泊松分布
 
 当$n$很大，$p$很小时，二项分布近似为泊松分布：
 $
-P(k) = (lambda^k e^(-lambda)) / k!
+  P(k) = (lambda^k e^(-lambda)) / k!
 $
 数学期望：
 $
-E(k) = lambda
+  E(k) = lambda
 $
 方差：
 $
-D(k) = lambda
+  D(k) = lambda
 $
 
 
@@ -3126,15 +3129,15 @@ $
 
 高斯分布：
 $
-P(x) = (1 / (2 pi sigma^2))^1/2 e^(-(x - mu)^2 / (2 sigma^2))
+  P(x) = (1 / (2 pi sigma^2))^1/2 e^(-(x - mu)^2 / (2 sigma^2))
 $
 数学期望：
 $
-E(x) = mu
+  E(x) = mu
 $
 方差：
 $
-D(x) = sigma^2
+  D(x) = sigma^2
 $
 
 === 随机变量组合的分布
@@ -3145,39 +3148,39 @@ $
 
 已知随机变量 $X$，其可取值为 $x$，概率密度函数为 $f(x)$。而 $Y=Φ(X)$ ，求随机变量$Y$的可取值$y$和概率密度函数$g(y)$。
 $
-Y = Φ(X) , X = Ψ(Y)
+  Y = Φ(X) , X = Ψ(Y)
 $
 由于$X$取各可取值的概率就是$Y$取相应可取值的概率，所以：
 $
-f(x) dd(x) = g(y) dd(y)
+  f(x) dd(x) = g(y) dd(y)
 $
 $
-g(y) = abs(dd(x) / dd(y)) f(x) = f(Ψ(y)) dd(Ψ(y)) / dd(y)
+  g(y) = abs(dd(x) / dd(y)) f(x) = f(Ψ(y)) dd(Ψ(y)) / dd(y)
 $
 若干重要且常用的关系：
 1. $Y = C X$
-   
-   $
-   E(Y) = C E(X)\
+
+  $
+    E(Y) = C E(X)\
     D(Y) = C^2 D(X)\
     nu(Y) = sigma_Y / E(Y) = sigma_X / E(X) = nu(X)
-   $
-   相对标准偏差不变。
+  $
+  相对标准偏差不变。
 2. *相互独立*的随机变量的 “和”、“差”与“积”的数学期望，是各随机变量数学期望的“和”、“差”与“积”
 
-    $
+  $
     E(X_1 + E_2) = E(X_1) + E(X_2)\
     E(X_1 - E_2) = E(X_1) - E(X_2)\
     E(X_1 X_2) = E(X_1) E(X_2)
-    $
+  $
 3. *相互独立*的随机变量的“和”的方差，是各随机变量方差的“和”
 
-    $
+  $
     D(X_1 plus.minus X_2) = D(X_1) + D(X_2)
-    $
-4.  *相互独立*的*泊松分布随机变量*之“和”仍服从泊松分布 。
-   
-    注意：相互独立的泊松分布随机变量之“差”，不服从泊松分布。
+  $
+4. *相互独立*的*泊松分布随机变量*之“和”仍服从泊松分布 。
+
+  注意：相互独立的泊松分布随机变量之“差”，不服从泊松分布。
 
 === 串级随机变量
 
@@ -3193,22 +3196,22 @@ $
 3. 将这些可取值加起来得到一个值$ξ_i$ ，并将此值定义为一个新的随机变量$ξ$的一个可取值
 
   $
-  ξ_i = sum_(j = 0)^(ξ_(1 i)) ξ_(2 j)
+    ξ_i = sum_(j = 0)^(ξ_(1 i)) ξ_(2 j)
   $
 随机变量$ξ$即为$ξ_1$与$ξ_2$的“串级”随机变量。$ξ_1$为此串级随机变量的第一级；$ξ_2$为此串级随机变量的第二级。
 
 串级随机变量的特性
 - 期望值：
   $
-  E(ξ) = E(ξ_1) E(ξ_2)
+    E(ξ) = E(ξ_1) E(ξ_2)
   $
 - 方差：
   $
-  D(ξ) = E^2(ξ_2) D(ξ_1) + E(ξ_1) D(ξ_2)
+    D(ξ) = E^2(ξ_2) D(ξ_1) + E(ξ_1) D(ξ_2)
   $
--  相对方差：
+- 相对方差：
   $
-  nu^2(ξ) = D(ξ) / (E^2(ξ)) = nu^2(ξ_1) +( nu^2(ξ_2)) /( E(ξ_1))
+    nu^2(ξ) = D(ξ) / (E^2(ξ)) = nu^2(ξ_1) +( nu^2(ξ_2)) /( E(ξ_1))
   $
 假如*第一级随机变量的数学期望很大*，那么就可以忽略第二级随机变量的相对方差对串级随机变量的相对方差的贡献。此时，串级随机变量的相对方差主要由第一级随机变量的相对方差决定。
 - 两个伯努利型随机变量$ξ_1$和$ξ_2$串级而成的随机变量$ξ$仍是伯努利型随机变量，只有两个可取值$(0, 1)$
@@ -3216,11 +3219,11 @@ $
 对$N$个*相互独立*的随机变量串级而成的$N$级串级随机变量$ξ$，有：
 - 期望值：
   $
-  E(ξ) = E(ξ_1) E(ξ_2) ... E(ξ_N)
+    E(ξ) = E(ξ_1) E(ξ_2) ... E(ξ_N)
   $
 - 相对方差：
   $
-  nu^2(ξ) = nu^2(ξ_1) + (nu^2(ξ_2))/(E(ξ_1)) + (nu^2(ξ_N))/(E(ξ_1) E(ξ_2)) + ... + (nu^2(ξ_N))/(E(ξ_1) E(ξ_2) ... E(ξ_(N-1)))
+    nu^2(ξ) = nu^2(ξ_1) + (nu^2(ξ_2))/(E(ξ_1)) + (nu^2(ξ_N))/(E(ξ_1) E(ξ_2)) + ... + (nu^2(ξ_N))/(E(ξ_1) E(ξ_2) ... E(ξ_(N-1)))
   $
 在第一级随机变量的均值较大时，串级随机变量的相对方差主要决定于第一级随机变量的相对方差。
 
@@ -3232,15 +3235,15 @@ $
 
 - 概率函数：
   $
-  P_(N_0) (N) = (N_0 !)/(N! (N_0 - N)!) (1 - e^(-lambda t))^N (e^(-lambda t))^((N_0 - N))
+    P_(N_0) (N) = (N_0 !)/(N! (N_0 - N)!) (1 - e^(-lambda t))^N (e^(-lambda t))^((N_0 - N))
   $
 - 数学期望：
   $
-  E(N) = N_0 (1 - e^(-lambda t))
+    E(N) = N_0 (1 - e^(-lambda t))
   $
 - 方差：
   $
-  D(N) = N_0 e^(-lambda t) (1 - e^(-lambda t))
+    D(N) = N_0 e^(-lambda t) (1 - e^(-lambda t))
   $
 
 对于半衰期较长的放射源：衰变常数很小、原子核数目很大。在有限的时间$t$（如几天）内，满足二项式分布→泊松分布的两个条件。所以，在$t$时间内发生的核衰变数$N$服从*泊松分布*。
@@ -3252,22 +3255,22 @@ $N$服从泊松分布：
 
 - 概率函数：
   $
-  P_(A_0) (N) = (A_0 t)^N e^(-A_0 t) / N!
+    P_(A_0) (N) = (A_0 t)^N e^(-A_0 t) / N!
   $
 - 数学期望：
   $
-  E(N) = A_0 t = N_0 lambda t = m
+    E(N) = A_0 t = N_0 lambda t = m
   $
 - 方差：
   $
-  D(N) = A_0 t = N_0 lambda t = m
+    D(N) = A_0 t = N_0 lambda t = m
   $
 在长寿命核衰变中，核衰变数$N$的方差与均值相等。
 
 当$m$较大时，泊松分布 → *高斯分布*。
 
 $
-P(N) = 1/sqrt(2 pi m) e^(-(N - m)^2 / (2 m))
+  P(N) = 1/sqrt(2 pi m) e^(-(N - m)^2 / (2 m))
 $
 仅有统计涨落则$sigma = sqrt(m)$。
 
@@ -3292,8 +3295,8 @@ $
   $V_1$是*泊松分布随机变量与伯努利型随机变量串级*而成的二级串级随机变量，*服从泊松分布*。
 
   $
-  macron(N_1) = % N_0 lambda t = % A_0 t\
-  sigma^2(N_1) = % N_0 lambda t = % A_0 t
+    macron(N_1) = % N_0 lambda t = % A_0 t\
+    sigma^2(N_1) = % N_0 lambda t = % A_0 t
   $
 
 2. 射入探测器粒子数$N_2$
@@ -3305,8 +3308,8 @@ $
   $N_2$为*泊松分布随机变量与两个伯努利型随机变量串级*而成的三级串级随机变量，服从*泊松分布*。
 
   $
-  macron(N_2) = Ω/(4π) macron(N_1) = Ω/(4π) % N_0 lambda t = Ω/(4π) % A_0 t\
-  sigma^2(N_2) = Ω/(4π) % A_0 t
+    macron(N_2) = Ω/(4π) macron(N_1) = Ω/(4π) % N_0 lambda t = Ω/(4π) % A_0 t\
+    sigma^2(N_2) = Ω/(4π) % A_0 t
   $
 
 1. 探测器输出脉冲计数$N_3$
@@ -3318,8 +3321,8 @@ $
   $N_3$为*泊松分布随机变量与三个伯努利型随机变量串级*而成的四级串级随机变量，服从*泊松分布*。
 
   $
-  macron(N_3) = ε macron(N_2) = ε Ω/(4π) % N_0 lambda t = ε Ω/(4π) % A_0 t\
-  sigma^2(N_3) = macron(N_3) = ε Ω/(4π) % N_0 lambda t = ε Ω/(4π) % A_0 t
+    macron(N_3) = ε macron(N_2) = ε Ω/(4π) % N_0 lambda t = ε Ω/(4π) % A_0 t\
+    sigma^2(N_3) = macron(N_3) = ε Ω/(4π) % N_0 lambda t = ε Ω/(4π) % A_0 t
   $
 
 #figure(
@@ -3338,7 +3341,7 @@ $
 
 $m$较大时，$m$与有限次测量的平均值或任一测量值$N$相对相差不大
 $
-sigma = sqrt(m) = sqrt(macron(N)) = sqrt(N)
+  sigma = sqrt(m) = sqrt(macron(N)) = sqrt(N)
 $
 $N$为单次测量值。
 
@@ -3346,17 +3349,17 @@ $N$为单次测量值。
 
 实验数据分析中，可由实验数据直接得到样本方差，它是总体方差的无偏估计，可以由样本方差估计有限次测量的方差，称为*标准偏差*$σ_s$：
 $
-sigma_s = sqrt(1/(n-1) sum_(i = 1)^n (N_i - macron(N))^2)
+  sigma_s = sqrt(1/(n-1) sum_(i = 1)^n (N_i - macron(N))^2)
 $
 不仅包括统计误差，还反映了*其他偶然误差*的贡献，可用于数据的检验。
 $
-sigma_S >= sigma = sqrt(N)
+  sigma_S >= sigma = sqrt(N)
 $
 #newpara()
 
 计数测量结果的表示（服从泊松分布时） ：
 $
-N plus.minus sigma_N  = N plus.minus sqrt(N) 
+  N plus.minus sigma_N = N plus.minus sqrt(N)
 $
 表示：任意一次测量值$N_i$或真平均值落在区间内的概率为68.3%（置信度）。
 
@@ -3365,11 +3368,11 @@ $
 
 直观上，计数值越大（相同条件下测量时间越长），*离散程度*应该越小，因此一般用*相对标准偏差*表示测量值的离散程度。在辐射探测实验中，要求测量的统计误差小于%，指的就是*相对标准偏差*要小于该值。
 $
-1/sqrt(N) < nu => N > 1/nu^2
+  1/sqrt(N) < nu => N > 1/nu^2
 $
 为了提高探测器计数的测量精度：
 $
-nu^2(N_3) = (sigma^2(N_3) )/ (macron(N_3)^2) =1 / macron(N_3) = (4 pi)/(ε Ω A_0 t)
+  nu^2(N_3) = (sigma^2(N_3) )/ (macron(N_3)^2) =1 / macron(N_3) = (4 pi)/(ε Ω A_0 t)
 $
 - 增大立体角
 - 增大探测器的本征探测效率
@@ -3382,19 +3385,19 @@ $
 
 设：$x_1,x_2,...,x_n$是相互独立的随机变量，$sigma_(x_1),sigma_(x_2),...,sigma_(x_n)$是它们的*标准偏差*，$y = f(x_1,x_2,...,x_n)$是它们的函数。$y$的标准偏差$sigma_y$与$x_1,x_2,...,x_n$的标准偏差$sigma_(x_1),sigma_(x_2),...,sigma_(x_n)$之间的关系。
 $
-sigma^2_y = sum_(i = 1)^n ((partial f) / (partial x_i))^2 sigma^2_(x_i)
+  sigma^2_y = sum_(i = 1)^n ((partial f) / (partial x_i))^2 sigma^2_(x_i)
 $
 
 ==== 两独立随机变量的和或差构成的随机变量
 
 $
-y = x_1 plus.minus x_2
+  y = x_1 plus.minus x_2
 $
 
 $
-E(y) = E(x_1) plus.minus E(x_2)\
-sigma^2(y) = sigma^2(x_1) + sigma^2(x_2)\
-nu(y) = sqrt(sigma^2(x_1) + sigma^2(x_2)) / (E(x_1) plus.minus E(x_2))
+  E(y) = E(x_1) plus.minus E(x_2)\
+  sigma^2(y) = sigma^2(x_1) + sigma^2(x_2)\
+  nu(y) = sqrt(sigma^2(x_1) + sigma^2(x_2)) / (E(x_1) plus.minus E(x_2))
 $
 
 #figure(
@@ -3404,20 +3407,20 @@ $
 
 净计数及其相对标准偏差：
 $
-N_0 = N_s - N_b\
-nu(N_0) = sqrt(N_s + N_b) / (N_s - N_b)
+  N_0 = N_s - N_b\
+  nu(N_0) = sqrt(N_s + N_b) / (N_s - N_b)
 $
 
 ==== 机变量乘以（除以）常数构成的随机变量
 
 $
-y = A x , y = x / B
+  y = A x , y = x / B
 $
 
 $
-E(y) = A E(x) , E(y) = E(x) / B\
-sigma^2(y) = A^2 sigma^2(x) , sigma^2(y) = sigma^2(x) / B^2\
-nu(y) = nu(x)
+  E(y) = A E(x) , E(y) = E(x) / B\
+  sigma^2(y) = A^2 sigma^2(x) , sigma^2(y) = sigma^2(x) / B^2\
+  nu(y) = nu(x)
 $
 机变量乘以（除以）常数构成的随机变量，不改变原随机变量的相对标准偏差。
 
@@ -3428,22 +3431,22 @@ $
 
 计数率及其相对标准偏差：
 $
-n = N / t\
-sigma^(n) = N/ t^2 != n\
-nu(n) = sigma^(n) / n = sqrt(N) / N = 1 / sqrt(N) = nu(N)
+  n = N / t\
+  sigma^(n) = N/ t^2 != n\
+  nu(n) = sigma^(n) / n = sqrt(N) / N = 1 / sqrt(N) = nu(N)
 $
 
 ==== 两独立随机变量的乘积或商构成的随机变量
 
 $
-y = x_1 x_2 , y = x_1 / x_2
+  y = x_1 x_2 , y = x_1 / x_2
 $
 
 $
-E(y) = E(x_1) E(x_2) , E(y) = E(x_1) / E(x_2)\
-nu^2(y) = nu^2(x_1) + nu^2(x_2)\
-((sigma(y)) / (E(y)))^2 = ((sigma(x_1)) / (E(x_1)))^2 + ((sigma(x_2)) / (E(x_2)))^2\
-sigma(y) = E(y) sqrt(((sigma(x_1)) / (E(x_1)))^2 + ((sigma(x_2)) / (E(x_2)))^2)
+  E(y) = E(x_1) E(x_2) , E(y) = E(x_1) / E(x_2)\
+  nu^2(y) = nu^2(x_1) + nu^2(x_2)\
+  ((sigma(y)) / (E(y)))^2 = ((sigma(x_1)) / (E(x_1)))^2 + ((sigma(x_2)) / (E(x_2)))^2\
+  sigma(y) = E(y) sqrt(((sigma(x_1)) / (E(x_1)))^2 + ((sigma(x_2)) / (E(x_2)))^2)
 $
 
 ==== 存在本底时净计数率及其统计误差
@@ -3451,22 +3454,22 @@ $
 设：时间$t_b$内测得本底的计数为$N_b$，时间$t_s$内测得样品和本底的总计数为$N_s$
 
 - 净计数率的期望值：
-  
+
   $
-  n_0 = N_s / t_s - N_b / t_b = n_s - n_b
+    n_0 = N_s / t_s - N_b / t_b = n_s - n_b
   $
   - $n_0$仅取决于样品，不能直接测到
   - $n_b$减小时$n_S$也减小，$n_0$不变
   - $n_s$既随本底$n_b$变，又随样品变
 - 标准偏差：
-  
+
   $
-  sigma(n_0) = sqrt(sigma^2(n_s) + sigma^2(n_b)) = sqrt( N_s / t_s^2 + N_b / t_b^2 ) = sqrt( n_s/t_s + n_b/t_b )
+    sigma(n_0) = sqrt(sigma^2(n_s) + sigma^2(n_b)) = sqrt(N_s / t_s^2 + N_b / t_b^2) = sqrt(n_s/t_s + n_b/t_b)
   $
 - 相对标准偏差：
-  
+
   $
-  nu(n_0) = sigma(n_0) / n_0 = 1/ (n_s - n_b)sqrt( n_s/t_s + n_b/t_b ) 
+    nu(n_0) = sigma(n_0) / n_0 = 1/ (n_s - n_b)sqrt(n_s/t_s + n_b/t_b)
   $
   减小本底有利于提高测量精度$n_b$减小的同时$n_S$也减小了，增加时间有利于提高测量精度
 
@@ -3474,21 +3477,21 @@ $
 
 对样品重复测量$k$次，每次测量时间$t$相同（等精度测量），得到$k$个计数$N_1,N_2,N_3...N_k$，则在时间$t$内的平均计数值为：
 $
-macron(N) = 1/k sum_(i = 1)^k N_i
+  macron(N) = 1/k sum_(i = 1)^k N_i
 $
 由误差传递公式，平均计数值的方差为：
 $
-sigma^2(N) = 1/k^2 sum_(i = 1)^k sigma^2(N_i) = 1/k^2 sum_(i = 1)^k N_i = macron(N)/k
+  sigma^2(N) = 1/k^2 sum_(i = 1)^k sigma^2(N_i) = 1/k^2 sum_(i = 1)^k N_i = macron(N)/k
 $
 平均计数是随机变量，但期望值不等于方差，*不服从泊松分布*。
 
 多次重复测量平均计数的表达：
 $
-macron(N) plus.minus sigma(N) = macron(N) plus.minus sqrt(macron(N)/k)
+  macron(N) plus.minus sigma(N) = macron(N) plus.minus sqrt(macron(N)/k)
 $
 平均计数的相对标准偏差=总计数的相对标准偏差
 $
-nu(macron(N)) = sigma(macron(N)) / macron(N) = 1 / sqrt(k macron(N)) = 1 / sqrt(sum_i N_i)
+  nu(macron(N)) = sigma(macron(N)) / macron(N) = 1 / sqrt(k macron(N)) = 1 / sqrt(sum_i N_i)
 $
 
 ==== 不等精度独立测量值的组合
@@ -3499,36 +3502,36 @@ $
 
 各次测量的计数率的期望值及方差：
 $
-n_i = N_i / t_i\
-sigma^2(n_i) = N_i / t_i^2 = n_i / t_i
+  n_i = N_i / t_i\
+  sigma^2(n_i) = N_i / t_i^2 = n_i / t_i
 $
 设各次测量的权重$W_i$与方差成反比：
 $
-W_i = lambda^2 / (sigma^2(n_i) )=^(lambda^2 = macron(n) approx n_i) n_i / (n_i / t_i ) = t_i
+  W_i = lambda^2 / (sigma^2(n_i) )=^(lambda^2 = macron(n) approx n_i) n_i / (n_i / t_i ) = t_i
 $
 
 计数率的*加权平均值*，加权平均值的期望值：
 $
-macron(n) = (sum_(i = 1)^k W_i n_i) /( sum_(i = 1)^k W_i) = (sum_(i = 1)^k t_i n_i) /( sum_(i = 1)^k t_i) = (sum_(i = 1)^k N_i) /( sum_(i = 1)^k t_i)
+  macron(n) = (sum_(i = 1)^k W_i n_i) /( sum_(i = 1)^k W_i) = (sum_(i = 1)^k t_i n_i) /( sum_(i = 1)^k t_i) = (sum_(i = 1)^k N_i) /( sum_(i = 1)^k t_i)
 $
 加权平均值的标准偏差：
 $
-sigma^2(macron(n)) = sqrt(1/(sum_(i = 1)^k t_i)^2 sum_(i=1)^k sigma^2(n_i) ) = sqrt(1/(sum_(i = 1)^k t_i)^2 sum_(i=1)^k N_i ) = sqrt( macron(n) / (sum_(i = 1)^k t_i ))
+  sigma^2(macron(n)) = sqrt(1/(sum_(i = 1)^k t_i)^2 sum_(i=1)^k sigma^2(n_i)) = sqrt(1/(sum_(i = 1)^k t_i)^2 sum_(i=1)^k N_i) = sqrt(macron(n) / (sum_(i = 1)^k t_i ))
 $
 *加权平均值的相对标准偏差 = 总计数的相对标准偏差*：
 $
-nu(macron(n)) = sigma(macron(n)) / macron(n) = 1 / sqrt(sum_(i = 1)^k N_i)
+  nu(macron(n)) = sigma(macron(n)) / macron(n) = 1 / sqrt(sum_(i = 1)^k N_i)
 $
 
 #newpara()
 
 平均计数率的表示：
 $
-macron(n) plus.minus sigma(n) = macron(n) plus.minus sqrt(macron(n) / (sum_(i = 1)^k t_i))
+  macron(n) plus.minus sigma(n) = macron(n) plus.minus sqrt(macron(n) / (sum_(i = 1)^k t_i))
 $
 对等精度测量（k次等时间测量）
 $
-macron(n) plus.minus sigma(n) = macron(n) plus.minus sqrt(macron(n) / (k t ))
+  macron(n) plus.minus sigma(n) = macron(n) plus.minus sqrt(macron(n) / (k t ))
 $
 
 #figure(
@@ -3545,24 +3548,24 @@ $
 1. 不考虑本底的影响（样品放射性强，本底可忽略）
 
   $
-  nu_n = 1 / sqrt(n t) <= nu_0 => t >= 1 / ((nu_0)^2 n)
+    nu_n = 1 / sqrt(n t) <= nu_0 => t >= 1 / ((nu_0)^2 n)
   $
 2. 有本底存在时，需要合理分配测量时间：样品测量时间$t_s$和本底测量时间$t_b$。在总测量时间$T = t_s + t_b$不变的情况下，测量结果——*净计数率*的*标准偏差最小*（测量精度最高）。
 
   $
-  sigma(n_0) = sqrt(n_s/t_s + n_b/t_b)
+    sigma(n_0) = sqrt(n_s/t_s + n_b/t_b)
   $
   求导得到极小值条件：
   $
-  t_s/t_b = sqrt(n_s/n_b)
+    t_s/t_b = sqrt(n_s/n_b)
   $
   该条件下的相对方差为：
   $
-  nu^2(n_0) = (1 / (n_s - n_b) sqrt(n_s/t_s + n_b/t_b))^2 = 1 /(T (sqrt(n_s) - sqrt(n_b))^2)
+    nu^2(n_0) = (1 / (n_s - n_b) sqrt(n_s/t_s + n_b/t_b))^2 = 1 /(T (sqrt(n_s) - sqrt(n_b))^2)
   $
   给定相对标准偏差，所需最小总测量时间为：
   $
-  T >= 1 / ((nu_0)^2 (sqrt(n_s) - sqrt(n_b))^2)
+    T >= 1 / ((nu_0)^2 (sqrt(n_s) - sqrt(n_b))^2)
   $
 
 == 带电粒子在介质中电离过程的统计涨落
@@ -3573,11 +3576,11 @@ $
 
 实验发现，带电粒子在气体介质中，每产生一个电子-离子对需消耗的能量基本上是一个常数：
 $
-W ≈ 30e V
+  W ≈ 30e V
 $
 则，能量为$E_0$的带电粒子在气体中损耗全部能量，产生的电子-离子对数的平均值为：
 $
-macron(n) = E_0 / W
+  macron(n) = E_0 / W
 $
 
 *带电粒子在气体中的电离能量损失过程分析*
@@ -3586,16 +3589,16 @@ $
 
 $N$次碰撞后产生$macron(n)$个离子对，因而每次碰撞产生离子对的概率是：$P = macron(n) / N$。碰撞是伯努利事件，$N$次碰撞中产生的离子对数$n$是一个*二项分布随机变量*。但实际上电离过程中各次碰撞*并不相互独立*，产生的离子对数不能简单的用泊松分布来描述，而要对泊松分布进行修正，引入*法诺因子*$F$：
 $
-F = sigma^2/macron(n) = ("观测的"n"的方差")/"泊松统计预测的方差"
+  F = sigma^2/macron(n) = ("观测的"n"的方差")/"泊松统计预测的方差"
 $
 法诺分布随机变量的方差等于均值乘以法诺因子。$F$一般取0.05$tilde$0.2(气体)或 0.1$tilde$0.15(半导体)，不同材料法诺因子不同，可由实验测定。
 
 带电粒子在介质中损失能量$E_0$，共产生$n$个离子对，$n$为随机变量，服从*法诺分布*。
 $
-macron(n) = E_0 / W "对应探测器的信号幅度"\
-sigma^2 = F macron(n) = F E_0 / W\
-sigma = sqrt(F macron(n)) = sqrt((F E_0 )/ W) "对应探测器的能量分辨率"\
-nu = sigma / macron(n) = sqrt((F W) / E_0) "对应探测器的能量分辨率"
+  macron(n) = E_0 / W "对应探测器的信号幅度"\
+  sigma^2 = F macron(n) = F E_0 / W\
+  sigma = sqrt(F macron(n)) = sqrt((F E_0 )/ W) "对应探测器的能量分辨率"\
+  nu = sigma / macron(n) = sqrt((F W) / E_0) "对应探测器的能量分辨率"
 $
 
 === 粒子束脉冲的总电离电荷量的涨落
@@ -3603,7 +3606,7 @@ $
 ==== 探测器的工作方式
 
 - *脉冲型工作方式：信号反映单个粒子的特性*
-  
+
   探测器逐个探测辐射粒子，信号与单个粒子的性质相对应（可计数或测能谱）:
   - *计数*与*粒子数*对应;
   - *幅度*与*粒子能量*对应。
@@ -3612,7 +3615,7 @@ $
 
     给出粒子束脉冲在探测器内产生的总电离效果，信号为大脉冲，*脉冲幅度与粒子束内粒子数量和能量有关*。
   - 电流型
-  
+
     稳定粒子束流在探测器内产生的平均电离效应。输出直流电流/电压信号，*信号的大小正比于粒子束流的强度和能量*。
 
 ==== 粒子束脉冲的总电离电荷量及其涨落
@@ -3628,15 +3631,15 @@ $n_2$为每个入射*带电粒子*（或入射 γ / X 射线通过相互作用�
 
 第$i$个脉冲产生的总离子对数为：
 $
-N_i = sum_(j = 1)^(n_(1 i)) n_(2 j)
+  N_i = sum_(j = 1)^(n_(1 i)) n_(2 j)
 $
 - 均值
   $
-  macron(N) = macron(n_1) macron(n_2)
+    macron(N) = macron(n_1) macron(n_2)
   $
 - 相对反差
   $
-  nu^2_N = nu_(n_1)^2 + 1/macron(n_1) nu_(n_2)^2 = 1/macron(n_1) (1 + F/macron(n_2))
+    nu^2_N = nu_(n_1)^2 + 1/macron(n_1) nu_(n_2)^2 = 1/macron(n_1) (1 + F/macron(n_2))
   $
 
 == 辐射粒子与信号的时间分布
@@ -3647,21 +3650,21 @@ $
 
 脉冲间的平均时间间隔：
 $
-macron(T) = 1/m
+  macron(T) = 1/m
 $
 $t$时间内出现$n$个脉冲的概率为：
 $
-P_(t) (n) = (m t)^n / n! e^(-m t)
+  P_(t) (n) = (m t)^n / n! e^(-m t)
 $
 两个相邻脉冲时间间隔为$t$的条件为：
 - 在第一个脉冲发生后的$t$内没有产生脉冲；
 - 在$t$后的$dd(t)$时间内产生了一个脉冲。
 $
-P(t <= T < t + dd(t)) = P_(t) (0) P_(dd(t)) (1) = e^(-m t) m dd(t)
+  P(t <= T < t + dd(t)) = P_(t) (0) P_(dd(t)) (1) = e^(-m t) m dd(t)
 $
 得到随机变量$T$的概率密度函数为：
 $
-f(t) = m e^(-m t)
+  f(t) = m e^(-m t)
 $
 $T$服从由$m$决定的指数型分布。
 
@@ -3674,20 +3677,20 @@ $T$服从由$m$决定的指数型分布。
 
 - 均值：
   $
-  macron(T) = integral_0^oo t f(t) dd(t) = 1/m
+    macron(T) = integral_0^oo t f(t) dd(t) = 1/m
   $
 - 方差：
   $
-  sigma^2(T) = integral_0^oo t^2 f(t) dd(t) - macron(T)^2 = 1/m^2
+    sigma^2(T) = integral_0^oo t^2 f(t) dd(t) - macron(T)^2 = 1/m^2
   $
 - 相对方差：
   $
-  nu^2(T) = (sigma^2(T)) / macron(T)^2 = 1
+    nu^2(T) = (sigma^2(T)) / macron(T)^2 = 1
   $
 
 时间间隔$t ≥ T_0$的概率：
 $
-P(T ≥ T_0) = e^(-m T_0)
+  P(T ≥ T_0) = e^(-m T_0)
 $
 
 #newpara()
@@ -3707,24 +3710,24 @@ $
 
 进位系数为$S$，则*相邻进位脉冲*的时间间隔$T_S$为随机变量，其概率密度函数为：
 $
-f_S (t) = (m t)^(S-1)  / (S-1)! e^(-m t)
+  f_S (t) = (m t)^(S-1) / (S-1)! e^(-m t)
 $
 阶数为$S$的埃尔朗分布或伽玛分布。
 - 均值：
   $
-  macron(T_S) = S / m
+    macron(T_S) = S / m
   $
 - 方差：
   $
-  sigma^2(T_S) = S / m^2
+    sigma^2(T_S) = S / m^2
   $
 - 相对方差：
   $
-  nu^2(T_S) = 1 / S
+    nu^2(T_S) = 1 / S
   $
 相邻定标脉冲的*最可几时间间隔*：
 $
-(dd(f_S) / dd(t)) = 0 => t_"most probable" = (S - 1) / m
+  (dd(f_S) / dd(t)) = 0 => t_"most probable" = (S - 1) / m
 $
 #figure(
   image("pic/2024-05-20-15-27-57.png", width: 80%),
@@ -3763,7 +3766,7 @@ $
   - 高纯锗半导体探测器
 #figure(
   image("pic/2024-05-20-15-33-07.png", width: 80%),
-  numbering: none,  
+  numbering: none,
 )
 
 *气体探测器*主要有三种：
@@ -3812,7 +3815,7 @@ $
 
 若入射带电粒子的能量为$E_0$，当其能量全部损失在气体介质中时，产生的平均离子对数为：
 $
-macron(N) = E_0 / W
+  macron(N) = E_0 / W
 $
 能量$prop$离子对数$prop$信号幅度。
 
@@ -3822,7 +3825,7 @@ $
 
 法诺分布的方差等于均值乘以法诺因子：
 $
-sigma^2 = F macron(N) = F E_0 / W
+  sigma^2 = F macron(N) = F E_0 / W
 $
 
 ==== 被激发原子的退激
@@ -3857,26 +3860,27 @@ $
 
 复合引起的离子对数目的损失率：
 $
-- (partial n^+)/(partial t) = - (partial n^-)/(partial t) = alpha n^+ n^-
+  - (partial n^+)/(partial t) = - (partial n^-)/(partial t) = alpha n^+ n^-
 $
 其中$alpha$为复合系数，$n^+$和$n^-$分别为正负离子的密度。
 
-两种情况： 
+两种情况：
 - 电子与正离子：$alpha$小
 - 负离子与正离子：$alpha$大
 
 *必须尽量避免。*
 
-==== 扩散（Diffusion）
+==== 扩散（"d"
+usion）
 
 *扩散*：在气体中，电离产生的电子和离子的密度不均匀，原电离处密度大。由于其密度梯度而造成的离子、电子的定向运动叫扩散。
 
 $
-arrow(j)^plus.minus = - D^plus.minus grad n
+  arrow(j)^plus.minus = - D^plus.minus grad n
 $
 其中三项为粒子流密度、扩散系数、密度。如果电离产生的电子和离子的速度遵守麦克斯韦分布，则扩散系数$D$与电子或离子的杂乱运动的平均速度$v$之间的关系为：
 $
-D = 1/3 macron(v) lambda
+  D = 1/3 macron(v) lambda
 $
 其中$lambda$为电子或离子的平均自由程。
 
@@ -3910,15 +3914,15 @@ $
 
 存在电场的情况下，两次碰撞之间离子从电场获得的能量又会在碰撞中损失，离子的能量积累不起来。*离子的平均动能与没有电场的情况相似*，为：
 $
-1/2 M v^2 = 3/2 k T
+  1/2 M v^2 = 3/2 k T
 $
 *离子漂移速度*
 $
-arrow(u)^plus.minus = mu^plus.minus arrow(E)/P
+  arrow(u)^plus.minus = mu^plus.minus arrow(E)/P
 $
 其中$mu$为离子的迁移率，$P$为气体的压强，$arrow(E)/P$是约化场强。离子的迁移率可表示为：
 $
-mu^plus.minus = (e lambda_0)/(2 M macron(v))
+  mu^plus.minus = (e lambda_0)/(2 M macron(v))
 $
 其中$lambda_0$为气体分子单位气压下的平均自由程，$macron(v)$为气体分子乱运动的平均速度。由于离子的平均动能基本上不随电场而变化，则$macron(v)$近似为常数，即离子的迁移率不随电场变化，近似为常数。
 
@@ -3927,13 +3931,13 @@ $
 电子与气体分子发生弹性碰撞时，每次损失的能量很小，因此，电子在两次碰撞中由外电场加速的*能量可积累起来*。直到使它的弹性碰撞能量损失和碰撞间从电场获得的能量相等，或发生非弹性碰撞为止。达到平衡状态时，即损失能量等于从电场获得的能量时，
 电子的平均能量为:
 $
-1/2 m_e v_e^2 = eta 3/2 k T
+  1/2 m_e v_e^2 = eta 3/2 k T
 $
 其中$eta$是*电子温度*，是电场强度的函数。
 
 电子的漂移速度与*约化场强*不成正比，可用函数表示：
 $
-arrow(u)_e = f(arrow(E)/P)
+  arrow(u)_e = f(arrow(E)/P)
 $
 函数关系由实验测定，一般给出实验曲线。呈现*饱和特性*。电子漂移速度对气体成分很敏感，少量双原子或多原子分子气体的混入就可显著提高电子漂移速度。
 
@@ -4067,13 +4071,13 @@ $
 1. 只有*电荷*在极板间*移动*时，外回路才有*感应电流*流过，此时$i(t) = i^+ (t) + i^- (t)$。*正、负电荷的感应电流方向相同*，在探测器内部从阳极流向阴极， 在外部回路从阴极流向阳极。电荷漂移结束，则感应电流消失。负电荷被收集后，回路中就只有正电荷的感应电流。
 2. 当$+e,-e$电荷在同一位置产生时，它们在极板上的感应电荷量分别相同，但符号相反；$+e,−e$电荷漂移结束，流过外回路的*总电荷量*为$e$；该电荷量与这一对电荷的产生*位置无关*。（正负电荷漂移速度不同/各处电场强度不同时，电流和位置有关）
 3. 若入射粒子在探测器灵敏体积内产生$N$个离子对，且均在电场作用下漂移，产生的 总电流信号：
-   $
-   I(t) = sum_(j = 1)^N i^+_j (t) + sum_(j = 1)^N i^-_j (t) = I^+ (t) + I^- (t)
-   $
-   $I$不仅与离子对数目$N$有关，而且与各离子对产生的位置有关。
+  $
+    I(t) = sum_(j = 1)^N i^+_j (t) + sum_(j = 1)^N i^-_j (t) = I^+ (t) + I^- (t)
+  $
+  $I$不仅与离子对数目$N$有关，而且与各离子对产生的位置有关。
 4. 当$N$个离子对全部被收集时， 流过回路的总电荷量：
   $
-  Q = N e
+    Q = N e
   $
   与离子对产生的位置无关，与离子对数目$N$有关。
 
@@ -4088,13 +4092,13 @@ $
 
 电离室的工作方式可分为：
 1. 脉冲型工作状态
- 
+
   记录单个入射粒子的电离效应，处于这种工作状态的电离室称为：脉冲电离室。
 2. 累计型工作状态
 
   记录大量入射粒子平均电离效应，处于这种工作状态的电离室称为：累计电离室。
 
-==  脉冲电离室
+== 脉冲电离室
 
 === 脉冲电离室的输出信号
 
@@ -4106,7 +4110,7 @@ $
 
 电离室*灵敏体积*内产生$N$个电子-离子对并全部被极板收集后的总输出电荷量：
 $
-Q = N e = E/W e
+  Q = N e = E/W e
 $
 $Q$与极板形状、电场分布、输出回路参数、电离产生的位置等无关。
 
@@ -4130,8 +4134,8 @@ $Q$与极板形状、电场分布、输出回路参数、电离产生的位置�
 )
 若$t$时刻，灵敏体积中有$N_+ (t)$个正离子和$N_- (t)$个负电子在电场作用下定向漂移，则输出电流为：
 $
-I(t) = e/V_0 (sum_(j = 1)^(N_+ (t)) arrow(E)(r_j^+ (t)) dot arrow(u)^+ (r_j^+ (t)) + sum_(j = 1)^(N_- (t)) arrow(E)(r_j^- (t)) dot arrow(u)^- (r_j^- (t)))\
-I(t) = I^+ (t) + I^- (t)
+  I(t) = e/V_0 (sum_(j = 1)^(N_+ (t)) arrow(E)(r_j^+ (t)) dot arrow(u)^+ (r_j^+ (t)) + sum_(j = 1)^(N_- (t)) arrow(E)(r_j^- (t)) dot arrow(u)^- (r_j^- (t)))\
+  I(t) = I^+ (t) + I^- (t)
 $
 这是电离室的*本征电流（Intrinsic Current）*。
 
@@ -4196,15 +4200,15 @@ $
 
 脉冲电离室的*电压信号-电流信号*关系
 $
-I_0 (t) = V(t)/R_0 + C_0 dd(V(t))/dd(t)
+  I_0 (t) = V(t)/R_0 + C_0 dd(V(t))/dd(t)
 $
 解该微分方程，得：
 $
-V(t) = e^(-t/(R_0 C_0))/C_0 (integral_0^t I_0 (t') e^(t'/(R_0 C_0)) dd(t') + C_0 V(0))
+  V(t) = e^(-t/(R_0 C_0))/C_0 (integral_0^t I_0 (t') e^(t'/(R_0 C_0)) dd(t') + C_0 V(0))
 $
 $V(0) = 0$有：
 $
-V(t) = e^(-t/(R_0 C_0))/C_0 integral_0^t I_0 (t') e^(t'/(R_0 C_0)) dd(t')
+  V(t) = e^(-t/(R_0 C_0))/C_0 integral_0^t I_0 (t') e^(t'/(R_0 C_0)) dd(t')
 $
 显然，$V(t)$与$I_0 (t)$、$R_0$、$C_0$有关，需要按不同输出回路参数$R_0 C_0$进行讨论。
 
@@ -4225,11 +4229,11 @@ $
 当$R_0 C_0 >> T^+$，*电子和正离子的定向漂移*对输出*电压信号*都有贡献。
 
 1. 在$t = T^+$时，输出电压脉冲信号幅度
-   $
-   h = (N e)/C_0 = E/W e/C_0 prop E
-   $
+  $
+    h = (N e)/C_0 = E/W e/C_0 prop E
+  $
 2. $C_0$越小，$h$越大。为此须降低$C'$。
-   
+
 *工作在$R_0 C_0 >> T^+$状态的电离室称为离子脉冲电离室。*
 
 离子脉冲电离室可以测*能量*，但存在问题——输出电压脉冲*信号宽度非常大*($T^+$是ms量级)，这样*入射粒子的强度不能太大*，且要求放大器电路频带非常宽，噪声大而不实用。
@@ -4325,11 +4329,11 @@ $Q^-$与初始电离*位置*有关。
 圆柱形电场：
 - 距圆柱中心$r$处的电场强度：
   $
-  E(r) = V_0/(r ln(b/a))
+    E(r) = V_0/(r ln(b/a))
   $
 - 距圆柱中心$r$处的电位为(中间接地，外接负高压)
   $
-  psi(r) = - V_0 ln(r/a)/ln(b/a)
+    psi(r) = - V_0 ln(r/a)/ln(b/a)
   $
 
 *输出信号*
@@ -4341,7 +4345,7 @@ $Q^-$与初始电离*位置*有关。
 
 圆柱形电子脉冲电离室输出电压脉冲信号*幅度*：
 $
-h(r_0) = Q^- /C_0 = (N e)/C_0 ln(r_0 / a) / ln(b/a)
+  h(r_0) = Q^- /C_0 = (N e)/C_0 ln(r_0 / a) / ln(b/a)
 $
 结论：
 选择足够大的$b/a$值，在$r_0$较大时，$h(r_0)$与$r_0$之间的关系就不显著了。同时在圆柱形中，$r_0$小的区域所占体积很小，*大部分入射粒子都在 $r_0$较大处产生离子对*。
@@ -4362,33 +4366,33 @@ $
   1. 离子对在B－G间产生，要求入射粒子的射程$R$小于B－G间的距离$a$
   2. 栅极由网栅构成，要求栅极屏蔽完善，使电子和正离子在B－G间漂移时，仅在B， G极板上有感应电荷产生， 并在B－G回路中流过电流$i_1$
   3. 电子穿过栅极时，不应被栅极捕获，相当于$N$个电子都在栅极上产生，然后扫过G－A电极间的全部电位差在输出回路上输出电压脉冲信号：
-   $
-   h^- = (N e)/C_0 = E/W e/C_0
-   $\
+    $
+      h^- = (N e)/C_0 = E/W e/C_0
+    $\
 2. *信号时滞*：离栅极最近的电子漂移到栅极所需要的时间
-   $
-   t_a = (a-R cos theta)/u_1
-   $
-   
-    #figure(
-      image("pic/2024-06-01-19-09-22.png", width: 30%),
-      numbering: none,
-    )
+  $
+    t_a = (a-R cos theta)/u_1
+  $
+
+  #figure(
+    image("pic/2024-06-01-19-09-22.png", width: 30%),
+    numbering: none,
+  )
 3. *输出信号的上升时间*：在栅极和阳极之间有电子漂移的时间
-   $
-   T_H = (R cos theta)/u_1 + p/u_2
-   $
+  $
+    T_H = (R cos theta)/u_1 + p/u_2
+  $
 
 ==== 脉冲电离室输出信号的测量
 
 + 入射带电粒子的数量；*计数*
-  
+
   通过对输出*脉冲数*进行测量。
 + 入射带电粒子的能量；*能谱*
 
   通过对输出*电压信号的幅度*进行测量。
 + 确定入射粒子间的时间关系；*定时*
-  
+
   通过对输出*电压信号的时间*进行测量。
 
 #figure(
@@ -4398,14 +4402,14 @@ $
 
 ==== 脉冲电离室的性能
 
-=====  脉冲幅度谱与*能量分辨率*
+===== 脉冲幅度谱与*能量分辨率*
 
 *脉冲电离室可用来测量带电粒子的能量。*
 
 对单能带电粒子，若其全部能量都损耗在灵敏体积内，则*脉冲电离室输出电压脉冲信号的幅度反映了单个入射带电粒子能量的大小*。测量多个带电粒子，按信号幅度统计可得到脉冲幅度谱。
 
 $
-h = (N e)/C_0 = E/W e/C_0 prop E
+  h = (N e)/C_0 = E/W e/C_0 prop E
 $
 
 #newpara()
@@ -4434,55 +4438,55 @@ $
 
 *1. 电离过程的统计涨落的影响*
 
-  由于电离过程的涨落，电离产生的离子对数目 N 服从*法诺分布*。由于N很大，所以 N 所遵循的统计分布可以用*高斯分布*描述。
-  $
+由于电离过程的涨落，电离产生的离子对数目 N 服从*法诺分布*。由于N很大，所以 N 所遵循的统计分布可以用*高斯分布*描述。
+$
   macron(h) = e/C_0 macron(N)
-  $
-  *电离室输出电压脉冲信号幅度同样服从高斯分布。*
-  $
+$
+*电离室输出电压脉冲信号幅度同样服从高斯分布。*
+$
   P[h] = 1/(sqrt(2 pi) sigma_h) e^(-(h - macron(h))^2/(2 sigma_h^2))
-  $
-  对高斯分布，可证明
-  $
+$
+对高斯分布，可证明
+$
   "FWHM" = 2sqrt(2 ln 2) sigma_h = 2.355 sigma_h
-  $
-  #newpara()
+$
+#newpara()
 
-  电压脉冲信号幅度的：
-  - *均值*：
-    $
+电压脉冲信号幅度的：
+- *均值*：
+  $
     macron(h) = macron(N) e/C_0
-    $
-  - *标准偏差*：
-    $
+  $
+- *标准偏差*：
+  $
     sigma_h = sigma_N e/C_0 = sqrt(F macron(N)) e/C_0
-    $
-  - *相对标准偏差*：
-    $
+  $
+- *相对标准偏差*：
+  $
     nu_h = sigma_h/macron(h) = sqrt(F /macron(N))
-    $
-  - *能量分辨率*：
-    $
+  $
+- *能量分辨率*：
+  $
     eta = "FWHM"/macron(h) = 2.355 sqrt(F /macron(N)) = 2.355 sqrt((F W)/E)\
     "FWHM" = 2.355 sigma_h = 2.355 sqrt(F W E)
-    $
+  $
 
 1. *能量分辨率反映了谱仪对不同入射粒子能量的分辨能力。*能量分辨率越小，则可区分更小的能量差别，能量分辨率越小越好。能量分辨率是谱仪的最主要的性能指标。
 2. 前面给出的能量分辨率公式是谱仪所能达到的能量分辨率的极限和理论值（只考虑了统计涨落），可用于可检验谱仪的性能。
 3. 能量分辨率的数值是*对某一能量而言*的，它与入射粒子能量的关系为
-   $
-   eta prop 1/sqrt(E) , "FWHM" prop sqrt(E)
-   $
+  $
+    eta prop 1/sqrt(E) , "FWHM" prop sqrt(E)
+  $
 
 *2. 放大器放大倍数涨落的影响*
 
 对于电离室谱仪，放大器输出的脉冲幅度为：
 $
-h_A = (N e)/C_0 A
+  h_A = (N e)/C_0 A
 $
 其中$A$为放大器的放大倍数，是连续性随机变量。则：
 $
-nu_(h_A)^2 = nu_A^2 + nu_N^2 = nu_A^2 + F/(macron(N))
+  nu_(h_A)^2 = nu_A^2 + nu_N^2 = nu_A^2 + F/(macron(N))
 $
 
 #newpara()
@@ -4491,34 +4495,34 @@ $
 
 放大器噪声对输出脉冲幅度涨落的影响是叠加关系，即：
 $
-h = h_1 + h_2
+  h = h_1 + h_2
 $
 其中前者为电离室输入脉冲宽，后者是放大器噪声折合到输入宽度的幅度。
 - 幅度均值：
   $
-  macron(h) = macron(h_1) + macron(h_2) = macron(h_1)
+    macron(h) = macron(h_1) + macron(h_2) = macron(h_1)
   $
 - 幅度方差：
   $
-  sigma_h^2 = sigma_(h_1)^2 + sigma_(h_2)^2
+    sigma_h^2 = sigma_(h_1)^2 + sigma_(h_2)^2
   $
 - 幅度相对方差：
   $
-  nu_h^2 = F/(macron(N)) + sigma_(h_2)^2/(macron(h_1))^2 = F/(macron(N)) + 1/J^2
+    nu_h^2 = F/(macron(N)) + sigma_(h_2)^2/(macron(h_1))^2 = F/(macron(N)) + 1/J^2
   $
   其中$J = (macron(h_1))^2/sigma_(h_2)^2$为*信噪比*。
 
 综合考虑*统计涨落、放大倍数A的涨落、放大器噪声*的影响，电离室谱仪放大器输出信号的*相对均方涨落*为：
 $
-nu_(h_A)^2 = F/(macron(N)) + nu_A^2  + 1/J^2
+  nu_(h_A)^2 = F/(macron(N)) + nu_A^2 + 1/J^2
 $
 谱仪*能量分辨率*：
 $
-eta = 2.355 sqrt(F W E + nu_A^2 + 1/J^2)
+  eta = 2.355 sqrt(F W E + nu_A^2 + 1/J^2)
 $
 脉冲幅度分析器的“*道宽∆*”对能量分辨率也有影响：
 $
-eta_I = eta(1 + 0.28 (Delta /"FWHM")^2)
+  eta_I = eta(1 + 0.28 (Delta /"FWHM")^2)
 $
 
 ===== 电离室的饱和特性曲线
@@ -4547,13 +4551,13 @@ $
 
 本征探测效率：
 $
-epsilon = "记录下来的脉冲数"/"射入探测器灵敏体积的粒子数" times 100%
+  epsilon = "记录下来的脉冲数"/"射入探测器灵敏体积的粒子数" times 100%
 $
 带电粒子的探测效率：$epsilon < 100%$。
 
 探测效率取决于信号幅度是否能超过*甄别阈*，幅度小于甄别阈的信号不会被记录。
 
-信号幅度较小的原因： 
+信号幅度较小的原因：
 1. 带电粒子能量小；
 2. 只在灵敏体积内损失一部分能量；
 3. 电离过程是涨落的。
@@ -4564,7 +4568,7 @@ $
 
 1. *分辨时间*$tau$：能分辨开两个相继入射粒子间的最小时间间隔。(*死时间*)
 
-    分辨时间主要取决于*电流的持续时间、输出回路参数的选择和放大器的时间常数的大小*。
+  分辨时间主要取决于*电流的持续时间、输出回路参数的选择和放大器的时间常数的大小*。
 2. *时滞*$tau_d$：入射粒子的入射时刻与输出脉冲产生的时间差。
 3. *时间分辨本领*：即由探测器输出脉冲确定入射粒子入射时刻的精度。(*定时精度*)
 
@@ -4574,11 +4578,11 @@ $
 
 设：入射粒子在电离室灵敏体积内各处单位时间、单位体积内恒定地产生$n_0 (x,y,z)$个离子对。则在灵敏体积A内单位时间的总离子对数为
 $
-integral_A n_0 (x,y,z) dd(A)
+  integral_A n_0 (x,y,z) dd(A)
 $
 平衡状态下，输出直流电流信号是：
 $
-I_0 = e integral_A n_0 (x,y,z) dd(A)
+  I_0 = e integral_A n_0 (x,y,z) dd(A)
 $
 
 === 累计电离室输出信号及其涨落
@@ -4590,11 +4594,11 @@ $
 设：单位时间内进入电离室灵敏体积内的带电粒子的平均值为$macron(n)$，每个入射带电粒子平均在灵敏体积内产生$macron(N)$个离子对；则平衡状态下，电流电离室输出的：
 - 电流信号的平均值为
   $
-  macron(I) = e macron(N) macron(n)
+    macron(I) = e macron(N) macron(n)
   $
 - 电压信号的平均值为
   $
-  macron(V) = e macron(N) macron(n) R_0
+    macron(V) = e macron(N) macron(n) R_0
   $
 
 
@@ -4602,7 +4606,7 @@ $
 
 假设：每一个离子对产生后将立即使探测器产生一输出信号：
 $
-S = f(tau)
+  S = f(tau)
 $
 
 设：单位时间进入电离室灵敏体积内的带电粒子的平均值为$macron(n)$，每个入射带电粒子*平均*在灵敏体积内产生$macron(N)$个离子对，$macron(n)$和$macron(N)$不随时间变化。
@@ -4616,38 +4620,38 @@ $
 
 用$Delta M$表示$t$以前的$tau tilde tau + Delta tau$时间间隔入射粒子流在探测器内产生离子对数目。这些离子对的信号经过$tau$时间到达$t$时刻的信号大小为
 $
-Delta M f(tau)
+  Delta M f(tau)
 $
 $t$时刻的总信号$S_t$是$t$以前产生的所有离子对的信号的叠加：
 $
-S_t = integral_0^oo Delta M f(tau) dd(tau)
+  S_t = integral_0^oo Delta M f(tau) dd(tau)
 $
 $Delta M$是$t$以前的$tau tilde tau + Delta tau$时间间隔内$Delta n$个入射粒子分别在探测器内产生的离子对数$N_i$的总和，是随机变量。$Delta M$是由$Delta n$和$N$串级而成的随机变量。
 - $Delta M$的均值：
   $
-  macron(Delta M) = macron(Delta n) macron(N) = macron(n) macron(N) Delta tau
+    macron(Delta M) = macron(Delta n) macron(N) = macron(n) macron(N) Delta tau
   $
 - $Delta M$的方差：
   $
-  sigma_(Delta M)^2 = macron(Delta n) sigma_(N)^2 + sigma_(Delta n)^2 macron(N)^2 = macron(N)^2 macron(n) Delta tau + macron(n) F macron(N) Delta tau = macron(n) Delta tau (macron(N) ^2 + F macron(N) )
+    sigma_(Delta M)^2 = macron(Delta n) sigma_(N)^2 + sigma_(Delta n)^2 macron(N)^2 = macron(N)^2 macron(n) Delta tau + macron(n) F macron(N) Delta tau = macron(n) Delta tau (macron(N)^2 + F macron(N) )
   $
   $Delta n$遵守泊松分布：$sigma_(Delta n)^2 = macron(Delta n) = macron(n) Delta tau$，$N$遵守法诺分布：$sigma_(N)^2 = macron(N) = F macron(N)$。
 
 $
-S_t = sum_(tau = 0)^oo Delta M f(tau)
+  S_t = sum_(tau = 0)^oo Delta M f(tau)
 $
 由此计算得到：
 - $S_t$的均值：
   $
-  macron(S_t) = macron(n) macron(N)integral_0^oo f(tau) dd(tau)
+    macron(S_t) = macron(n) macron(N)integral_0^oo f(tau) dd(tau)
   $
 - $S_t$的方差：
   $
-  sigma_(S_t)^2 = macron(n) (macron(N)^2 + F macron(N)) integral_0^oo f^2(tau) dd(tau)
+    sigma_(S_t)^2 = macron(n) (macron(N)^2 + F macron(N)) integral_0^oo f^2(tau) dd(tau)
   $
 - $S_t$的相对方差：
   $
-  nu_(S_t)^2 = sigma_(S_t)^2/macron(S_t)^2 = (1 + F/macron(N))/macron(n) (integral_0^oo f^2(tau) dd(tau))/(integral_0^oo f(tau) dd(tau))^2
+    nu_(S_t)^2 = sigma_(S_t)^2/macron(S_t)^2 = (1 + F/macron(N))/macron(n) (integral_0^oo f^2(tau) dd(tau))/(integral_0^oo f(tau) dd(tau))^2
   $
   主要决定于入射粒子数$n$的涨落，$N$的涨落影响很小。
 
@@ -4655,38 +4659,38 @@ $
 
     近似用宽度为$T$的矩形脉冲代表一个离子对所产生的电流信号$f(τ)$
     $
-    f(τ) = cases(
-      e / T &","& 0 <= τ <= T,
-      0  &","& τ < 0 or τ > T
-    )
+      f(τ) = cases(
+        e / T & "," & 0 <= τ <= T,
+        0 & "," & τ < 0 or τ > T
+      )
     $
     电流信号的均值：
     $
-    macron(I) = e macron(N) macron(n)
+      macron(I) = e macron(N) macron(n)
     $
     电流信号的方差：
     $
-    sigma_(I)^2 =(1 + F/macron(N))/macron(n) (integral_0^oo f^2(tau) dd(tau))/(integral_0^oo f(tau) dd(tau))^2 approx 1/macron(n) (e^2/T)/e^2 = 1/(macron(n) T)
+      sigma_(I)^2 =(1 + F/macron(N))/macron(n) (integral_0^oo f^2(tau) dd(tau))/(integral_0^oo f(tau) dd(tau))^2 approx 1/macron(n) (e^2/T)/e^2 = 1/(macron(n) T)
     $
   - *电压信号及其相对方差*
 
     $R_0 ≠ 0$时，累计电离室可输出直流电压信号，设一个离子对漂移产生的电压信号近似为一指数信号：
     $
-    f(tau) = e/C_0 e^(-tau/(R_0 C_0))
+      f(tau) = e/C_0 e^(-tau/(R_0 C_0))
     $
     电压信号的均值：
     $
-    macron(V) = e macron(N) macron(n) R_0
+      macron(V) = e macron(N) macron(n) R_0
     $
     电压信号的方差：
     $
-    sigma_(V)^2 approx 1/(2 R_0 C_0 macron(n))
+      sigma_(V)^2 approx 1/(2 R_0 C_0 macron(n))
     $
 
 *累计工作状态的条件*：累计电离室工作状态要求其*输出电流或电压信号的相对均方涨落要远小于“1”*。即：
 $
-nu_I^2 = 1/(macron(n) T) << 1, nu_V^2 = 1/(2 R_0 C_0 macron(n)) << 1\
-T >> 1/(macron(n)), R_0 C_0 >> 1/(2 macron(n))
+  nu_I^2 = 1/(macron(n) T) << 1, nu_V^2 = 1/(2 R_0 C_0 macron(n)) << 1\
+  T >> 1/(macron(n)), R_0 C_0 >> 1/(2 macron(n))
 $
 *电流脉冲宽度远大于入射平均时间间隔，输出回路的时间常数远大于入射平均时间间隔。*
 
@@ -4703,7 +4707,7 @@ $
 
 *灵敏度*：*单位入射粒子流强度*引起的电离室输出电流信号或电压信号
 $
-eta = "输入电流（电压）值"/"入射离子流的强度" ["A/(cm"^2 "s"^(-1)")"]
+  eta = "输入电流（电压）值"/"入射离子流的强度" ["A/(cm"^2 "s"^(-1)")"]
 $
 影响灵敏度的因素有*电离室的结构、气体压力和组分、入射粒子的类型和能量*等。
 
@@ -4780,11 +4784,11 @@ $r_0$很小，入射粒子在$r_0$内产生电离的可能性很小，可忽略�
 
 定义气体放大倍数：
 $
-A = (n(a))/(n(r_0)) = "到达阳极的电子数"/("进入"r_0"区域的电子数")
+  A = (n(a))/(n(r_0)) = "到达阳极的电子数"/("进入"r_0"区域的电子数")
 $
 气体放大倍数与工作电压的关系：
 $
-ln A = V_0^(1/2) (sqrt(V_0/V_T) - 1) 
+  ln A = V_0^(1/2) (sqrt(V_0/V_T) - 1)
 $
 $A$仅与$V_0$和$V_T$有关，*与粒子入射位置无关*。
 
@@ -4794,7 +4798,7 @@ $A$仅与$V_0$和$V_T$有关，*与粒子入射位置无关*。
 
 光子反馈概率$γ$：每个到达阳极的电子通过光子反馈在阴极产生一个次电子的概率。由于光子反馈，使得总放大倍数增加：
 $
-A_"total" = A + gamma A^2 + gamma^2 A^3 + … = A/(1 - gamma A)
+  A_"total" = A + gamma A^2 + gamma^2 A^3 + … = A/(1 - gamma A)
 $
 对于光子反馈的影响，注意：
 - 光子反馈的过程（$10^(-9)$s） 远快于电子的漂移过程（$10^(-6)$s），对信号的形成而言，*与原信号在时间上是同时事件*。
@@ -4810,11 +4814,11 @@ $
 - 离子反馈是*慢过程*，可在真信号后形成小的*假信号*；
 - 可通过加入少量*多原子分子气体阻断离子反馈*。
 
-    利用$M^*$的超前离解阻断离子反馈：
-    - 正离子漂移过程中，与$M$发生充分的电荷交换；
-    - 到达阴极表面时几乎均为$M^+$；
-    - $M^+$与阴极上的电子中和时，生成$M^*$；
-    - $M^*$超前离解，阻断了离子反馈过程。
+  利用$M^*$的超前离解阻断离子反馈：
+  - 正离子漂移过程中，与$M$发生充分的电荷交换；
+  - 到达阴极表面时几乎均为$M^+$；
+  - $M^+$与阴极上的电子中和时，生成$M^*$；
+  - $M^*$超前离解，阻断了离子反馈过程。
 
 === 正比计数器的输出信号
 
@@ -4833,12 +4837,12 @@ $
 
 正比计数器的电流信号：（本征电流信号）——*碰撞电离产生的正离子漂移引起的感应电流，有确定的形状*
 $
-I_0 (t) = (A N e)/V_0 arrow(E)(arrow(r)(t)) dot arrow(u)^+(arrow(r)(t))\
-I_0 (t) = (A N e)/(2 ln b/a) (1/(t+tau))
+  I_0 (t) = (A N e)/V_0 arrow(E)(arrow(r)(t)) dot arrow(u)^+(arrow(r)(t))\
+  I_0 (t) = (A N e)/(2 ln b/a) (1/(t+tau))
 $
 其中，
 $
-tau = (a^2 ln(b/a) P)/(2 V_0 mu^+) approx 10^(-8)s
+  tau = (a^2 ln(b/a) P)/(2 V_0 mu^+) approx 10^(-8)s
 $
 $τ$仅取决于结构、工作气体及工作电压等，与初始电离发生的位置无关。
 
@@ -4856,17 +4860,17 @@ $τ$仅取决于结构、工作气体及工作电压等，与初始电离发生�
   numbering: none,
 )
 $
-V(t) = (A e)/(2 ln b/a) e^(-t/(R_0 C_0))/C_0 integral_0^t e^(-t'/(R_0 C_0)) 1/(tau + t')dd(t')
+  V(t) = (A e)/(2 ln b/a) e^(-t/(R_0 C_0))/C_0 integral_0^t e^(-t'/(R_0 C_0)) 1/(tau + t')dd(t')
 $
 $τ$及$R_0 C_0$确定后，$F(t)$完全确定，其最大值是一个常数$K$。
 
 电压脉冲信号的幅度：与电离位置无关
 $
-h = V(t) bar_max = N K = E/W K prop B prop E
+  h = V(t) bar_max = N K = E/W K prop B prop E
 $
 $h$的大小与$R_0 C_0$有关，但$h$与$E$的正比关系不受$R_0 C_0$选择的影响。(要求选定不变)
 
-- 电流脉冲$I_0 (t) $形状一定，与入射粒子初始电离的位置无关；输出电压脉冲为定前沿脉冲信号。
+- 电流脉冲$I_0 (t)$形状一定，与入射粒子初始电离的位置无关；输出电压脉冲为定前沿脉冲信号。
 - 由于$τ tilde 10^(-8)s$，即使$t～ 100τ$，即输出电流降为初始值的$1/100$，也仅要 µs 量级， 可以获得*快的响应时间特性*。
 - 对确定的$R_0 C_0$（无论值的大小），电压脉冲信号幅度均正比于$N$，因此可选择小的 $R_0 C_0$， 使电压脉冲信号的宽度较窄，获得好的分辨时间。
 - 当$R_0 C_0>> T^+$时，可获得最大的电压脉冲信号幅度$(A N e)/C_0$，一般用该值表示正比计数器输出电压脉冲信号的*幅度*。
@@ -4877,15 +4881,15 @@ $h$的大小与$R_0 C_0$有关，但$h$与$E$的正比关系不受$R_0 C_0$选�
 
 输出电压脉冲信号幅度：
 $
-h = (A N e)/C_0
+  h = (A N e)/C_0
 $
 $h$是串级型随机变量，相对均方涨落：
 $
-nu_h^2 = nu_N^2 + 1/macron(N) nu_A^2 = (F + nu_A^2)/macron(N)
+  nu_h^2 = nu_N^2 + 1/macron(N) nu_A^2 = (F + nu_A^2)/macron(N)
 $
 实验表明，$ν_A^2 ≈ 0.68$，所以正比计数器的能量分辨率
 $
-eta = 2.355 nu_h = 2.355 sqrt((F + 0.68)/macron(N)) times 100%
+  eta = 2.355 nu_h = 2.355 sqrt((F + 0.68)/macron(N)) times 100%
 $
 
 #newpara()
@@ -4911,7 +4915,7 @@ $
 
 #figure(
   image("pic/2024-06-03-12-42-02.png", width: 80%),
-  numbering: none, 
+  numbering: none,
 )
 
 #figure(
@@ -4921,23 +4925,23 @@ $
 
 两个相邻脉冲的时间间隔是一个连续型随机变量。当平均计数率为$m$时，两相邻脉冲时间间隔小于$τ$的概率为：
 $
-P(t < τ) = integral_0^τ m e^(-m t) dd(t) = 1 - e^(-m τ)
+  P(t < τ) = integral_0^τ m e^(-m t) dd(t) = 1 - e^(-m τ)
 $
 若测量系统的*分辨时间*为$τ$，则与前一信号的时间间隔小于*τ*的脉冲将不被记录，由此， 单位时间内由于分辨时间影响而丢失的计数（即损失的计数率）为：
 $
-Delta m = m (1 - e^(-m τ))
+  Delta m = m (1 - e^(-m τ))
 $
 正比计数器实际测量到的计数率为：
 $
-n = m - Delta m = m e^(-m τ)
+  n = m - Delta m = m e^(-m τ)
 $
 当$m = 1/tau$时，得到正比计数器的最大计数率：
 $
-n_max = m /e = 1/(tau e)
+  n_max = m /e = 1/(tau e)
 $
 当$m τ << 1$时，
 $
-m approx n / (1 - n τ)
+  m approx n / (1 - n τ)
 $
 其中$n$是测量到的计数率，$m$是实际计数率。
 
@@ -4987,7 +4991,7 @@ G-M管的缺点是：
 
 由于光子反馈过程的存在，气体放大倍数为：
 $
-A_"total" = A/(1 - gamma A)
+  A_"total" = A/(1 - gamma A)
 $
 
 - *正比计数器中，光子反馈和离子反馈的作用极微弱*（可忽略），一次雪崩以后增殖过程即终止，雪崩只限于局部区域，对一个初始电子仅展宽 200 µm 左右。
@@ -5006,11 +5010,11 @@ $
 
 利用$M^*$的超前离解（$M^*$退激发光的概率远小于离解概率）
 1. 抑制光子反馈
-   
-    M 能够强烈吸收$"Ar"^*$发出的紫外光形成$M^*$或$M^+$，使$"Ar"^*$发出的紫外光打不到阴极上而阻断了部分光子反馈过程；
+
+  M 能够强烈吸收$"Ar"^*$发出的紫外光形成$M^*$或$M^+$，使$"Ar"^*$发出的紫外光打不到阴极上而阻断了部分光子反馈过程；
 2. 阻断离子反馈
 
-    正离子鞘漂移过程中，$"Ar"^+$与$M$发生充分的电荷交换；到达阴极表面时几乎均为$M^+$；$M^+$与阴极上的电子中和时，除克服电子逸出功外， 其多余能量使有机分子处于激发态$M^*$，$M^*$超前离解，阻断了几乎全部离子反馈过程。（实现自熄）
+  正离子鞘漂移过程中，$"Ar"^+$与$M$发生充分的电荷交换；到达阴极表面时几乎均为$M^+$；$M^+$与阴极上的电子中和时，除克服电子逸出功外， 其多余能量使有机分子处于激发态$M^*$，$M^*$超前离解，阻断了几乎全部离子反馈过程。（实现自熄）
 
 #figure(
   image("pic/2024-06-03-13-08-56.png", width: 80%),
@@ -5128,7 +5132,7 @@ G-M管中， 由于正离子鞘覆盖了整个阳极丝，在*第一个粒子引
 - 探测器损失的计数为$m n τ$
 即$m - n = m n τ$，得到：
 $
-m = n / (1 - n τ)
+  m = n / (1 - n τ)
 $
 
 ==== 寿命
@@ -5167,8 +5171,8 @@ $
 2. 荧光光子被收集到光电倍增管（PMT）的光阴极，通过*光电效应*打出光电子。（测光）
 3. 电子运动并倍增，并在*阳极输出回路*输出信号。
 $
-Q = M n_e e = M T n_"ph" e = M T E Y_"ph" e\
-Q prop E
+  Q = M n_e e = M T n_"ph" e = M T E Y_"ph" e\
+  Q prop E
 $
 
 *闪烁探测器可用来测量入射粒子的能量。*
@@ -5219,18 +5223,18 @@ $
 
 *发光效率（闪烁效率）*： 指闪烁体将所吸收的射线能量转化为光子能量的比例。
 $
-C_"np" = (E_"ph")/E times 100 % = "闪烁体发射的光子总能量"/"入射粒子沉积在闪烁体中的能量"
+  C_"np" = (E_"ph")/E times 100 % = "闪烁体发射的光子总能量"/"入射粒子沉积在闪烁体中的能量"
 $
 
 *光子产额（光能产额）*：辐射粒子在闪烁体内沉积单位能量所产生的闪烁光子数。
 $
-Y_"ph" = n_"ph"/E = "产生的闪烁光子总数"/"入射粒子沉积的能量"
+  Y_"ph" = n_"ph"/E = "产生的闪烁光子总数"/"入射粒子沉积的能量"
 $
 单位是闪烁光子数/Mev。
 
 二者关系：
 $
-Y_"ph" = n_"ph"/E = E_"ph"/(h nu) 1/E = C_"np"/(h nu)
+  Y_"ph" = n_"ph"/E = E_"ph"/(h nu) 1/E = C_"np"/(h nu)
 $
 
 #newpara()
@@ -5245,19 +5249,19 @@ $
 
 对大多数无机晶体，$t$时刻单位时间发射光子数：
 $
-n(t) = n_0 e^(-t/tau)
+  n(t) = n_0 e^(-t/tau)
 $
 其中$tau$是*发光衰减时间常数*。闪烁体发射总光子数为：
 $
-n_"ph" = integral_0^oo n(t) dd(t) = n_0 tau
+  n_"ph" = integral_0^oo n(t) dd(t) = n_0 tau
 $
 有
 $
-n(t) = n_"ph"/tau e^(-t/tau)
+  n(t) = n_"ph"/tau e^(-t/tau)
 $
 已知大多数有机闪烁体及若干无机闪烁体的发光有*快、慢*两种成分，可表示为：
 $
-n(t) = n_f (t) + n_s (t) = n_f/tau_f e^(-t/tau_f) + n_s/tau_s e^(-t/tau_s)
+  n(t) = n_f (t) + n_s (t) = n_f/tau_f e^(-t/tau_f) + n_s/tau_s e^(-t/tau_s)
 $
 快、慢两种成分的相对比例随入射粒子种类不同而变化。可以利用该特征进行粒子种类鉴别。
 
@@ -5320,16 +5324,16 @@ $
 
 - *阴极灵敏度*：
   $
-  S_K = i_K /F = "光阴极的光电子电流"/"光通量" [(mu A) /(L m) ]
+    S_K = i_K /F = "光阴极的光电子电流"/"光通量" [(mu A) /(L m) ]
   $
 - *阳极灵敏度*：
   $
-  S_A = i_A /F = "阳极电流"/"光通量" [(A) /(L m) ]
+    S_A = i_A /F = "阳极电流"/"光通量" [(A) /(L m) ]
   $
 - *PMT增益*
   $
-  M = "演技接收到的电子数"/"第一打拿极收集到的光电子数" \
-  M = S_A / (g_c S_K) = i_A / (g_c i_K) = (g delta)^n = 10^6-10^8
+    M = "演技接收到的电子数"/"第一打拿极收集到的光电子数" \
+    M = S_A / (g_c S_K) = i_A / (g_c i_K) = (g delta)^n = 10^6-10^8
   $
   其中$g_c$是第一打拿极对光电子的收集效率，$g$是打拿极间的电子传输效率。
 
@@ -5338,7 +5342,7 @@ $
 工作状态下的光电倍增管完全与光辐射隔绝时，其阳极仍能输出电流（暗电流）及脉冲信号（噪声） 。
 
 成因：
-1.  光阴极的热电子发射。
+1. 光阴极的热电子发射。
 2. 残余气体的电离----离子反馈；残余气体的激发----光子反馈。
 3. 制造工艺----尖端放电及漏电
 
@@ -5366,13 +5370,13 @@ $
 1. 光屏蔽，严禁加高压时曝光。
 2. 高压极性：正高压和负高压供电方式。
 
-    #figure(
-      image("pic/2024-05-30-11-11-16.png", width: 80%),
-      numbering: none,
-    )
+  #figure(
+    image("pic/2024-05-30-11-11-16.png", width: 80%),
+    numbering: none,
+  )
 3. 分压电阻
-   
-   由于电子在两个联极间运动时，会在分压电阻上流过脉动电流，必须保*证脉动电流远小于由高压电源流经分压电阻的稳定电流*，以保证各打拿极的电压稳定。这也对高压电源的功率提出了要求。
+
+  由于电子在两个联极间运动时，会在分压电阻上流过脉动电流，必须保*证脉动电流远小于由高压电源流经分压电阻的稳定电流*，以保证各打拿极的电压稳定。这也对高压电源的功率提出了要求。
 4. 最后几级的*分压电阻上并联电容*，以旁路掉脉动电流 在分压电阻上的脉动电压，达到稳定滤波的效果。
 
 == 闪烁探测器的输出信号
@@ -5400,16 +5404,16 @@ $
 
 第一打拿极收集到的光电子数为：
 $
-n_e = n_"ph" T
+  n_e = n_"ph" T
 $
 阳极收集到的电子数为：
 $
-n_A = M n_e = M n_"ph" T = M Y_"ph" E T
+  n_A = M n_e = M n_"ph" T = M Y_"ph" E T
 $
 流过阳极回路的总电荷量为：
 $
-Q = n_A e = M Y_"ph" e T E\
-Q prop E
+  Q = n_A e = M Y_"ph" e T E\
+  Q prop E
 $
 闪烁探测器输出脉冲信号的电荷量$Q$与入射粒子在闪烁体内沉积的能量$E$成正比。
 
@@ -5419,11 +5423,11 @@ $
 
 - 闪烁体发出的光子数的时间规律为：
   $
-  n(t) = n_"ph"/tau e^(-t/tau)
+    n(t) = n_"ph"/tau e^(-t/tau)
   $
 - 第一打拿极收集到的光电子数的时间规律为：
   $
-  n_e (t) = n_"ph" T/tau e^(-t/tau)
+    n_e (t) = n_"ph" T/tau e^(-t/tau)
   $
 
 ==== 单光电子引起的电流脉冲信号
@@ -5437,36 +5441,36 @@ $
 
 一次闪烁输出电流脉冲为$n_e (t)$和$p(t)$的卷积：
 $
-I(t) = integral_0^t n_e (t - t') p(t') dd(t')
-$ 
+  I(t) = integral_0^t n_e (t - t') p(t') dd(t')
+$
 代入
 $
-n_e (t) = n_"ph" T/tau e^(-t/tau)
+  n_e (t) = n_"ph" T/tau e^(-t/tau)
 $
 *闪烁探测器阳极输出电流脉冲信号的卷积形式*
 $
-I(t) = (n_"ph" T )/tau integral_0^t e^(-t'/tau) p(t') dd(t') 
+  I(t) = (n_"ph" T )/tau integral_0^t e^(-t'/tau) p(t') dd(t')
 $
 两边微分并整理得到
 $
-tau dd(I(t))/dd(t) + I(t) = n_"ph" T p(t)
+  tau dd(I(t))/dd(t) + I(t) = n_"ph" T p(t)
 $
 *闪烁探测器阳极输出电流脉冲信号的微分形式*。上式和卷积形式一样给出了阳极输出电流脉冲信号与发光衰减时间$τ$及单光电子电流响应$p(t)$的关系。
 
 在很多情况下，与$τ$相比，$p(t)$是非常窄的时间函数，这时，可忽略电子飞行时间的涨落，用*δ 函数*近似
 $
-p(t) = M e delta(t - t_e)
+  p(t) = M e delta(t - t_e)
 $
 代入上式得到
 $
-I(t) = cases(
-  (n_"ph" T M e)/tau e^(-(t - t_e)/tau) & t > t_e,
-  0 & t < t_e
-)
+  I(t) = cases(
+    (n_"ph" T M e)/tau e^(-(t - t_e)/tau) & t > t_e,
+    0 & t < t_e
+  )
 $
 其中
 $
-Q = n_"ph" T M e
+  Q = n_"ph" T M e
 $
 
 #figure(
@@ -5483,53 +5487,53 @@ $
 
 #figure(
   image("pic/2024-06-05-19-57-11.png", width: 80%),
-  numbering: none,  
+  numbering: none,
 )
 
 $
-V(t) = Q/C_0 (R_0 C_0)/(R_0 C_0 - tau) (e^(- t/(R_0 C_0)) - e^(- t/tau))
+  V(t) = Q/C_0 (R_0 C_0)/(R_0 C_0 - tau) (e^(- t/(R_0 C_0)) - e^(- t/tau))
 $
 $
-V_max (t) = h approx(<) Q/C_0 prop Q prop E
+  V_max (t) = h approx(<) Q/C_0 prop Q prop E
 $
 其中
 $
-R_0 C_0 >> tau => t approx Q/C_0\
-R_0 C_0 << tau => t approx Q/C_0 (R_0 C_0)/tau
+  R_0 C_0 >> tau => t approx Q/C_0\
+  R_0 C_0 << tau => t approx Q/C_0 (R_0 C_0)/tau
 $
 
 1. 当$R_0 C_0 >> τ$时：*电压脉冲工作状态*
-   $
-   V(t) = Q/C_0 (e^(- t/(R_0 C_0)) - e^(- t/τ))
-   $
-   - 短时间内，即$t<<R_0 C_0$
-      $
+  $
+    V(t) = Q/C_0 (e^(- t/(R_0 C_0)) - e^(- t/τ))
+  $
+  - 短时间内，即$t<<R_0 C_0$
+    $
       V(t) = h(1 - e^(- t/τ))
-      $
-   - 在$t approx 5 tau$，仍满足$t << R_0 C_0$
-      $
+    $
+  - 在$t approx 5 tau$，仍满足$t << R_0 C_0$
+    $
       V(t) approx h
-      $
-   - 经过较长时间，即$t >> tau$
-      $
+    $
+  - 经过较长时间，即$t >> tau$
+    $
       V(t) = h e^(- t/(R_0 C_0))
-      $
+    $
 2. 当$R_0 C_0 << τ$时：*电流脉冲瞬态状态*
-    $
+  $
     V(t) = Q/C_0 (R_0 C_0)/(R_0 C_0 - τ) (e^(- t/(R_0 C_0)) - e^(- t/τ))
+  $
+  - 短时间内，即$t<<τ$
     $
-    - 短时间内，即$t<<τ$
-      $
       V(t) = h (R_0 C_0)/(τ) (1 - e^(- t/(R_0 C_0)))
-      $
-    - 在$t approx 5 R_0 C_0$，仍满足$t << τ$
-      $
+    $
+  - 在$t approx 5 R_0 C_0$，仍满足$t << τ$
+    $
       V(t) approx (R_0 C_0)/tau h = h' << h
-      $
-    - 经过较长时间，即$t >> R_0 C_0$
-      $
+    $
+  - 经过较长时间，即$t >> R_0 C_0$
+    $
       V(t) = (R_0 C_0)/tau h e^(- t/(tau))
-      $
+    $
 
 #figure(
   image("pic/2024-06-05-20-26-30.png", width: 80%),
@@ -5549,45 +5553,45 @@ $
 ==== 闪烁探测器输出信号的涨落
 
 $
-V(t) = (n_A e)/C_0 (R_0 C_0)/(R_0 C_0 - τ) (e^(- t/(R_0 C_0)) - e^(- t/τ))
+  V(t) = (n_A e)/C_0 (R_0 C_0)/(R_0 C_0 - τ) (e^(- t/(R_0 C_0)) - e^(- t/τ))
 $
 输出电压脉冲信号的幅度$h$正比于PMT阳极收集的电子数$n_A$，即$h = k n_A$其中$k$和$R_0 C_0, tau$有关，为常数。
 
 而
 $
-n_A = n_e M = n_"ph" T M 
+  n_A = n_e M = n_"ph" T M
 $
 是由$n_"ph", T, M$串级而成的串级型随机变量。
 
 1. 闪烁光子数$n_"ph"$的涨落——泊松分布
-   $
-   nu_(n_"ph")^2 = 1 / macron(n_"ph")
-   $
+  $
+    nu_(n_"ph")^2 = 1 / macron(n_"ph")
+  $
 2. 光电子$n_e$的涨落——泊松分布
-   $
-   nu_(n_e)^2 = 1 / macron(n_e) = 1/ (macron(n_"ph") T)
-   $
+  $
+    nu_(n_e)^2 = 1 / macron(n_e) = 1/ (macron(n_"ph") T)
+  $
 3. 阳极电子数$n_A$的涨落——泊松分布
-   $
-   nu_(n_A)^2 = 1 / macron(n_e)  + 1 / macron(n_e) nu_M^2 = 1/ (macron(n_e)) (1 + nu_M^2)
-   $
-   $M$是各级$delta_i$串级而成的多级串级型随机变量，
-   $
-   nu_M^2 = 1 / macron(delta)_1 + 1/ macron(delta)_1 1/ macron(delta) + ... approx 1/ delta_1 delta/(delta - 1)
-   $
-   其中$delta$是各打拿极的电子传输效率，$delta_1$是第一打拿极的电子传输效率。
+  $
+    nu_(n_A)^2 = 1 / macron(n_e) + 1 / macron(n_e) nu_M^2 = 1/ (macron(n_e)) (1 + nu_M^2)
+  $
+  $M$是各级$delta_i$串级而成的多级串级型随机变量，
+  $
+    nu_M^2 = 1 / macron(delta)_1 + 1/ macron(delta)_1 1/ macron(delta) + ... approx 1/ delta_1 delta/(delta - 1)
+  $
+  其中$delta$是各打拿极的电子传输效率，$delta_1$是第一打拿极的电子传输效率。
 
 从而
 $
-nu_(n_A)^2 = 1/(macron(n)_"ph" T)(1 + 1 /delta_1 delta/ (delta - 1))
+  nu_(n_A)^2 = 1/(macron(n)_"ph" T)(1 + 1 /delta_1 delta/ (delta - 1))
 $
 由此可推算闪烁谱仪的能量分辨率极限值为：
 $
-eta = 2.35 sqrt(nu_(n_A)^2) = 2.35 sqrt(1/(macron(n_"ph") T)(1 + 1 /delta_1 delta/ (delta - 1)))
+  eta = 2.35 sqrt(nu_(n_A)^2) = 2.35 sqrt(1/(macron(n_"ph") T)(1 + 1 /delta_1 delta/ (delta - 1)))
 $
 修正之后的结果为
 $
-nu_(n_A)^2 = 1/(macron(n_"ph") T)(1 + 1 /delta_1 delta/ (delta - 1)) + nu_T^2 + (1 + nu_T^2)((sigma_(n_"ph")/n_"ph")^2 - 1 / macron(n_"ph"))
+  nu_(n_A)^2 = 1/(macron(n_"ph") T)(1 + 1 /delta_1 delta/ (delta - 1)) + nu_T^2 + (1 + nu_T^2)((sigma_(n_"ph")/n_"ph")^2 - 1 / macron(n_"ph"))
 $
 
 == 单晶闪烁 γ 谱仪
@@ -5663,14 +5667,14 @@ X /γ 射线不带电，与闪烁体的相互作用主要是通过三种效应�
 
 *峰总比*
 $
-"峰总比" = "全能峰面积"/"全谱面积"
+  "峰总比" = "全能峰面积"/"全谱面积"
 $
 主要和探测效率相关。
 
 
 *峰康比*
 $
-"峰康比" = "康普顿坪平均高度"/"全能峰高度"
+  "峰康比" = "康普顿坪平均高度"/"全能峰高度"
 $
 主要和能量分辨率相关。
 
@@ -5689,19 +5693,19 @@ $
 
 用全能峰(光电峰)来确定闪烁谱仪的能量分辨率
 $
-eta = (Delta E)/E = (Delta h)/h = 2.355 nu_h = 2.355_(n_A)
+  eta = (Delta E)/E = (Delta h)/h = 2.355 nu_h = 2.355_(n_A)
 $
 
 $
-eta = 2.355 sqrt(1/(macron(n_"e"))(1 + 1 /delta_1 delta/ (delta - 1)))
+  eta = 2.355 sqrt(1/(macron(n_"e"))(1 + 1 /delta_1 delta/ (delta - 1)))
 $
 定义
 $
-W_s= E/ macron(n_"e")
+  W_s= E/ macron(n_"e")
 $
 产生一个被第一打拿极收集的光电子所需要的平均能量。有
 $
-eta = 2.355 sqrt(E/ W_s (1 + 1 /delta_1 delta/ (delta - 1)))
+  eta = 2.355 sqrt(E/ W_s (1 + 1 /delta_1 delta/ (delta - 1)))
 $
 
 闪烁探测器能量分辨率的影响因素：
@@ -5709,15 +5713,15 @@ $
 - $δ_1$大，则$η$小（好）
 - 高压稳定性的影响
   $
-  M = a V_0^(b n), b n approx 7
+    M = a V_0^(b n), b n approx 7
   $
   若要：
   $
-  (Delta M)/M < 1% 
+    (Delta M)/M < 1%
   $
   一般要求：
   $
-  (Delta V_0)/V_0 < 0.05%
+    (Delta V_0)/V_0 < 0.05%
   $
 
 === 能量线性
@@ -5726,7 +5730,7 @@ $
 
 理想情况：闪烁体的发光效率$C_"np"$与*入射粒子沉积能量*无关，全能峰的峰位与入射γ光子的能量成正比（或线性关系）。
 $
-E = C times "Ch" + E_0
+  E = C times "Ch" + E_0
 $
 
 实际情况：发光效率与入射粒子种类和能量有关。对于 γ 能谱只涉及电子引起的闪光，因此 γ 谱仪的非线性是由发光效率随电子能量不同而产生的。
@@ -5737,36 +5741,36 @@ $
 
 对平行入射的 γ 光子束，*探测效率（本征效率）*：
 $
-epsilon = 1 - e^(-N_A rho/A (sigma_"ph" + sigma_c + sigma_p)D)  
+  epsilon = 1 - e^(-N_A rho/A (sigma_"ph" + sigma_c + sigma_p)D)
 $
 高$Z$，$ρ$，大$D$的闪烁体探测效率高。
 $
-I(x)/I_0 = e^(-N_A rho/A (sigma_"ph" + sigma_c + sigma_p)D)\
-I(x) = I_0 e^(- mu x), mu = N sigma, N = N_A  rho/N
+  I(x)/I_0 = e^(-N_A rho/A (sigma_"ph" + sigma_c + sigma_p)D)\
+  I(x) = I_0 e^(- mu x), mu = N sigma, N = N_A rho/N
 $
 用谱分析求探测效率，常定义*源峰效率（绝对峰效率）*：
 $
-epsilon_"sp" = "全能峰的总计数(面积)"/"放射源放出的γ光子数"
+  epsilon_"sp" = "全能峰的总计数(面积)"/"放射源放出的γ光子数"
 $
 #newpara()
 
 相对于源放出的粒子数
 - 绝对总效率
   $
-  epsilon_"st" = "探测器记录到的全谱总计数n"/"放射源发出的粒子数N"
+    epsilon_"st" = "探测器记录到的全谱总计数n"/"放射源发出的粒子数N"
   $
 - 绝对峰效率
   $
-  epsilon_"st" = "探测器记录到的全能峰计数n"/"放射源发出的粒子数N"
+    epsilon_"st" = "探测器记录到的全能峰计数n"/"放射源发出的粒子数N"
   $
 相对于进入探测器灵敏体积的粒子数
 - 相对总效率
   $
-  epsilon_"int" = "探测器记录到的全谱总计数n"/("进入探测器灵敏体积的粒子数"N_D)
+    epsilon_"int" = "探测器记录到的全谱总计数n"/("进入探测器灵敏体积的粒子数"N_D)
   $
 - 相对峰效率
   $
-  epsilon_"inp" = "探测器记录到的全能峰计数n"/("进入探测器灵敏体积的粒子数"N_D)
+    epsilon_"inp" = "探测器记录到的全能峰计数n"/("进入探测器灵敏体积的粒子数"N_D)
   $
 
 === 时间特性
@@ -5775,7 +5779,7 @@ $
 
 - 对电压脉冲工作状态，条件：$R_0 C_0 >> τ$，取决于$R_0 C_0$
 - 对电流脉冲工作状态，条件：$R_0 C_0 << τ$，取决于$τ$
-  
+
 对*时滞*及*时间分辨本领*：主要取决于光电倍增管的电子飞行时间$macron(t_e)$及其离散$Delta t_e$。为获得好的时间分辨本领须选用快速光电倍增管。
 
 === 稳定性——主要由PMT决定
@@ -5820,7 +5824,7 @@ $
 
 本征载流子浓度(本征半导体的载流子浓度)：
 $
-n_i = p_i
+  n_i = p_i
 $
 
 #figure(
@@ -5839,9 +5843,9 @@ $
 )
 
 杂质类型：替位型，间隙型
-1. 替位型： 
-   - III族元素， 如B， Al， Ga等， 受主杂质， P型半导体， 多数载流子空穴
-   - V 族元素， 如P， As， Sb等， 施主杂质， N型半导体， 多数载流子电子
+1. 替位型：
+  - III族元素， 如B， Al， Ga等， 受主杂质， P型半导体， 多数载流子空穴
+  - V 族元素， 如P， As， Sb等， 施主杂质， N型半导体， 多数载流子电子
 2. 间隙型： Li， 可在晶格间运动， 施主杂质， N型半导体，多数载流子电子
 
 ==== 施主杂质(Donor impurities)与施主能级
@@ -5871,7 +5875,7 @@ $
 
 在相同温度下，本征半导体的相等的两种载流子浓度之积与杂质半导体的两种载流子浓度之积相等，即：
 $
-n_i^2 = p_i^2 = n_i p_i = n p
+  n_i^2 = p_i^2 = n_i p_i = n p
 $
 
 ==== 补偿效应
@@ -5896,18 +5900,18 @@ $
 
 在半导体中沉积能量$E$时，产生的载流子数目$N$（均值）为：
 $
-macron(N)  = E/W
+  macron(N) = E/W
 $
 $N$服从*法诺分布*
 - 方差为：
   $
-  sigma_N^2= (F E)/W
+    sigma_N^2= (F E)/W
   $
 - 相对方差：
   $
-  nu_N^2 = F / macron(N) = (F W)/E
+    nu_N^2 = F / macron(N) = (F W)/E
   $
-  
+
 一些实验结果给出的法诺因子$F$： Si： 0.085~0.16， Ge： 0.057~0.129
 
 #figure(
@@ -5932,7 +5936,7 @@ $N$服从*法诺分布*
 
 *半导体电阻率：*
 $
-rho = 1/(e(n mu_n + p mu_p)) (Omega "cm")
+  rho = 1/(e(n mu_n + p mu_p)) (Omega "cm")
 $
 本征电阻率（300K）：Si $2.3 times 10^5$ Ω cm, Ge 47 Ω cm
 
@@ -5943,7 +5947,7 @@ $
 
 载流子寿命决定了载流子的漂移长度：
 $
-L = mu E τ
+  L = mu E τ
 $
 也决定了是否能被有效收集。（漂移长度 L 大于灵敏体积的长度才能保证载流子的有效收集）
 
@@ -5952,7 +5956,7 @@ $
   numbering: none,
 )
 
-==  P-N结半导体探测器
+== P-N结半导体探测器
 
 === P-N结半导体探测器的工作原理
 
@@ -5960,22 +5964,22 @@ $
 
 1. *多数载流子扩散，剩下空间电荷形成内电场，构成结区。*
 
-    结区内存在着势垒，结区又称为*势垒区*。势垒区为*耗尽区*，载流子浓度很低，实现高电阻率。
+  结区内存在着势垒，结区又称为*势垒区*。势垒区为*耗尽区*，载流子浓度很低，实现高电阻率。
 
-    结区电阻率可达$10^10$ Ω cm，*远高于本征电阻率*。
+  结区电阻率可达$10^10$ Ω cm，*远高于本征电阻率*。
 
 
-    #figure(
-      image("pic/2024-06-10-14-38-48.png", width: 40%),
-      numbering: none,
-    )
+  #figure(
+    image("pic/2024-06-10-14-38-48.png", width: 40%),
+    numbering: none,
+  )
 
 2. P-N结内的电流（没有外加电场）
 
-    #figure(
-      image("pic/2024-06-10-14-40-11.png", width: 80%),
-      numbering: none,
-    )
+  #figure(
+    image("pic/2024-06-10-14-40-11.png", width: 80%),
+    numbering: none,
+  )
 
 3. 外加电场下的P-N结
 
@@ -6027,7 +6031,7 @@ $
 )
 
 $
-W = ((2 epsilon V_0)/(e N_i))^(1/2) prop sqrt(V_0/N_i)
+  W = ((2 epsilon V_0)/(e N_i))^(1/2) prop sqrt(V_0/N_i)
 $
 
 ===== 结区宽度的限制因素
@@ -6041,7 +6045,7 @@ $
 
 根据结区电荷随外加电压的变化率，可计算得到单位面积结电容：
 $
-C_d =  epsilon/W = ((epsilon e N_i)/(2 V_0))^(1/2)
+  C_d = epsilon/W = ((epsilon e N_i)/(2 V_0))^(1/2)
 $
 *结电容*随外加电压变化，电压不稳定会影响探测器输出电压脉冲信号幅值的稳定性。
 
@@ -6056,7 +6060,7 @@ $
 
 === 半导体探测器的输出信号
 
-====  输出回路
+==== 输出回路
 
 #figure(
   image("pic/2024-06-10-14-57-43.png", width: 80%),
@@ -6072,7 +6076,7 @@ $
 
 当$R_0 (C_d+C_a) >> t_c$（$t_c$为载流子收集时间）时，为*电压脉冲工作状态*
 $
-h = - Q/(C_d + C_a) = - (N e)/(C_d+ C_a)
+  h = - Q/(C_d + C_a) = - (N e)/(C_d+ C_a)
 $
 其中$N$是电子-空穴对数目。
 
@@ -6090,23 +6094,23 @@ $
 
 电荷灵敏前置放大器输入电容
 $
-C_i = K times C_f
+  C_i = K times C_f
 $
 $K > 10^4$是放大器开环增益。$C_i$很稳定，大大减小了$C_d$变化的影响。
 
 设：电荷灵敏前置放大器的*反馈电容*为$C_f$，反馈电阻为$R_f$则：电荷灵敏前置放大器的输出脉冲幅度为：
 $
-h approx (N e)/C_f
+  h approx (N e)/C_f
 $
 接电荷灵敏前放后，探测器输出回路的时间常数：
 $
-R_0 C_0 approx R_f C_f
+  R_0 C_0 approx R_f C_f
 $
 ==== 载流子收集时间
 
 非过耗尽工作状态，由于边界处电场强度趋于0，故定义载流子扫过 0.99W 距离的时间为载流子收集时间$t_C$(即电流信号的持续时间)
 $
-t_c = 4.6 times 10^(-2) epsilon rho
+  t_c = 4.6 times 10^(-2) epsilon rho
 $
 其中各量单位为F/m，Ω cm，s。
 
@@ -6120,36 +6124,36 @@ PN结探测器主要用于测量*重带电粒子能谱*，如 α， p 等，要�
 
 影响能量分辨率的因素为：
 1. 输出脉冲幅度的统计涨落
-   $
-   eta = (Delta E)/E  = 2.355 nu_N = 2.355 sqrt((F W)/E) times 100%
-   $
-   $
-   Delta E = "FWHM" = 2.355 sqrt(F W E)
-   $
+  $
+    eta = (Delta E)/E = 2.355 nu_N = 2.355 sqrt((F W)/E) times 100%
+  $
+  $
+    Delta E = "FWHM" = 2.355 sqrt(F W E)
+  $
 2. 探测器和电子学噪声
   - 探测器的噪声由P-N结反向电流及表面漏电流的涨落造成
   - 电子学噪声主要由第一级FET噪声构成
   可用：零电容噪声和噪声斜率表示。
   $
-  ∆ E_2= ("FWHM")_2 =  "零电容噪声" +"噪声斜率" × "结电容"
+    ∆ E_2= ("FWHM")_2 = "零电容噪声" +"噪声斜率" × "结电容"
   $
   噪声也可以用*等效噪声电荷 ENC 表示*，即放大器输出噪声电压的均方根值等效到放大器输入端的噪声电荷，以电子电荷为单位；由于噪声叠加在射线产生的信号上，使谱线进一步加宽，参照产生信号的射线的能量，用FWHM表示，其单位是keV。
   $
-  ∆ E_2= ("FWHM")_2 = 2.355 ("ENC") W
+    ∆ E_2= ("FWHM")_2 = 2.355 ("ENC") W
   $
 3. 窗厚度的影响
-   #figure(
-     image("pic/2024-06-10-15-15-45.png", width: 20%),
-      numbering: none,
-   )
-   $
-   Delta E_3 = ("FWHM")_3 = ς (Delta d_theta - Delta d_0)
-   $
-   其中$ς$表示单位窗厚度引起的能量损失。
+  #figure(
+    image("pic/2024-06-10-15-15-45.png", width: 20%),
+    numbering: none,
+  )
+  $
+    Delta E_3 = ("FWHM")_3 = ς (Delta d_theta - Delta d_0)
+  $
+  其中$ς$表示单位窗厚度引起的能量损失。
 
 得到总线宽为：
 $
-Delta E = sqrt((Delta E_1)^2 + (Delta E_2)^2 + (Delta E_3)^2)
+  Delta E = sqrt((Delta E_1)^2 + (Delta E_2)^2 + (Delta E_3)^2)
 $
 
 ==== 分辨时间 与 时间分辨本领
@@ -6300,7 +6304,7 @@ HPGe探测器可常温保存，但需要低温（77K）工作。
 ==== 能量分辨率
 
 $
-Delta E = sqrt((Delta E_1)^2 + (Delta E_2)^2 + (Delta E_3)^2)
+  Delta E = sqrt((Delta E_1)^2 + (Delta E_2)^2 + (Delta E_3)^2)
 $
 
 #figure(
@@ -6310,13 +6314,13 @@ $
 
 ==== 探测效率
 
-一般以Φ3×3英寸的NaI(Tl)晶体为100％@1.33MeV，用*相对效率*表示。
+一般以Φ3×3英寸的NaI(Tl)晶体为100％\@1.33MeV，用*相对效率*表示。
 如：85$"cm"^3$的HPGe的相对探测效率约为 19％。
 
 ==== 峰康比
 
 $
-P = "全能峰高度"/"康普顿坪平均高度"
+  P = "全能峰高度"/"康普顿坪平均高度"
 $
 
 ==== 能量线性
@@ -6391,13 +6395,13 @@ $E ~2×10^4$V/cm， 有内放大，改善信噪比。
 
 相对测量法：已知活度为$A_0$的标准源，在相同条件下测量标准源和被测样品的计数率 $n_0$、$n$，*由计数率与活度成正比*，则样品活度：
 $
-A = A_0 n/n_0
+  A = A_0 n/n_0
 $
 相对测量法简便，但条件苛刻：必须有一个与被测样品相同的已知活度的标准源，且测量条件必须相同。
 
 绝对测量法复杂，需要考虑很多影响测量的因素。但绝对测量法是活度测量的基本方法：
 $
-n = epsilon A times "绝对强度"
+  n = epsilon A times "绝对强度"
 $
 
 === 绝对测量中影响活度测量的因素
@@ -6436,13 +6440,13 @@ $
 ==== 探测器的本征探测效率或灵敏度
 
 1. 对脉冲工作状态：*本征探测效率*$epsilon_"in"$
-   $
-   epsilon_"in" = "测到的脉冲计数率"/"单位时间内进入灵敏体积的粒子束" times 100%
-   $
+  $
+    epsilon_"in" = "测到的脉冲计数率"/"单位时间内进入灵敏体积的粒子束" times 100%
+  $
 2. 对累计工作状态：*灵敏度*$eta$
-   $
-   eta  = "信号电流（电压）值"/"入射粒子流强度"  [A"/单位照射量率"]
-   $
+  $
+    eta = "信号电流（电压）值"/"入射粒子流强度" [A"/单位照射量率"]
+  $
 
 有关影响因素：
 - 入射粒子的种类与能量；
@@ -6452,14 +6456,14 @@ $
 ==== 死时间修正因子$f_tau$
 
 $
-f_tau = n/m = 1 - n tau
+  f_tau = n/m = 1 - n tau
 $
 其中$n$是实际测量到的计数率，$m$是真实计数率，$tau$是探测器的死时间。
 
 ==== 本底计数率$n_b$
 
 $
-n_0 = n_s -n_b
+  n_0 = n_s -n_b
 $
 
 === α/β放射性样品活度的测量方法
@@ -6467,11 +6471,11 @@ $
 ==== 小立体角法
 
 $
-A times "绝对强度" = (n_s - n_b) / epsilon , epsilon = epsilon_"in" f_g f_a f_b f_tau
+  A times "绝对强度" = (n_s - n_b) / epsilon , epsilon = epsilon_"in" f_g f_a f_b f_tau
 $
 - 对薄 α 放射性样品：
   $
-  epsilon_"in" approx 100%,f_a approx 1 ,f_b approx 1
+    epsilon_"in" approx 100%,f_a approx 1 ,f_b approx 1
   $
 - 对厚 α 放射性样品和 β 放射性样品： 需考虑各种修正因子。
 
@@ -6488,11 +6492,11 @@ $
 )
 
 $
-epsilon = f_g f_tau f_m f_b f_a f_gamma epsilon_"in"
+  epsilon = f_g f_tau f_m f_b f_a f_gamma epsilon_"in"
 $
 - $f_m$ 坪斜修正因子
   $
-  f_m = n/n_0
+    f_m = n/n_0
   $
 - $f_b$ 反散射修正因子
   - 尽量薄的有机衬托膜： < 30μg/cm2
@@ -6504,36 +6508,36 @@ $
   - β射线是连续能谱，在其路径上，不断衰减。
   - β射线在介质中的吸收近似服从指数规律 $n = n_0 e^(- mu_m x_m)$
   1. 源的自吸收
-      $
+    $
       f_(a s) = n/n_0 = 1/(mu_m x_m) (1 - e^(- mu_m x_m))
-      $
-      自吸收$<=>$穿透$x_m/2$的吸收体
-      $
+    $
+    自吸收$<=>$穿透$x_m/2$的吸收体
+    $
       f_(a s) approx e^(mu_m x_m/2)
-      $
+    $
   2. 其它吸收的修正
-      $
+    $
       x_"mequ" = x_"mair" + x_"mw" + x_"mm"
-      $
-      空气+探测器窗+源覆盖膜
+    $
+    空气+探测器窗+源覆盖膜
   3. 总的吸收厚度：
-        $
-        mu_"mt" = x_"mequ" + x_m/2
-        $
-      总的吸收校正因子：
-      $
+    $
+      mu_"mt" = x_"mequ" + x_m/2
+    $
+    总的吸收校正因子：
+    $
       f_a = n/n_0 = e^(- mu_m x_"mt") approx 1 - mu_m x_"mt"
-      $
+    $
 - $f_gamma$ γ 计数校正
-  
+
   γ 计数校正
-  -  β 衰变是原子核衰变的主要形式
-  -  β 衰变形成的子核一般都处于激发态，会发出 γ 射线
+  - β 衰变是原子核衰变的主要形式
+  - β 衰变形成的子核一般都处于激发态，会发出 γ 射线
     - 137Cs、 60C o等 γ 源都是 β 衰变的产物
   - β 探测器对 γ 射线也会有响应
     - GM，塑料闪烁体等
   $
-  f_gamma = n_1/(n_1 - n_2)
+    f_gamma = n_1/(n_1 - n_2)
   $
 
 ==== 4π计数法
@@ -6552,11 +6556,11 @@ $
 
 测量 γ 能谱，利用 γ 谱的全能峰面积来确定源活度，常用源峰效率：
 $
-epsilon_"sp" = "全能峰计数"/"源发出的γ光子数"
+  epsilon_"sp" = "全能峰计数"/"源发出的γ光子数"
 $
 由计数率得到源活度：
 $
-A times "绝对强度" = (n_s - n_b) / epsilon_"sp"
+  A times "绝对强度" = (n_s - n_b) / epsilon_"sp"
 $
 
 == 符合测量方法
@@ -6603,7 +6607,7 @@ $
 
 *偶然符合计数率*：
 $
-n_"rc" = 2 tau_s n_1 n_2
+  n_"rc" = 2 tau_s n_1 n_2
 $
 
 减小偶然符合计数率的方法：

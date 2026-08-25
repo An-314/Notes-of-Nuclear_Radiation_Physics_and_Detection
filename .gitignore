@@ -1,0 +1,8 @@
+files/
+builds/
+*.pdf
+!pic/*.pdf
+notes.mk
+HW/*.pdf
+HW/*.xlsx
+*.py
