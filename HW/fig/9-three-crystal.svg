@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="330" viewBox="0 0 850 330">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#333"/></marker></defs>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif;font-size:17px}.b{fill:#f5e5f5;stroke:#7f2a83;stroke-width:2}.l{stroke:#333;stroke-width:2;marker-end:url(#a)}</style>
+<rect class="b" x="35" y="120" width="105" height="70"/><text x="57" y="160">Na-24</text>
+<rect class="b" x="205" y="110" width="130" height="90"/><text x="225" y="150">中央 Ge</text><text x="232" y="178">主探测器</text>
+<rect class="b" x="205" y="25" width="130" height="55"/><text x="225" y="59">上方副晶体</text>
+<rect class="b" x="205" y="230" width="130" height="55"/><text x="225" y="264">下方副晶体</text>
+<rect class="b" x="420" y="110" width="145" height="90"/><text x="452" y="150">符合/反符合</text><text x="468" y="178">逻辑</text>
+<rect class="b" x="650" y="110" width="145" height="90"/><text x="682" y="150">多道分析器</text><text x="690" y="178">能谱</text>
+<line class="l" x1="140" y1="155" x2="200" y2="155"/><line class="l" x1="335" y1="155" x2="415" y2="155"/>
+<line class="l" x1="335" y1="52" x2="455" y2="107"/><line class="l" x1="335" y1="257" x2="455" y2="203"/>
+<line class="l" x1="565" y1="155" x2="645" y2="155"/>
+</svg>

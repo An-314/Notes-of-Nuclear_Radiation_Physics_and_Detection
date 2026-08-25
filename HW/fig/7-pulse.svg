@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#333"/></marker></defs>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif;font-size:18px}.a{stroke:#222;stroke-width:2;marker-end:url(#a)}.p{stroke:#8a278d;stroke-width:4;fill:none}</style>
+<line class="a" x1="80" y1="270" x2="700" y2="270"/><line class="a" x1="80" y1="270" x2="80" y2="35"/>
+<text x="705" y="278">t</text><text x="45" y="45">i(t)</text>
+<path class="p" d="M80 90 L280 90 L610 270"/>
+<line x1="280" y1="265" x2="280" y2="275" stroke="#222"/><text x="245" y="305">x₁/u</text>
+<line x1="610" y1="265" x2="610" y2="275" stroke="#222"/><text x="575" y="305">x₂/u</text>
+<text x="95" y="78">i₀ = (u/d)(eS/w)L</text>
+</svg>

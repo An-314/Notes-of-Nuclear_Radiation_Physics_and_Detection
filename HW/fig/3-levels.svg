@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="350" viewBox="0 0 650 350">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#333"/></marker></defs>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif;font-size:18px}.s{stroke:#222;stroke-width:3}.d{stroke:#555;stroke-width:2;marker-end:url(#a)}</style>
+<line class="s" x1="100" y1="300" x2="520" y2="300"/><text x="535" y="307">1+</text>
+<line class="s" x1="100" y1="225" x2="520" y2="225"/><text x="535" y="232">5−</text>
+<line class="s" x1="100" y1="150" x2="520" y2="150"/><text x="535" y="157">2+</text>
+<line class="s" x1="100" y1="75" x2="520" y2="75"/><text x="535" y="82">5+</text>
+<line class="d" x1="220" y1="145" x2="220" y2="295"/><text x="235" y="225">M1/E2</text>
+<line class="d" x1="330" y1="70" x2="330" y2="145"/><text x="345" y="115">M3/E4</text>
+<line class="d" x1="440" y1="220" x2="440" y2="295"/><text x="455" y="265">M4</text>
+</svg>

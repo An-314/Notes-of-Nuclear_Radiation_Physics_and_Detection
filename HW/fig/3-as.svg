@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#333"/></marker></defs>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif;font-size:16px;fill:#222}.s{stroke:#222;stroke-width:3}.d{stroke:#555;stroke-width:2;marker-end:url(#a)}</style>
+<line class="s" x1="340" y1="45" x2="520" y2="45"/><text x="380" y="30">As-74</text>
+<line class="s" x1="40" y1="190" x2="240" y2="190"/><text x="55" y="178">Ge-74 595 keV</text>
+<line class="s" x1="40" y1="350" x2="240" y2="350"/><text x="55" y="378">Ge-74 ground</text>
+<line class="s" x1="620" y1="190" x2="820" y2="190"/><text x="635" y="178">Se-74 635 keV</text>
+<line class="s" x1="620" y1="350" x2="820" y2="350"/><text x="635" y="378">Se-74 ground</text>
+<line class="d" x1="350" y1="52" x2="220" y2="185"/><text x="205" y="95">β+ 945 keV, 26%; EC 33%</text>
+<line class="d" x1="385" y1="52" x2="220" y2="345"/><text x="245" y="260">β+ 1540 keV, 3%; EC 4%</text>
+<line class="d" x1="510" y1="52" x2="640" y2="185"/><text x="525" y="95">β− 718 keV, 15%</text>
+<line class="d" x1="475" y1="52" x2="640" y2="345"/><text x="500" y="260">β− 1353 keV, 19%</text>
+<line class="d" x1="140" y1="195" x2="140" y2="345"/><text x="150" y="275">595 keV E2</text>
+<line class="d" x1="720" y1="195" x2="720" y2="345"/><text x="730" y="275">635 keV E2</text>
+</svg>
